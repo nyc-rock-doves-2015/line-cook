@@ -7,8 +7,7 @@
   recognition.continuous = false;
   reset();
   recognition.onend = function(event) {
-    reset();
-    this.stop();
+    console.log("onend")
   }
 
   recognition.onresult = function (event) {
@@ -18,7 +17,14 @@
         textarea.value += event.results[i][0].transcript;
         if (event.results[i][0].transcript == "next") {
           console.log("recognized next")
-          toggleStartStop();
+          reset();
+          recognition.stop();
+          var utterance = new SpeechSynthesisUtterance("hello world");
+          window.speechSynthesis.speak(utterance);
+
+          utterance.onend = function(event) {
+            toggleStartStop();
+          }
         }
       }
     }
