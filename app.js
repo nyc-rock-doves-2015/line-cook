@@ -23,39 +23,23 @@ var Recipe = function(instructions) {
   this.instructions = instructions
 }
 
-function BigOvenGetRecipeJson() {
-  var apiKey = "dvx7zJ0x53M8X5U4nOh6CMGpB3d0PEhH";
-  var recipeID = 196149;
-  var url = "http://api.bigoven.com/recipe/" + recipeID + "?api_key="+apiKey;
-
-  var readable = [];
+function BigOvenGetRecipeJson(recipeId) {
+  var apiKey = APIKEY;
+  // var recipeID = 196149;
+  var url = "http://api.bigoven.com/recipe/" + recipeId + "?api_key="+apiKey;
 
   $.ajax({
     type: "GET",
     dataType: 'json',
     cache: false,
     url: url
-        // Remove carriage returns, newlines, and empty strings
-
-        // Option 1
-        // var readable = data["Instructions"].replace(/[\n\r]/g, '-').split("----");
-
-        // Option 2
-        // var readable = data["Instructions"].split("\r\n").filter(function(v) {return v !== ""});
-
-        // Option 3
-        // var readable = data["Instructions"].split("\r\n").filter(Boolean);
-        // ----------------------------------------------------
-        // console.log(readable);
-        // Grab Title, Description, ActiveMinutes/TotalMinutes, Cuisine, Ingredients(Array), Instructions, YieldNumber(# of servings)
   }).then(function(data) {
     $('#bigoven-instructions').html(data["Instructions"]);
     $('#bigoven-title').html(data.Title);
-    // console.log(data);
-    return data["Instructions"].split("\r\n").filter(Boolean);
+    console.log("recipe", data)
+    var readable = data["Instructions"].split("\r\n").filter(Boolean);
+    return readable;
   }).then(function(data) {
-
-    console.log("second then", data)
     var recognizing;
     window.recognition = new webkitSpeechRecognition();
     recognition.continuous = false;
@@ -63,12 +47,10 @@ function BigOvenGetRecipeJson() {
     var instructions = data;
     var instructionsIndex = 0
 
-    recognition.onend = function(event) {
-      console.log("onend")
-    }
+    console.log(instructions);
+    console.log(instructionsIndex);
 
     recognition.onresult = function (event) {
-      console.log("event results", event.results)
       for (var i = event.resultIndex; i < event.results.length; ++i) {
         if (event.results[i].isFinal) {
           textarea.value += event.results[i][0].transcript;
@@ -86,6 +68,8 @@ function BigOvenGetRecipeJson() {
           } else if (event.results[i][0].transcript == "start") {
             recognition.stop();
             reset();
+            console.log("start")
+            console.log("instructions: ", instructions)
 
             var utterance = new SpeechSynthesisUtterance(instructions[0]);
             window.speechSynthesis.speak(utterance)
@@ -103,37 +87,42 @@ function BigOvenGetRecipeJson() {
 
 // BigOven recipe search
 function BigOvenRecipeSearchJson(query) {
-  var apiKey = "dvx7zJ0x53M8X5U4nOh6CMGpB3d0PEhH";
+  var apiKey = APIKEY;
   var titleKeyword = query;
   var url = "http://api.bigoven.com/recipes?pg=1&rpp=25&title_kw="
             + titleKeyword
             + "&api_key="+apiKey;
   $.ajax({
-      type: "GET",
-      dataType: 'json',
-      cache: false,
-      url: url,
-      success: function (data) {
-          data.Results.forEach(function(result) {
-            $("#bigoven-search-results").append("<li>" + result.WebURL + "</li>");
-          });
-          console.log(data);
-      }
-  });
+    type: "GET",
+    dataType: 'json',
+    cache: false,
+    url: url,
+    success: function (data) {
+      data.Results.forEach(function(result) {
+        $("#bigoven-search-results").append("<li class='recipe-container' data-recipeId='" + result.RecipeID + "'>" + result.WebURL + "</li>");
+      });
+    }
+  })
 }
 
 
 
 $(document).ready(function() {
 
-  // BigOvenGetRecipeJson();
-  // BigOvenRecipeSearchJson();
-
   $("#search-form").on('submit', function(event) {
     event.preventDefault();
     var data = $('#search').val();
     BigOvenRecipeSearchJson(data)
-
-    console.log(data);
   });
+
+  $('.container').on('click', '.recipe-container', function(event) {
+    event.preventDefault();
+
+    var $target = $(event.target);
+    var recipeId = $target[0].dataset.recipeid
+    
+    BigOvenGetRecipeJson(recipeId)
+
+  })
+
 });
