@@ -1,0 +1,44 @@
+<textarea id="textarea" rows=10 cols=80></textarea>
+<button id="button" onclick="toggleStartStop()"></button>
+
+<script type="text/javascript">
+  var recognizing;
+  window.recognition = new webkitSpeechRecognition();
+  recognition.continuous = false;
+  reset();
+  recognition.onend = function(event) {
+    // reset();
+  }
+
+  recognition.onresult = function (event) {
+    console.log("event results", event.results)
+    for (var i = event.resultIndex; i < event.results.length; ++i) {
+      if (event.results[i].isFinal) {
+        textarea.value += event.results[i][0].transcript;
+        if (event.results[i][0].transcript == "next") {
+          console.log("recognized next")
+          toggleStartStop();
+          toggleStartStop();
+        }
+      }
+    }
+  }
+
+  function reset() {
+    recognizing = false;
+    button.innerHTML = "Click to Speak";
+  }
+
+  function toggleStartStop() {
+    console.log(Date.now())
+    if (recognizing) {
+      recognition.stop();
+      reset();
+    } else {
+      // debugger
+      recognition.start();
+      recognizing = true;
+      button.innerHTML = "Click to Stop";
+    }
+  }
+</script>
