@@ -6,6 +6,9 @@
   window.recognition = new webkitSpeechRecognition();
   recognition.continuous = false;
   reset();
+  var instructions = ["step one", "step two", "step three"];
+  var instructionsIndex = 0
+
   recognition.onend = function(event) {
     console.log("onend")
   }
@@ -16,16 +19,29 @@
       if (event.results[i].isFinal) {
         textarea.value += event.results[i][0].transcript;
         if (event.results[i][0].transcript == "next") {
-          console.log("recognized next")
-          reset();
           recognition.stop();
-          var utterance = new SpeechSynthesisUtterance("hello world");
+          reset();
+
+          var utterance = new SpeechSynthesisUtterance(instructions[instructionsIndex]);
           window.speechSynthesis.speak(utterance);
+          instructionsIndex += 1
+
+          utterance.onend = function(event) {
+            toggleStartStop();
+          }
+        } else if (event.results[i][0].transcript == "start") {
+          recognition.stop();
+          reset();
+
+          var utterance = new SpeechSynthesisUtterance(instructions[0]);
+          window.speechSynthesis.speak(utterance)
+          instructionsIndex += 1
 
           utterance.onend = function(event) {
             toggleStartStop();
           }
         }
+
       }
     }
   }
