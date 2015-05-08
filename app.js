@@ -3,23 +3,6 @@
 
 // BigOven recipe fetch
 
-function reset() {
-  recognizing = false;
-  $startButton.html("Start");
-}
-
-function toggleStartStop() {
-  if (recognizing) {
-    recognition.stop();
-    reset();
-  } else {
-    recognition.start();
-    recognizing = true;
-    $startButton.html("Stop")
-  }
-}
-
-
 var Recipe = function(instructions) {
   this.instructions = instructions
 }
@@ -36,27 +19,42 @@ function BigOvenGetRecipeJson(recipeId) {
   }).then(function(data) {
     $contentContainer.html('<h2>' + data.Title + '</h2>');
     $contentContainer.append(data.Instructions)
-    $contentContainer.append('<button id="start-button" onclick="toggleStartStop()" name="Start"></button>')
-    $startButton = $('#start-button')
-    console.log("recipe", data)
-    var readable = data.Instructions.split(/\s{2,}/).filter(Boolean);
-    return readable;
+    return data.Instructions.split(/\s{2,}/).filter(Boolean);
   }).then(function(data) {
 
-    if (annyang) {
-  // Let's define a command.
-      var commands = {
-        'hello': function() { alert('Hello world!'); }
-      };
+    var instructions = data;
+    var instructionsIndex = 0
 
+    console.log("before annyang", data)
+
+    if (annyang) {
+
+      var commands = {
+        'hello': function() { alert('Hello world!'); },
+        'start': function() {
+          instructionsIndex = 0;
+
+          var utterance = new SpeechSynthesisUtterance(instructions[instructionsIndex]);
+          window.speechSynthesis.speak(utterance);
+          instructionsIndex += 1;
+        },
+        'next': function() {
+          var utterance = new SpeechSynthesisUtterance(instructions[instructionsIndex]);
+          window.speechSynthesis.speak(utterance);
+          instructionsIndex += 1;
+          if (instructionsIndex == instructions.length) { annyang.abort(); }
+        }
+
+      };
       // Add our commands to annyang
       annyang.addCommands(commands);
 
-      // Start listening.
+      annyang.debug(true)
+
       annyang.start();
     }
   })
-})
+}
 
 // BigOven recipe search
 function BigOvenRecipeSearchJson(query) {
