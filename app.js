@@ -26,7 +26,7 @@ var Recipe = function(instructions) {
 
 function BigOvenGetRecipeJson(recipeId) {
   var apiKey = APIKEY;
-  var url = "http://api.bigoven.com/recipe/" + recipeId + "?api_key="+apiKey;
+  var url = "https://api.bigoven.com/recipe/" + recipeId + "?api_key="+apiKey;
 
   $.ajax({
     type: "GET",
@@ -53,42 +53,55 @@ function BigOvenGetRecipeJson(recipeId) {
     console.log(instructions);
 
     recognition.onresult = function (event) {
-      console.log(event.results)
-      for (var i = event.resultIndex; i < event.results.length; ++i) {
-        // if (event.results[i].isFinal) {)
-        if (event.results[i][0].transcript == "next") {
-          recognition.stop();
-          reset();
+      console.log("onresult", event.results)
+      var lastResultIndex = event.results.length - 1
+      var lastResult = event.results[lastResultIndex]
+      var finalTranscript = function(word) {
+        return lastResult.isFinal && lastResult[0].transcript == word
+      }
+      var interimTranscript = function(word) {
+        return !lastResult.isFinal && lastResult[0].transcript == word && lastResult[0].confidence > 0.85
+      }
+      // if (finalTranscript("next") || interimTranscript("next")) {
+      if (finalTranscript("next")) {
+        recognition.stop();
+        reset();
 
-          var utterance = new SpeechSynthesisUtterance(instructions[instructionsIndex]);
-          console.log(utterance);
-          window.speechSynthesis.speak(utterance);
-          instructionsIndex += 1
+        var utterance = new SpeechSynthesisUtterance(instructions[instructionsIndex]);
+        window.speechSynthesis.speak(utterance);
+        instructionsIndex += 1
 
-          utterance.onend = function(event) {
-            toggleStartStop();
-          }
-
-          break;
-
-        } else if (event.results[i][0].transcript == "start") {
-          recognition.stop();
-          reset();
-          console.log("start")
-          console.log("instructions: ", instructions)
-
-          var utterance = new SpeechSynthesisUtterance(instructions[0]);
-          console.log(utterance);
-          window.speechSynthesis.speak(utterance)
-          instructionsIndex += 1
-
-          utterance.onend = function(event) {
-            toggleStartStop();
-          }
-
-          break;
-
+        utterance.onend = function(event) {
+          if (instructionsIndex < instructions.length) {toggleStartStop();}
         }
+      // } else if (finalTranscript("start") || interimTranscript("start")) {
+      } else if (finalTranscript("start")) {
+        recognition.stop();
+        reset();
+        instructionsIndex = 0
+        console.log("instructions: ", instructions)
+
+        var utterance = new SpeechSynthesisUtterance(instructions[instructionsIndex]);
+        window.speechSynthesis.speak(utterance)
+        instructionsIndex += 1
+
+        utterance.onend = function(event) {
+          toggleStartStop();
+        }
+      }
+      else {
+        console.log("no command", event.results)
+      }
+    }
+
+    recognition.onnomatch = function(event) {
+      console.log("on no match", event);
+    }
+
+    recognition.onerror = function(event) {
+      console.log("on error", event);
+      if (event.error = "no-speech") {
+        toggleStartStop();
       }
     }
   }) 
@@ -99,7 +112,7 @@ function BigOvenRecipeSearchJson(query) {
   var noImageLink = "http://redirect.bigoven.com/pics/recipe-no-image.jpg"
   var apiKey = APIKEY;
   var titleKeyword = query;
-  var url = "http://api.bigoven.com/recipes?pg=1&rpp=25&title_kw="
+  var url = "https://api.bigoven.com/recipes?pg=1&rpp=25&title_kw="
             + titleKeyword
             + "&api_key="+apiKey;
   $.ajax({
