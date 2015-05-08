@@ -25,7 +25,6 @@ var Recipe = function(instructions) {
 }
 
 function BigOvenGetRecipeJson(recipeId) {
-  $startButton.show();
   var apiKey = APIKEY;
   var url = "http://api.bigoven.com/recipe/" + recipeId + "?api_key="+apiKey;
 
@@ -39,6 +38,8 @@ function BigOvenGetRecipeJson(recipeId) {
     // $('#bigoven-title').html(data.Title);
     $contentContainer.html('<h2>' + data.Title + '</h2>');
     $contentContainer.append(data.Instructions)
+    $contentContainer.append('<button id="start-button" onclick="toggleStartStop()" name="Start"></button>')
+    $startButton = $('#start-button')
     console.log("recipe", data)
     var readable = data.Instructions.split(/\s{2,}/).filter(Boolean);
     return readable;
@@ -56,12 +57,12 @@ function BigOvenGetRecipeJson(recipeId) {
     recognition.onresult = function (event) {
       for (var i = event.resultIndex; i < event.results.length; ++i) {
         if (event.results[i].isFinal) {
-          // textarea.value += event.results[i][0].transcript;
           if (event.results[i][0].transcript == "next") {
             recognition.stop();
             reset();
 
             var utterance = new SpeechSynthesisUtterance(instructions[instructionsIndex]);
+            console.log(utterance);
             window.speechSynthesis.speak(utterance);
             instructionsIndex += 1
 
@@ -75,6 +76,7 @@ function BigOvenGetRecipeJson(recipeId) {
             console.log("instructions: ", instructions)
 
             var utterance = new SpeechSynthesisUtterance(instructions[0]);
+            console.log(utterance);
             window.speechSynthesis.speak(utterance)
             instructionsIndex += 1
 
@@ -104,19 +106,18 @@ function BigOvenRecipeSearchJson(query) {
   }).then(function (data) {
     $contentContainer.html('')
     data.Results.forEach(function(result) {
-      debugger
       if (result.IsBookmark || result.ImageURL == noImageLink) { return }
       $contentContainer.append("<li><h3>" + result.Title + "</h3><img class='recipe-container' data-recipeId='" + result.RecipeID + "' src='" + result.ImageURL + "' alt='food pic' height='200' width='300p'></li>")
       $contentContainer.append("<li class='recipe-container' data-recipeId='" + result.RecipeID + "'>" + result.WebURL + "</li>")
-    });
-  })
+      return
+    })
+  });
 }
 
 
 
 $(document).ready(function() {
 
-  $startButton = $('#start-button')
   $contentContainer = $('.content-container')
 
   $("#search-form").on('submit', function(event) {
