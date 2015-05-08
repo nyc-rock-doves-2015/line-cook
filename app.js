@@ -42,70 +42,21 @@ function BigOvenGetRecipeJson(recipeId) {
     var readable = data.Instructions.split(/\s{2,}/).filter(Boolean);
     return readable;
   }).then(function(data) {
-    var recognizing;
-    window.recognition = new webkitSpeechRecognition();
-    recognition.continuous = true;
-    recognition.interimResults = true;
-    reset();
-    var instructions = data;
-    var instructionsIndex = 0
 
-    console.log(instructions);
+    if (annyang) {
+  // Let's define a command.
+      var commands = {
+        'hello': function() { alert('Hello world!'); }
+      };
 
-    recognition.onresult = function (event) {
-      console.log("onresult", event.results)
-      var lastResultIndex = event.results.length - 1
-      var lastResult = event.results[lastResultIndex]
-      var finalTranscript = function(word) {
-        return lastResult.isFinal && lastResult[0].transcript == word
-      }
-      var interimTranscript = function(word) {
-        return !lastResult.isFinal && lastResult[0].transcript == word && lastResult[0].confidence > 0.85
-      }
-      // if (finalTranscript("next") || interimTranscript("next")) {
-      if (finalTranscript("next")) {
-        recognition.stop();
-        reset();
+      // Add our commands to annyang
+      annyang.addCommands(commands);
 
-        var utterance = new SpeechSynthesisUtterance(instructions[instructionsIndex]);
-        window.speechSynthesis.speak(utterance);
-        instructionsIndex += 1
-
-        utterance.onend = function(event) {
-          if (instructionsIndex < instructions.length) {toggleStartStop();}
-        }
-      // } else if (finalTranscript("start") || interimTranscript("start")) {
-      } else if (finalTranscript("start")) {
-        recognition.stop();
-        reset();
-        instructionsIndex = 0
-        console.log("instructions: ", instructions)
-
-        var utterance = new SpeechSynthesisUtterance(instructions[instructionsIndex]);
-        window.speechSynthesis.speak(utterance)
-        instructionsIndex += 1
-
-        utterance.onend = function(event) {
-          toggleStartStop();
-        }
-      }
-      else {
-        console.log("no command", event.results)
-      }
+      // Start listening.
+      annyang.start();
     }
-
-    recognition.onnomatch = function(event) {
-      console.log("on no match", event);
-    }
-
-    recognition.onerror = function(event) {
-      console.log("on error", event);
-      if (event.error = "no-speech") {
-        toggleStartStop();
-      }
-    }
-  }) 
-}
+  })
+})
 
 // BigOven recipe search
 function BigOvenRecipeSearchJson(query) {
