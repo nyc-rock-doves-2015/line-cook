@@ -34,8 +34,6 @@ function BigOvenGetRecipeJson(recipeId) {
     cache: false,
     url: url
   }).then(function(data) {
-    // $('#bigoven-instructions').html(data["Instructions"]);
-    // $('#bigoven-title').html(data.Title);
     $contentContainer.html('<h2>' + data.Title + '</h2>');
     $contentContainer.append(data.Instructions)
     $contentContainer.append('<button id="start-button" onclick="toggleStartStop()" name="Start"></button>')
@@ -46,15 +44,16 @@ function BigOvenGetRecipeJson(recipeId) {
   }).then(function(data) {
     var recognizing;
     window.recognition = new webkitSpeechRecognition();
-    recognition.continuous = false;
+    recognition.continuous = true;
+    recognition.interimResults = true;
     reset();
     var instructions = data;
     var instructionsIndex = 0
 
     console.log(instructions);
-    console.log(instructionsIndex);
 
     recognition.onresult = function (event) {
+      console.log(event.results)
       for (var i = event.resultIndex; i < event.results.length; ++i) {
         if (event.results[i].isFinal) {
           if (event.results[i][0].transcript == "next") {
@@ -109,7 +108,6 @@ function BigOvenRecipeSearchJson(query) {
       if (result.IsBookmark || result.ImageURL == noImageLink) { return }
       $contentContainer.append("<li><h3>" + result.Title + "</h3><img class='recipe-container' data-recipeId='" + result.RecipeID + "' src='" + result.ImageURL + "' alt='food pic' height='200' width='300p'></li>")
       $contentContainer.append("<li class='recipe-container' data-recipeId='" + result.RecipeID + "'>" + result.WebURL + "</li>")
-      return
     })
   });
 }
