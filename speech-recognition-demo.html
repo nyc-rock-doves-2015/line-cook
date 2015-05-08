@@ -6,8 +6,11 @@
   window.recognition = new webkitSpeechRecognition();
   recognition.continuous = false;
   reset();
+  var instructions = ["step one", "step two", "step three"];
+  var instructionsIndex = 0
+
   recognition.onend = function(event) {
-    // reset();
+    console.log("onend")
   }
 
   recognition.onresult = function (event) {
@@ -16,10 +19,29 @@
       if (event.results[i].isFinal) {
         textarea.value += event.results[i][0].transcript;
         if (event.results[i][0].transcript == "next") {
-          console.log("recognized next")
-          toggleStartStop();
-          toggleStartStop();
+          recognition.stop();
+          reset();
+
+          var utterance = new SpeechSynthesisUtterance(instructions[instructionsIndex]);
+          window.speechSynthesis.speak(utterance);
+          instructionsIndex += 1
+
+          utterance.onend = function(event) {
+            toggleStartStop();
+          }
+        } else if (event.results[i][0].transcript == "start") {
+          recognition.stop();
+          reset();
+
+          var utterance = new SpeechSynthesisUtterance(instructions[0]);
+          window.speechSynthesis.speak(utterance)
+          instructionsIndex += 1
+
+          utterance.onend = function(event) {
+            toggleStartStop();
+          }
         }
+
       }
     }
   }
@@ -30,12 +52,10 @@
   }
 
   function toggleStartStop() {
-    console.log(Date.now())
     if (recognizing) {
       recognition.stop();
       reset();
     } else {
-      // debugger
       recognition.start();
       recognizing = true;
       button.innerHTML = "Click to Stop";
