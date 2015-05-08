@@ -55,34 +55,39 @@ function BigOvenGetRecipeJson(recipeId) {
     recognition.onresult = function (event) {
       console.log(event.results)
       for (var i = event.resultIndex; i < event.results.length; ++i) {
-        if (event.results[i].isFinal) {
-          if (event.results[i][0].transcript == "next") {
-            recognition.stop();
-            reset();
+        // if (event.results[i].isFinal) {)
+        if (event.results[i][0].transcript == "next") {
+          recognition.stop();
+          reset();
 
-            var utterance = new SpeechSynthesisUtterance(instructions[instructionsIndex]);
-            console.log(utterance);
-            window.speechSynthesis.speak(utterance);
-            instructionsIndex += 1
+          var utterance = new SpeechSynthesisUtterance(instructions[instructionsIndex]);
+          console.log(utterance);
+          window.speechSynthesis.speak(utterance);
+          instructionsIndex += 1
 
-            utterance.onend = function(event) {
-              toggleStartStop();
-            }
-          } else if (event.results[i][0].transcript == "start") {
-            recognition.stop();
-            reset();
-            console.log("start")
-            console.log("instructions: ", instructions)
-
-            var utterance = new SpeechSynthesisUtterance(instructions[0]);
-            console.log(utterance);
-            window.speechSynthesis.speak(utterance)
-            instructionsIndex += 1
-
-            utterance.onend = function(event) {
-              toggleStartStop();
-            }
+          utterance.onend = function(event) {
+            toggleStartStop();
           }
+
+          break;
+
+        } else if (event.results[i][0].transcript == "start") {
+          recognition.stop();
+          reset();
+          console.log("start")
+          console.log("instructions: ", instructions)
+
+          var utterance = new SpeechSynthesisUtterance(instructions[0]);
+          console.log(utterance);
+          window.speechSynthesis.speak(utterance)
+          instructionsIndex += 1
+
+          utterance.onend = function(event) {
+            toggleStartStop();
+          }
+
+          break;
+
         }
       }
     }
