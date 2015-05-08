@@ -42,10 +42,14 @@ function BigOvenGetRecipeJson(recipeId) {
           var utterance = new SpeechSynthesisUtterance(instructions[instructionsIndex]);
           window.speechSynthesis.speak(utterance);
           instructionsIndex += 1;
-          if (instructionsIndex == instructions.length) { annyang.abort(); }
+          if (instructionsIndex >= instructions.length) { annyang.abort(); }
         }
 
       };
+
+      annyang.addCallback('result', function (data) {
+        console.log("result callback", data);
+      });
       // Add our commands to annyang
       annyang.addCommands(commands);
 
