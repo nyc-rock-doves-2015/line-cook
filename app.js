@@ -25,7 +25,6 @@ var Recipe = function(instructions) {
 
 function BigOvenGetRecipeJson(recipeId) {
   var apiKey = APIKEY;
-  // var recipeID = 196149;
   var url = "http://api.bigoven.com/recipe/" + recipeId + "?api_key="+apiKey;
 
   $.ajax({
@@ -37,7 +36,7 @@ function BigOvenGetRecipeJson(recipeId) {
     $('#bigoven-instructions').html(data["Instructions"]);
     $('#bigoven-title').html(data.Title);
     console.log("recipe", data)
-    var readable = data["Instructions"].split("\r\n").filter(Boolean);
+    var readable = data["Instructions"].split("\r").filter(Boolean);
     return readable;
   }).then(function(data) {
     var recognizing;
@@ -96,12 +95,12 @@ function BigOvenRecipeSearchJson(query) {
     type: "GET",
     dataType: 'json',
     cache: false,
-    url: url,
-    success: function (data) {
-      data.Results.forEach(function(result) {
-        $("#bigoven-search-results").append("<li class='recipe-container' data-recipeId='" + result.RecipeID + "'>" + result.WebURL + "</li>");
-      });
-    }
+    url: url
+  }).then(function (data) {
+    data.Results.forEach(function(result) {
+      if (result.IsBookmark) { return }
+      $("#bigoven-search-results").append("<li class='recipe-container' data-recipeId='" + result.RecipeID + "'>" + result.WebURL + "</li>");
+    });
   })
 }
 
