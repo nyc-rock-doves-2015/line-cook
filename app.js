@@ -43,7 +43,14 @@ function BigOvenGetRecipeJson(recipeId) {
           window.speechSynthesis.speak(utterance);
           instructionsIndex += 1;
           if (instructionsIndex >= instructions.length) { annyang.abort(); }
+        },
+        'repeat': function() {
+          instructionsIndex -= 1;
+          var utterance = new SpeechSynthesisUtterance(instructions[instructionsIndex]);
+          window.speechSynthesis.speak(utterance);
+          instructionsIndex += 1;
         }
+
 
       };
 
@@ -86,6 +93,9 @@ function BigOvenRecipeSearchJson(query) {
 
 
 $(document).ready(function() {
+
+  var utterance = new SpeechSynthesisUtterance("hello world");
+  window.speechSynthesis.speak(utterance);
 
   $contentContainer = $('.content-container')
 
