@@ -3,30 +3,6 @@
 
 // BigOven recipe fetch
 
-// $(document).on("deviceready", function() {
-//   Ears = cordova.plugins.OpenEars;
-//   Ears.startAudioSession();
-//   var languages = {};
-//   languages["commands"] = {};
-//   languages["commands"].name = "commands";
-//   languages["commands"].csv = "START,NEXT,REPEAT";
-//   languages["commands"].paths = {};
-//   Ears.generateLanguageModel(languages["commands"].name, languages["commands"].csv);
-//   $(document).on("generateLanguageModel", function(evt) {
-//     languages["commands"].paths = evt.originalEvent.detail;
-//   });
-
-//   var processHeard = function(detail) {
-//     Ears.say(detail.hypothesis)
-//   }
-
-//   $(document).on("receivedHypothesis", function(evt) {
-//     detail = evt.originalEvent.detail;
-//     processHeard(detail);
-//   });
-
-// })
-
 var Recipe = function(instructions) {
   this.instructions = instructions
 }
@@ -54,7 +30,7 @@ function BigOvenGetRecipeJson(recipeId) {
     var languages = {};
     languages["commands"] = {};
     languages["commands"].name = "commands";
-    languages["commands"].csv = "START,NEXT,REPEAT";
+    languages["commands"].csv = "START,NEXT,REPEAT,OFF";
     languages["commands"].paths = {};
     Ears.generateLanguageModel(languages["commands"].name, languages["commands"].csv);
     $(document).on("generateLanguageModel", function(evt) {
