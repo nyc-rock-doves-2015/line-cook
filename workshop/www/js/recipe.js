@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 var RecipePreview = function(data){
   this.title = data.Title;
   this.stars = data.StarRating;
@@ -25,7 +26,10 @@ var Recipe = function(data){
 function BigOvenGetRecipeJson(recipeId) {
   var apiKey = APIKEY;
   var url = "https://api.bigoven.com/recipe/" + recipeId + "?api_key="+apiKey;
-
+  var titleKeyword = query;
+  var url = "https://api.bigoven.com/recipes?pg=1&rpp=25&title_kw="
+            + titleKeyword
+            + "&api_key="+apiKey;
   $.ajax({
     type: "GET",
     dataType: 'json',
