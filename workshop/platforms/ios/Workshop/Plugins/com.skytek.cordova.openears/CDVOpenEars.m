@@ -20,7 +20,7 @@
     if (pocket_sphinx_controller == nil){
         pocket_sphinx_controller = [OEPocketsphinxController sharedInstance];
     }
-    [pocket_sphinx_controller setVadThreshold: 2.5];
+    [pocket_sphinx_controller setVadThreshold: 3.5];
     return pocket_sphinx_controller;
 }
 -(OEEventsObserver *) openears_events_observer{
