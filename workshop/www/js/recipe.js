@@ -1,4 +1,4 @@
-var Recipe = function(data){
+var RecipePreview = function(data){
   this.title = data.Title;
   this.stars = data.StarRating;
   this.imageUrl = data.ImageURL
@@ -19,7 +19,7 @@ function BigOvenRecipeSearchJson(query) {
     url: url
   }).then(function(data){
     for(i = 0; i < data.Results.length; i ++) {
-      allRecipes.push(new Recipe(data.Results[i]));
+      allRecipes.push(new RecipePreview(data.Results[i]));
     };
     return allRecipes
   }).then(function(recipes){
