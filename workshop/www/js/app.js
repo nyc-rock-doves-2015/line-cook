@@ -25,45 +25,7 @@ function BigOvenGetRecipeJson(recipeId) {
     var instructions = data;
     var instructionsIndex = 0
 
-    console.log("before annyang", data)
-    console.log(annyang);
-
     if (annyang) {
-
-      console.log("inside annyang")
-
-      var commands = {
-        'hello': function() { alert('Hello world!'); },
-        'start': function() {
-          instructionsIndex = 0;
-
-          var utterance = new SpeechSynthesisUtterance(instructions[instructionsIndex]);
-          window.speechSynthesis.speak(utterance);
-          instructionsIndex += 1;
-        },
-        'next': function() {
-          var utterance = new SpeechSynthesisUtterance(instructions[instructionsIndex]);
-          window.speechSynthesis.speak(utterance);
-          instructionsIndex += 1;
-          if (instructionsIndex >= instructions.length) { annyang.abort(); }
-        },
-        'repeat': function() {
-          instructionsIndex -= 1;
-          var utterance = new SpeechSynthesisUtterance(instructions[instructionsIndex]);
-          window.speechSynthesis.speak(utterance);
-          instructionsIndex += 1;
-        }
-
-
-      };
-
-      annyang.addCallback('result', function (data) {
-        console.log("result callback", data);
-      });
-      // Add our commands to annyang
-      annyang.addCommands(commands);
-
-      annyang.debug(true)
 
       annyang.start();
     }
