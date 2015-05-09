@@ -97,7 +97,7 @@ $(document).ready(function() {
 
     var $target = $(event.target);
     var recipeId = $target[0].dataset.recipeid
-    
+
     BigOvenGetRecipeJson(recipeId)
 
   })
