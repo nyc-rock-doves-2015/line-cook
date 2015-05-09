@@ -66,12 +66,20 @@ function BigOvenRecipeSearchJson(query) {
     url: url
   }).then(function (data) {
     $contentContainer.html('')
-    data.Results.forEach(function(result) {
-      if (result.IsBookmark || result.ImageURL == noImageLink) { return }
-      $contentContainer.append("<li><h3>" + result.Title + "</h3><img class='recipe-container' data-recipeId='" + result.RecipeID + "' src='" + result.ImageURL + "' alt='food pic' height='200' width='300p'></li>")
-      $contentContainer.append("<li class='recipe-container' data-recipeId='" + result.RecipeID + "'>" + result.WebURL + "</li>")
-    })
-  });
+    var recipes = data.Results.filter(function(result) {
+      return !(result.IsBookmark || result.ImageURL == noImageLink)
+    });
+    return recipes;
+  }).then(function(data){
+    for(i = 0; i < data.length; i ++) {
+      allRecipes.push(new RecipePreview(data[i]));
+    };
+    return allRecipes
+  }).then(function(recipes){
+    var template = $('#search-results').html();
+    var output = Mustache.render(template, {recipes: recipes});
+    $contentContainer.append(output);
+  })
 }
 
 $(document).ready(function() {
