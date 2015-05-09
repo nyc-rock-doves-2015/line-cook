@@ -41,6 +41,13 @@
 		D4A0D8761607E02300AEF8BB /* Default-568h@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = D4A0D8751607E02300AEF8BB /* Default-568h@2x~iphone.png */; };
 		A3081B013297414FB9AE8F7F /* CDVDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B1578240AEC417FA095DBB0 /* CDVDevice.m */; };
 		E156C45F692F4CAD935E55E0 /* CDVLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 58905E15AEF440D28958CA25 /* CDVLogger.m */; };
+		5FC722C55C9849EA9D3065ED /* CDVOpenEars.m in Sources */ = {isa = PBXBuildFile; fileRef = FD3ABE40BFBB44EC8009FC07 /* CDVOpenEars.m */; };
+		A9B8C5136A6F48A4B98997FD /* AcousticModelEnglish.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 98B8D484384A4EBC93F60DA3 /* AcousticModelEnglish.bundle */; };
+		819FBA861BC84BC09799388B /* AcousticModelSpanish.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 699FFA8418C34AEF9AFD1D55 /* AcousticModelSpanish.bundle */; };
+		2DFEEA373FA54065BA7FAF08 /* OpenEars.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D734BC99E584847B3CF47A0 /* OpenEars.framework */; };
+		FEA9893EA2CF4C218EC67A92 /* Slt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5665314B1314B6A8B784648 /* Slt.framework */; };
+		479C7343D5E74F8FAB5A69F3 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 029AC3CD0B434CF0BDBB6AE0 /* AVFoundation.framework */; };
+		6FD36F86D64F40938B52FFA5 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B227F2EE56B34FE49AE6C438 /* AudioToolbox.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -110,6 +117,14 @@
 		EBDF2802739F4EA1A0E1B621 /* CDVDevice.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVDevice.h"; path = "org.apache.cordova.device/CDVDevice.h"; sourceTree = "<group>"; fileEncoding = 4; };
 		58905E15AEF440D28958CA25 /* CDVLogger.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CDVLogger.m"; path = "org.apache.cordova.console/CDVLogger.m"; sourceTree = "<group>"; fileEncoding = 4; };
 		511847BA04864BDAA9FDD179 /* CDVLogger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVLogger.h"; path = "org.apache.cordova.console/CDVLogger.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		FD3ABE40BFBB44EC8009FC07 /* CDVOpenEars.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CDVOpenEars.m"; path = "com.skytek.cordova.openears/CDVOpenEars.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		A88A23A1880240249C884269 /* CDVOpenEars.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVOpenEars.h"; path = "com.skytek.cordova.openears/CDVOpenEars.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		98B8D484384A4EBC93F60DA3 /* AcousticModelEnglish.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = "AcousticModelEnglish.bundle"; path = "AcousticModelEnglish.bundle"; sourceTree = "<group>"; };
+		699FFA8418C34AEF9AFD1D55 /* AcousticModelSpanish.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = "AcousticModelSpanish.bundle"; path = "AcousticModelSpanish.bundle"; sourceTree = "<group>"; };
+		3D734BC99E584847B3CF47A0 /* OpenEars.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "OpenEars.framework"; path = "Workshop/Plugins/com.skytek.cordova.openears/OpenEars.framework"; sourceTree = "<group>"; };
+		A5665314B1314B6A8B784648 /* Slt.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "Slt.framework"; path = "Workshop/Plugins/com.skytek.cordova.openears/Slt.framework"; sourceTree = "<group>"; };
+		029AC3CD0B434CF0BDBB6AE0 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "AVFoundation.framework"; path = "System/Library/Frameworks/AVFoundation.framework"; sourceTree = SDKROOT; fileEncoding = 4; };
+		B227F2EE56B34FE49AE6C438 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "AudioToolbox.framework"; path = "System/Library/Frameworks/AudioToolbox.framework"; sourceTree = SDKROOT; fileEncoding = 4; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +136,10 @@
 				301BF552109A68D80062928A /* libCordova.a in Frameworks */,
 				288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */,
 				305D5FD1115AB8F900A74A75 /* MobileCoreServices.framework in Frameworks */,
+				2DFEEA373FA54065BA7FAF08 /* OpenEars.framework in Frameworks */,
+				FEA9893EA2CF4C218EC67A92 /* Slt.framework in Frameworks */,
+				479C7343D5E74F8FAB5A69F3 /* AVFoundation.framework in Frameworks */,
+				6FD36F86D64F40938B52FFA5 /* AudioToolbox.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -182,6 +201,8 @@
 				308D052D1370CCF300D202BF /* icons */,
 				308D05311370CCF300D202BF /* splash */,
 				8D1107310486CEB800E47090 /* Workshop-Info.plist */,
+				98B8D484384A4EBC93F60DA3 /* AcousticModelEnglish.bundle */,
+				699FFA8418C34AEF9AFD1D55 /* AcousticModelSpanish.bundle */,
 			);
 			name = Resources;
 			path = "Workshop/Resources";
@@ -193,6 +214,10 @@
 				5B1594DC16A7569C00FEF299 /* AssetsLibrary.framework */,
 				288765FC0DF74451002DB57D /* CoreGraphics.framework */,
 				305D5FD0115AB8F900A74A75 /* MobileCoreServices.framework */,
+				3D734BC99E584847B3CF47A0 /* OpenEars.framework */,
+				A5665314B1314B6A8B784648 /* Slt.framework */,
+				029AC3CD0B434CF0BDBB6AE0 /* AVFoundation.framework */,
+				B227F2EE56B34FE49AE6C438 /* AudioToolbox.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -212,6 +237,8 @@
 				EBDF2802739F4EA1A0E1B621 /* CDVDevice.h */,
 				58905E15AEF440D28958CA25 /* CDVLogger.m */,
 				511847BA04864BDAA9FDD179 /* CDVLogger.h */,
+				FD3ABE40BFBB44EC8009FC07 /* CDVOpenEars.m */,
+				A88A23A1880240249C884269 /* CDVOpenEars.h */,
 			);
 			name = Plugins;
 			path = "Workshop/Plugins";
@@ -365,6 +392,8 @@
 				7E7966E11810823500FA85AD /* icon-50@2x.png in Resources */,
 				7E7966E51810823500FA85AD /* icon-76@2x.png in Resources */,
 				30FC414916E50CA1004E6F35 /* icon-72@2x.png in Resources */,
+				A9B8C5136A6F48A4B98997FD /* AcousticModelEnglish.bundle in Resources */,
+				819FBA861BC84BC09799388B /* AcousticModelSpanish.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -398,6 +427,7 @@
 				302D95F114D2391D003F00A1 /* MainViewController.m in Sources */,
 				A3081B013297414FB9AE8F7F /* CDVDevice.m in Sources */,
 				E156C45F692F4CAD935E55E0 /* CDVLogger.m in Sources */,
+				5FC722C55C9849EA9D3065ED /* CDVOpenEars.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -443,6 +473,11 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 				);
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"Workshop/Plugins/com.skytek.cordova.openears\"",
+					"\"Workshop/Plugins/com.skytek.cordova.openears\"",
+				);
 			};
 			name = Debug;
 		};
@@ -474,6 +509,11 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+				);
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"Workshop/Plugins/com.skytek.cordova.openears\"",
+					"\"Workshop/Plugins/com.skytek.cordova.openears\"",
 				);
 			};
 			name = Release;
