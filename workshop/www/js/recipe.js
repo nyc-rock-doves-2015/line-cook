@@ -1,3 +1,9 @@
+var Ingredient = function(data){
+  this.name = data.Name;
+  this.quantity = data.Quantity;
+  this.unit = data.Unit;
+}
+
 var Recipe = function(data){
   this.title = data.Title;
   this.ingredients = [];
@@ -21,6 +27,9 @@ function BigOvenGetRecipeJson(recipeId) {
     url: url
   }).then(function(data) {
     var currentRecipe = new Recipe(data);
+    for(i = 0; i < data.Ingredients.length; i ++){
+      currentRecipe.ingredients.push(new Ingredient(data.Ingredients[i]));
+    };
   });
 };
 
