@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 var Ingredient = function(data){
   this.name = data.Name;
   this.quantity = data.Quantity;
@@ -20,6 +21,22 @@ function BigOvenGetRecipeJson(recipeId) {
   var apiKey = APIKEY;
   var url = "https://api.bigoven.com/recipe/" + recipeId + "?api_key="+apiKey;
 
+=======
+var Recipe = function(data){
+  this.title = data.Title;
+  this.stars = data.StarRating;
+  this.imageUrl = data.ImageURL
+}
+
+function BigOvenRecipeSearchJson(query) {
+  var allRecipes = [];
+  var noImageLink = "http://redirect.bigoven.com/pics/recipe-no-image.jpg"
+  var apiKey = APIKEY;
+  var titleKeyword = query;
+  var url = "https://api.bigoven.com/recipes?pg=1&rpp=25&title_kw="
+            + titleKeyword
+            + "&api_key="+apiKey;
+
   $.ajax({
     type: "GET",
     dataType: 'json',
@@ -36,3 +53,6 @@ function BigOvenGetRecipeJson(recipeId) {
 $(document).ready(function(){
   BigOvenGetRecipeJson(100);
 });
+
+
+
