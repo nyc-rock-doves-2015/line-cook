@@ -29,7 +29,7 @@ but with function & Callback names normalised for portability.
 	OELanguageModelGenerator *language_model_generator;
     
 	NSNumber *started_listening; // 1, 0 (yes, no)
-  NSString *acoustic_model;
+    NSString *acoustic_model;
 	NSString *current_language_model;
 	NSString *current_dictionary;
 	NSString *path_to_dynamic_language_model;
