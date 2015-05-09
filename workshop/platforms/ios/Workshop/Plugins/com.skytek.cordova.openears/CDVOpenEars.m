@@ -7,6 +7,7 @@
 @synthesize language_model_generator;
 @synthesize flite_controller;
 @synthesize slt;
+@synthesize kal;
 @synthesize started_listening;
 @synthesize acoustic_model;
 @synthesize current_language_model;
@@ -45,6 +46,12 @@
 		slt = [[Slt alloc] init];
 	}
 	return slt;
+}
+- (Kal *)kal {
+    if (kal == nil) {
+        kal = [[Kal alloc] init];
+    }
+    return kal;
 }
 
 /*
@@ -199,7 +206,7 @@
     NSString *phrase = [command.arguments objectAtIndex:0];
     NSString *phrase_out = [[NSString alloc] initWithFormat:@"%@",phrase];
     NSLog(@"fliteControllerSay: %@",phrase_out);
-    [self.flite_controller say:phrase_out withVoice:self.slt];
+    [self.flite_controller say:phrase_out withVoice:self.kal];
 }
 
 

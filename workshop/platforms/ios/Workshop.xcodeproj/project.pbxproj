@@ -5,7 +5,6 @@
 	};
 	objectVersion = 46;
 	objects = {
-
 /* Begin PBXBuildFile section */
 		1D3623260D0F684500981E51 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* AppDelegate.m */; };
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
@@ -48,6 +47,7 @@
 		A9B8C5136A6F48A4B98997FD /* AcousticModelEnglish.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 98B8D484384A4EBC93F60DA3 /* AcousticModelEnglish.bundle */; };
 		D4A0D8761607E02300AEF8BB /* Default-568h@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = D4A0D8751607E02300AEF8BB /* Default-568h@2x~iphone.png */; };
 		D720CBEA1AFEBA75009976D9 /* Kal16.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D720CBE91AFEBA75009976D9 /* Kal16.framework */; };
+		D720CBEC1AFEBBE4009976D9 /* Kal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D720CBEB1AFEBBE4009976D9 /* Kal.framework */; };
 		E156C45F692F4CAD935E55E0 /* CDVLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 58905E15AEF440D28958CA25 /* CDVLogger.m */; };
 		FEA9893EA2CF4C218EC67A92 /* Slt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5665314B1314B6A8B784648 /* Slt.framework */; };
 /* End PBXBuildFile section */
@@ -121,6 +121,7 @@
 		D4A0D8751607E02300AEF8BB /* Default-568h@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x~iphone.png"; sourceTree = "<group>"; };
 		D720CBE51AFEBA24009976D9 /* DBC */ = {isa = PBXFileReference; lastKnownFileType = folder; name = DBC; path = ../../../../../..; sourceTree = "<group>"; };
 		D720CBE91AFEBA75009976D9 /* Kal16.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kal16.framework; path = ../../../../openearsextras/FliteVoices/Kal16.framework; sourceTree = "<group>"; };
+		D720CBEB1AFEBBE4009976D9 /* Kal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kal.framework; path = ../../../../openearsextras/FliteVoices/Kal.framework; sourceTree = "<group>"; };
 		EB87FDF21871DA7A0020F90C /* merges */ = {isa = PBXFileReference; lastKnownFileType = folder; name = merges; path = ../../merges; sourceTree = "<group>"; };
 		EB87FDF31871DA8E0020F90C /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; name = www; path = ../../www; sourceTree = "<group>"; };
 		EB87FDF41871DAF40020F90C /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = ../../config.xml; sourceTree = "<group>"; };
@@ -134,6 +135,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D720CBEC1AFEBBE4009976D9 /* Kal.framework in Frameworks */,
 				D720CBEA1AFEBA75009976D9 /* Kal16.framework in Frameworks */,
 				5B1594DD16A7569C00FEF299 /* AssetsLibrary.framework in Frameworks */,
 				301BF552109A68D80062928A /* libCordova.a in Frameworks */,
@@ -214,6 +216,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D720CBEB1AFEBBE4009976D9 /* Kal.framework */,
 				D720CBE91AFEBA75009976D9 /* Kal16.framework */,
 				D720CBE51AFEBA24009976D9 /* DBC */,
 				5B1594DC16A7569C00FEF299 /* AssetsLibrary.framework */,

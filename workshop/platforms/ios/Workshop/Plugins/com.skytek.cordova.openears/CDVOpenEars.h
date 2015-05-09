@@ -19,6 +19,7 @@ but with function & Callback names normalised for portability.
 #import <OpenEars/OELogging.h>
 #import <OpenEars/OEAcousticModel.h>
 #import <Slt/Slt.h>
+#import <Kal/Kal.h>
 
 
 @interface CDVOpenEars : CDVPlugin<OEEventsObserverDelegate> {
@@ -26,6 +27,7 @@ but with function & Callback names normalised for portability.
 	OEEventsObserver *openears_events_observer;
 	OEFliteController *flite_controller;
     Slt *slt;
+    Kal *kal;
 	OELanguageModelGenerator *language_model_generator;
     
 	NSNumber *started_listening; // 1, 0 (yes, no)
@@ -42,6 +44,7 @@ but with function & Callback names normalised for portability.
 @property (nonatomic, strong) OELanguageModelGenerator *language_model_generator;
 @property (nonatomic, strong) OEFliteController *flite_controller;
 @property (nonatomic, strong) Slt *slt;
+@property (nonatomic, strong) Kal *kal;
 
 @property (nonatomic, strong) NSNumber *started_listening;
 @property (nonatomic, strong) NSString *acoustic_model;
