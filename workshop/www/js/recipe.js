@@ -7,7 +7,7 @@ var Recipe = function(data){
 function BigOvenRecipeSearchJson(query) {
   var allRecipes = [];
   var noImageLink = "http://redirect.bigoven.com/pics/recipe-no-image.jpg"
-  var apiKey = APIKEY;
+  var apiKey = "dvx7zJ0x53M8X5U4nOh6CMGpB3d0PEhH";
   var titleKeyword = query;
   var url = "https://api.bigoven.com/recipes?pg=1&rpp=25&title_kw="
             + titleKeyword
@@ -23,12 +23,14 @@ function BigOvenRecipeSearchJson(query) {
     };
     return allRecipes
   }).then(function(recipes){
-    // render allRecipes here
+    var template = $('#search-results').html();
+    var output = Mustache.render(template, {recipes: recipes});
+    $('#results').append(output);
   })
 };
 
 $(document).ready(function(){
-  var bigOvenSearch = BigOvenRecipeSearchJson('cookies');
+  BigOvenRecipeSearchJson('cookies');
 });
 
 
