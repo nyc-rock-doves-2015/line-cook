@@ -20,6 +20,9 @@
     <feature name="Console">
         <param name="ios-package" value="CDVLogger" />
     </feature>
+    <feature name="OpenEars">
+        <param name="ios-package" value="CDVOpenEars" />
+    </feature>
     <allow-intent href="itms:*" />
     <allow-intent href="itms-apps:*" />
     <name>Workshop</name>

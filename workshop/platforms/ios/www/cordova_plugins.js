@@ -20,6 +20,13 @@ module.exports = [
         "clobbers": [
             "cordova.logger"
         ]
+    },
+    {
+        "file": "plugins/com.skytek.cordova.openears/www/OpenEars.js",
+        "id": "com.skytek.cordova.openears.OpenEars",
+        "clobbers": [
+            "cordova.plugins.OpenEars"
+        ]
     }
 ];
 module.exports.metadata = 
@@ -27,7 +34,8 @@ module.exports.metadata =
 {
     "cordova-plugin-whitelist": "1.0.0",
     "org.apache.cordova.device": "0.3.0",
-    "org.apache.cordova.console": "0.2.13"
+    "org.apache.cordova.console": "0.2.13",
+    "com.skytek.cordova.openears": "0.1"
 }
 // BOTTOM OF METADATA
 });

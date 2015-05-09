@@ -25,48 +25,37 @@ function BigOvenGetRecipeJson(recipeId) {
     var instructions = data;
     var instructionsIndex = 0
 
-    console.log("before annyang", data)
-    console.log(annyang);
+    var Ears = cordova.plugins.OpenEars;
+    Ears.startAudioSession();
+    var languages = {};
+    languages["commands"] = {};
+    languages["commands"].name = "commands";
+    languages["commands"].csv = "START,NEXT,REPEAT,OFF";
+    languages["commands"].paths = {};
+    Ears.generateLanguageModel(languages["commands"].name, languages["commands"].csv);
+    $(document).on("generateLanguageModel", function(evt) {
+      languages["commands"].paths = evt.originalEvent.detail;
+    });
 
-    if (annyang) {
+    var processHeard = function(detail) {
+      if (detail.hypothesis == "NEXT") {
+        Ears.say(instructions[instructionsIndex]);
+        instructionsIndex += 1;
+      } else if (detail.hypothesis == "START") {
+        instructionsIndex = 0;
+        Ears.say(instructions[instructionsIndex]);
+        instructionsIndex += 1;
+      }
+    };
 
-      console.log("inside annyang")
+    $(document).on("receivedHypothesis", function(evt) {
+      detail = evt.originalEvent.detail;
+      processHeard(detail);
+    });
 
-      var commands = {
-        'hello': function() { alert('Hello world!'); },
-        'start': function() {
-          instructionsIndex = 0;
-
-          var utterance = new SpeechSynthesisUtterance(instructions[instructionsIndex]);
-          window.speechSynthesis.speak(utterance);
-          instructionsIndex += 1;
-        },
-        'next': function() {
-          var utterance = new SpeechSynthesisUtterance(instructions[instructionsIndex]);
-          window.speechSynthesis.speak(utterance);
-          instructionsIndex += 1;
-          if (instructionsIndex >= instructions.length) { annyang.abort(); }
-        },
-        'repeat': function() {
-          instructionsIndex -= 1;
-          var utterance = new SpeechSynthesisUtterance(instructions[instructionsIndex]);
-          window.speechSynthesis.speak(utterance);
-          instructionsIndex += 1;
-        }
-
-
-      };
-
-      annyang.addCallback('result', function (data) {
-        console.log("result callback", data);
-      });
-      // Add our commands to annyang
-      annyang.addCommands(commands);
-
-      annyang.debug(true)
-
-      annyang.start();
-    }
+    $(document).on("finishedSpeaking", function(evt) {
+      if (instructionsIndex >= instructions.length) { Ears.stopListening(); }
+    });
   })
 }
 
@@ -94,9 +83,6 @@ function BigOvenRecipeSearchJson(query) {
 }
 
 $(document).ready(function() {
-
-  // var utterance = new SpeechSynthesisUtterance("hello world");
-  // window.speechSynthesis.speak(utterance);
 
   $contentContainer = $('.content-container')
 

@@ -22,5 +22,13 @@
         },
         "is_top_level": true,
         "variables": {}
+    },
+    "com.skytek.cordova.openears": {
+        "source": {
+            "type": "local",
+            "path": "../OpenEars"
+        },
+        "is_top_level": true,
+        "variables": {}
     }
 }
