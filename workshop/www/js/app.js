@@ -1,12 +1,3 @@
-// BigOven free account limited to title keyword or any keyword searches only.
-// Cannot search by ingredients seperated with commas.
-
-// BigOven recipe fetch
-
-var Recipe = function(instructions) {
-  this.instructions = instructions
-}
-
 function BigOvenGetRecipeJson(recipeId) {
   var apiKey = APIKEY;
   var url = "https://api.bigoven.com/recipe/" + recipeId + "?api_key="+apiKey;
@@ -61,8 +52,9 @@ function BigOvenGetRecipeJson(recipeId) {
 
 // BigOven recipe search
 function BigOvenRecipeSearchJson(query) {
+  var allRecipes = [];
   var noImageLink = "http://redirect.bigoven.com/pics/recipe-no-image.jpg"
-  var apiKey = APIKEY;
+  var apiKey = "dvx7zJ0x53M8X5U4nOh6CMGpB3d0PEhH";
   var titleKeyword = query;
   var url = "https://api.bigoven.com/recipes?pg=1&rpp=25&title_kw="
             + titleKeyword
