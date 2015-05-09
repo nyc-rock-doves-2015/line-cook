@@ -31,12 +31,15 @@
         languages["commands"].paths = evt.originalEvent.detail;
         return updateStatus("generate Language Model");
       });
+
       $start_listening = $("#start_listening");
       $stop_listening = $("#stop_listening");
       $suspend_recognition = $("#suspend_recognition");
       $resume_recognition = $("#resume_recognition");
       $resume_recognition.hide();
       $start_listening.hide();
+
+
       $stop_listening.on("click", function(e) {
         Ears.stopListening();
         $start_listening.show();
@@ -62,6 +65,7 @@
         return $suspend_recognition.show();
       });
       $heard = $("#heard");
+
       updateHeard = function(detail) {
         $heard.html(detail.hypothesis);
         Ears.say(detail.hypothesis); 
@@ -70,12 +74,13 @@
         var detail;
         updateStatus("received Hypothesis");
         detail = evt.originalEvent.detail;
-        return updateHeard(detail);
+        return processHeard(detail);
       });
+
       $speak = $("#speak");
       $words_to_say = $("#words_to_say");
       $speak.on("click", function(e) {
-        return Ears.say($words_to_say.val());
+        return ;
       });
       $(document).on("stopListening", function(evt) {
         return updateStatus("stop Listening");

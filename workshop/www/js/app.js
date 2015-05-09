@@ -3,6 +3,30 @@
 
 // BigOven recipe fetch
 
+$(document).on("deviceready", function() {
+  Ears = cordova.plugins.OpenEars;
+  Ears.startAudioSession();
+  var languages = {};
+  languages["commands"] = {};
+  languages["commands"].name = "commands";
+  languages["commands"].csv = "START,NEXT,REPEAT";
+  languages["commands"].paths = {};
+  Ears.generateLanguageModel(languages["commands"].name, languages["commands"].csv);
+  $(document).on("generateLanguageModel", function(evt) {
+    languages["commands"].paths = evt.originalEvent.detail;
+  });
+
+  var processHeard = function(detail) {
+    Ears.say(detail.hypothesis)
+  }
+
+  $(document).on("receivedHypothesis", function(evt) {
+    detail = evt.originalEvent.detail;
+    processHeard(detail);
+  });
+
+})
+
 var Recipe = function(instructions) {
   this.instructions = instructions
 }
@@ -25,10 +49,21 @@ function BigOvenGetRecipeJson(recipeId) {
     var instructions = data;
     var instructionsIndex = 0
 
-    if (annyang) {
+    // Ears.resumeListening();
 
-      annyang.start();
-    }
+    // processHeard = function(detail) {
+    //   Ears.say("inside process")
+    //   if (detail.hypothesis == "NEXT") {
+    //     Ears.say(instructions[instructionsIndex]);
+    //     instructionsIndex += 1;
+    //     if (instructionsIndex >= instructions.length) { Ears.stopListening(); }
+    //   } else if (detail.hypothesis == "START") {
+    //     instructionsIndex = 0;
+    //     Ears.say(instructions[instructionsIndex]);
+    //     instructionsIndex += 1;
+    //     if (instructionsIndex >= instructions.length) { Ears.stopListening(); }
+    //   }
+    // };
   })
 }
 
@@ -56,9 +91,6 @@ function BigOvenRecipeSearchJson(query) {
 }
 
 $(document).ready(function() {
-
-  // var utterance = new SpeechSynthesisUtterance("hello world");
-  // window.speechSynthesis.speak(utterance);
 
   $contentContainer = $('.content-container')
 

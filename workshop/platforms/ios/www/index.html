@@ -9,7 +9,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 
     <script type="text/javascript" src="cordova.js"></script>
-    <script type="text/javascript" src="js/openear.js"></script>
+    <!-- <script type="text/javascript" src="js/openear.js"></script> -->
 
     <script src="js/api-key.js"></script>
     <script src="js/app.js"></script>
@@ -26,33 +26,9 @@
         </form>
       </div>
       <div class="app">
-        <header>
-            <h1>OpenEars Sample App on Phonegap Demo.</h1>
-            <div>
-                <p class="event listening blink">Connecting to Device</p>
-                <p class="event received">Device is Ready</p>
-            </div>
-        </header>
-
-
-        <section class="listen">
-            <label for="heard">Heard:</label>
-            <textarea id="heard"></textarea>
-
-            <button id="stop_listening"     >Stop Listening</button>
-            <button id="start_listening"    >Start Listening</button>
-            <button id="suspend_recognition">Suspend Recognition</button>
-            <button id="resume_recognition" >Resume Recognition</button>
-        </section>
-
-        <section class="speak">
-            <input type-"text" id="words_to_say" />
-            <button id="speak">Speak</button>
-        </section>
-
         <section>
           <label for="status">Status:</label>
-          <textarea id="status"></textarea>
+          <textarea id="status" cols="30" rows="7"></textarea>
         </section>
       </div>
       <h2>API Practice</h2>
