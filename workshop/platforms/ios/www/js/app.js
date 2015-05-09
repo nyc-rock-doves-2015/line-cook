@@ -93,8 +93,6 @@ function BigOvenRecipeSearchJson(query) {
   });
 }
 
-
-
 $(document).ready(function() {
 
   // var utterance = new SpeechSynthesisUtterance("hello world");
