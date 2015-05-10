@@ -16,7 +16,8 @@
       {{#recipes}}
       <div class="recipe-container" data-recipeId="{{id}}" style="background-image: url({{imageUrl}})">
         <h3>{{title}}</h3>
-        <p>{{stars}}</p>
+        <p class="left">{{stars}}</p>
+        <p class="right">{{prepTime}}</p>
       </div>
       {{/recipes}}
     </script>
