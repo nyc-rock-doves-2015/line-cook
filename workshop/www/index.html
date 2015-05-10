@@ -34,6 +34,11 @@
       </div>
       <button type="button" id="cook">Start Cooking</button>
     </script>
+    <script id="ingredients-template" type="x-tmpl-mustache">
+      {{#ingredients}}
+      <li>{{quantity}} {{name}} {{unit}}</li>
+      {{/ingredients}}
+    </script>
     <link rel="stylesheet" href="css/application.css">
   </head>
   <body>
