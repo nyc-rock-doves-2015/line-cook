@@ -13,6 +13,7 @@ post '/signin' do
 end
 
 post '/signup' do
+  puts "made it to signup"
   content_type :json
   user = User.create(params[:user])
   session[:user_id] = user.id

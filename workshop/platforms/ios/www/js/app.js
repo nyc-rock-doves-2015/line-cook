@@ -93,6 +93,9 @@ function BigOvenRecipeSearchJson(query) {
 
 $(document).ready(function() {
 
+  var authBar = Mustache.render($('#logged-out').html()) ;
+  $('.auth-bar').html(authBar);
+
   $contentContainer = $('.content-container')
 
   $("#search-form").on('submit', function(event) {
@@ -121,6 +124,17 @@ $(document).ready(function() {
       data: $target.serialize()
     }).then(function(response) {
       window.location.assign("index.html")
+      return response
+    }).then(function(response) {
+      $('body').append(response.status)
+      $('body').append(response.id)
+      $('body').append(response.name)
+    //   if (response.status == "success") {
+    //     var authBar = Mustache.render($('#logged-in').html()) ;
+    //     $('.auth-bar').html(authBar);
+    //   } else {
+    //     window.location.assign("signup.html")
+    //   }
     })
 
   })
