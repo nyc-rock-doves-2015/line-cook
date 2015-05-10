@@ -133,15 +133,9 @@ $(document).ready(function() {
 
     $.ajax({
       url: "http://10.0.2.210:3000/signup",
-      type: "POST"
+      type: "POST",
       data: $target.serialize()
     })
-      // .then(function(response) {
-      // $('body').append("test");
-      // $('body').append(response.name)
-      // $('body').append(response["name"])
-      // window.location.assign("home.html")
-    // })
 
   })
 
