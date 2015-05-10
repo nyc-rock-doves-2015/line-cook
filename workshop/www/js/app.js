@@ -106,7 +106,7 @@ function BigOvenRecipeSearchJson(query) {
   }).then(function(recipes){
     var template = $('#search-results').html();
     var output = Mustache.render(template, {recipes: recipes});
-    $contentContainer.append(output);
+    $contentContainer.html(output);
   })
 }
 
