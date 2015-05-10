@@ -10,9 +10,9 @@ post '/signin' do
 end
 
 post '/signup' do
+  content_type :json
   user = User.create(params[:user])
   session[:user_id] = user.id
-  content_type :json
   return { status: "success", id: user.id, name: user.name }.to_json
 end
 
