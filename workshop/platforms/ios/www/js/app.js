@@ -110,4 +110,20 @@ $(document).ready(function() {
 
   })
 
+  $('#ben-test').on('click', function(event) {
+    event.preventDefault();
+
+    $.ajax({
+      url: "http://10.0.2.210:3000/signup",
+      type: "GET"
+    }).then(function(response) {
+      $('body').append("test");
+      $('body').append(response.name)
+      $('body').append(response["name"])
+      // window.location.assign("home.html")
+    })
+
+  })
+
+
 });
