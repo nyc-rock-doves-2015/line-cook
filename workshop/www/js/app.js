@@ -112,8 +112,8 @@ function BigOvenRecipeSearchJson(query) {
 
 $(document).ready(function() {
 
-  var authBar = Mustache.render($('#logged-out').html()) ;
-  $('.container').html(authBar);
+  var indexTemplate = Mustache.render($('#logged-out').html()) ;
+  $('.container').html(indexTemplate);
 
   $contentContainer = $('.content-container')
 
@@ -129,12 +129,31 @@ $(document).ready(function() {
     BigOvenGetRecipeJson(recipeId)
   });
 
-  $('.signup-link').on('click', function(event) {
+  $('.container').on('click', '.signup-link', function(event) {
     event.preventDefault();
 
     var loginTemplate = Mustache.render($('#sign-up-template').html()) ;
     $('.container').html(loginTemplate);
     
+  })
+
+  $('.container').on('click', '.signin-link', function(event) {
+    event.preventDefault();
+
+    var loginTemplate = Mustache.render($('#sign-in-template').html()) ;
+    $('.container').html(loginTemplate);
+    
+  })
+
+  $('.container').on('click', '.signout-link', function(event) {
+    event.preventDefault();
+
+    $.get("http://10.0.2.210:3000/signout")
+
+    //I cannot add this to as a then response to the deferred object
+    var indexTemplate = Mustache.render($('#logged-out').html()) ;
+    $('.container').html(indexTemplate);
+
   })
 
   $('.container').on('submit', '.signup-form', function(event) {
@@ -147,13 +166,13 @@ $(document).ready(function() {
       type: "POST",
       data: $target.serialize()
     }).then(function(response) {
-      var authBar = Mustache.render($('#logged-in').html()) ;
-      $('.container').html(authBar);
+      var indexTemplate = Mustache.render($('#logged-in').html()) ;
+      $('.container').html(indexTemplate);
     })
 
   })
 
-  $('.signin-form').on('submit', function(event) {
+  $('.container').on('submit', '.signin-form', function(event) {
     event.preventDefault();
 
     $target = $(event.target)
@@ -163,22 +182,10 @@ $(document).ready(function() {
       type: "POST",
       data: $target.serialize()
     }).then(function(response) {
-      window.location.assign("index.html")
+      var indexTemplate = Mustache.render($('#logged-in').html()) ;
+      $('.container').html(indexTemplate);
     })
 
   })
-
-  $('#signout-index').on('click', function(event) {
-    event.preventDefault();
-
-    $target = $(event.target)
-
-    $.ajax("http://10.0.2.210:3000/signout")
-    .then(function(response) {
-      window.location.assign("index.html")
-    })
-
-  })
-
 
 });
