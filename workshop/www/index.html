@@ -188,6 +188,17 @@
       </div>
     </script>
 
+    <!-- User Dashboard Template -->
+    <script id="user-dashboard-template" type="x-tmpl-mustache">
+      <div id="dashboard-container">
+        <h1>{{ name }}</h1>
+        <h2>favorites</h2>
+        {{ #favorites }}
+          <li>{{ id }}</li>
+        {{ /favorites }}
+      </div>
+    </script>
+
   </head>
 
   <body>
