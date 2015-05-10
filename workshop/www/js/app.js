@@ -8,9 +8,11 @@ function BigOvenGetRecipeJson(recipeId) {
     cache: false,
     url: url
   }).then(function(data) {
-    $contentContainer.html('<h2>' + data.Title + '</h2>');
-    $contentContainer.append(data.Instructions)
-    return data.Instructions.split(/\s{2,}/).filter(Boolean);
+    var currentRecipe = new Recipe(data);
+    for(i = 0; i < data.Ingredients.length; i ++){
+      currentRecipe.ingredients.push(new Ingredient(data.Ingredients[i]));
+    };
+    return currentRecipe.instructions.split(/\s{2,}/).filter(Boolean);
   }).then(function(data) {
 
     var instructions = data;
