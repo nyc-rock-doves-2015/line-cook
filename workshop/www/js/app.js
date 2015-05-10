@@ -98,8 +98,7 @@ $(document).ready(function() {
     event.preventDefault();
 
     var $target = $(event.target);
-    var recipeId = $target[0].dataset.recipeid
-
+    var recipeId = $target.closest('.recipe-container')[0].dataset.recipeid
     BigOvenGetRecipeJson(recipeId)
 
   })
