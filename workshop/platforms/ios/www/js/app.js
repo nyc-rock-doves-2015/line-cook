@@ -74,7 +74,7 @@ function BigOvenRecipeSearchJson(query) {
     cache: false,
     url: url
   }).then(function (data) {
-    $contentContainer.html('')
+    $('.content-container').html('')
     var recipes = data.Results.filter(function(result) {
       return !(result.IsBookmark || result.ImageURL == noImageLink)
     });
@@ -87,7 +87,7 @@ function BigOvenRecipeSearchJson(query) {
   }).then(function(recipes){
     var template = $('#search-results').html();
     var output = Mustache.render(template, {recipes: recipes});
-    $contentContainer.append(output);
+    $('.content-container').append(output);
   })
 }
 
@@ -96,9 +96,7 @@ $(document).ready(function() {
   var indexTemplate = Mustache.render($('#logged-out').html()) ;
   $('.container').html(indexTemplate);
 
-  $contentContainer = $('.content-container')
-
-  $("#search-form").on('submit', function(event) {
+  $('.container').on('submit', '#search-form', function(event) {
     event.preventDefault();
     var data = $('#search').val();
     BigOvenRecipeSearchJson(data)
