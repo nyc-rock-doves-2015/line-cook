@@ -1,4 +1,5 @@
 function BigOvenGetRecipeJson(recipeId) {
+  var currentRecipe;
   var apiKey = "dvx7zJ0x53M8X5U4nOh6CMGpB3d0PEhH";
   var url = "https://api.bigoven.com/recipe/" + recipeId + "?api_key="+apiKey;
 
@@ -8,18 +9,36 @@ function BigOvenGetRecipeJson(recipeId) {
     cache: false,
     url: url
   }).then(function(data) {
-    var currentRecipe = new Recipe(data);
+    currentRecipe = new Recipe(data);
     for(i = 0; i < data.Ingredients.length; i ++){
       currentRecipe.ingredients.push(new Ingredient(data.Ingredients[i]));
     };
+
+    var instructions = data.Instructions.split(/\s{2,}/).filter(Boolean);
+    for(i = 0; i < instructions.length; i ++){
+      currentRecipe.instructions.push(new Instruction(instructions[i]));
+    };
+
     var template = $('#recipe-show').html();
     var output = Mustache.render(template, currentRecipe);
-    $('.container').html(output);
+    $('.content-container').html(output);
+
     var template = $('#ingredients-template').html();
     var output = Mustache.render(template, {ingredients: currentRecipe.ingredients});
     $('#ingredients').append(output);
 
-    return currentRecipe.instructions.split(/\s{2,}/).filter(Boolean);
+    var template = $('#instructions-template').html();
+    var output = Mustache.render(template, {instructions: currentRecipe.instructions});
+    $('#instructions').append(output);
+
+    return instructions;
+  }).then(function(data) {
+    $('.content-container').on('click', '#cook', function(event) {
+    var template = $('#instructions-template').html();
+    var output = Mustache.render(template, {instructions: currentRecipe.instructions});
+    $('.container-fluid').html(output);
+    });
+    return data;
   }).then(function(data) {
 
     var instructions = data;
@@ -74,7 +93,7 @@ function BigOvenRecipeSearchJson(query) {
     cache: false,
     url: url
   }).then(function (data) {
-    $contentContainer.html('')
+    $('.content-container').html('')
     var recipes = data.Results.filter(function(result) {
       return !(result.IsBookmark || result.ImageURL == noImageLink)
     });
@@ -87,27 +106,83 @@ function BigOvenRecipeSearchJson(query) {
   }).then(function(recipes){
     var template = $('#search-results').html();
     var output = Mustache.render(template, {recipes: recipes});
-    $contentContainer.append(output);
+    $('.content-container').append(output);
   })
 }
 
 $(document).ready(function() {
 
-  $contentContainer = $('.content-container')
+  var indexTemplate = Mustache.render($('#logged-out').html()) ;
+  $('.container').html(indexTemplate);
 
-  $("#search-form").on('submit', function(event) {
+  $('.container').on('submit', '#search-form', function(event) {
     event.preventDefault();
     var data = $('#search').val();
     BigOvenRecipeSearchJson(data)
   });
 
   $('.container').on('click', '.recipe-container', function(event) {
-    event.preventDefault();
-
     var $target = $(event.target);
     var recipeId = $target.closest('.recipe-container')[0].dataset.recipeid
     BigOvenGetRecipeJson(recipeId)
+  });
 
+  $('.container').on('click', '.signup-link', function(event) {
+    event.preventDefault();
+
+    var loginTemplate = Mustache.render($('#sign-up-template').html()) ;
+    $('.container').html(loginTemplate);
+    
+  })
+
+  $('.container').on('click', '.signin-link', function(event) {
+    event.preventDefault();
+
+    var loginTemplate = Mustache.render($('#sign-in-template').html()) ;
+    $('.container').html(loginTemplate);
+    
+  })
+
+  $('.container').on('click', '.signout-link', function(event) {
+    event.preventDefault();
+
+    $.get("http://10.0.2.210:3000/signout")
+
+    //I cannot add this to as a then response to the deferred object
+    var indexTemplate = Mustache.render($('#logged-out').html()) ;
+    $('.container').html(indexTemplate);
+
+  })
+
+  $('.container').on('submit', '.signup-form', function(event) {
+    event.preventDefault();
+
+    $target = $(event.target)
+
+    $.ajax({
+      url: "http://10.0.2.210:3000/signup",
+      type: "POST",
+      data: $target.serialize()
+    }).then(function(response) {
+      var indexTemplate = Mustache.render($('#logged-in').html()) ;
+      $('.container').html(indexTemplate);
+    })
+
+  })
+
+  $('.container').on('submit', '.signin-form', function(event) {
+    event.preventDefault();
+
+    $target = $(event.target)
+
+    $.ajax({
+      url: "http://10.0.2.210:3000/signin",
+      type: "POST",
+      data: $target.serialize()
+    }).then(function(response) {
+      var indexTemplate = Mustache.render($('#logged-in').html()) ;
+      $('.container').html(indexTemplate);
+    })
   })
 
 });
