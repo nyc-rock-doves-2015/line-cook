@@ -1,4 +1,5 @@
 function BigOvenGetRecipeJson(recipeId) {
+  var currentRecipe;
   var apiKey = "dvx7zJ0x53M8X5U4nOh6CMGpB3d0PEhH";
   var url = "https://api.bigoven.com/recipe/" + recipeId + "?api_key="+apiKey;
 
@@ -8,7 +9,7 @@ function BigOvenGetRecipeJson(recipeId) {
     cache: false,
     url: url
   }).then(function(data) {
-    var currentRecipe = new Recipe(data);
+    currentRecipe = new Recipe(data);
     for(i = 0; i < data.Ingredients.length; i ++){
       currentRecipe.ingredients.push(new Ingredient(data.Ingredients[i]));
     };
