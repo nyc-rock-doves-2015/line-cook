@@ -121,7 +121,6 @@ $(document).ready(function() {
   });
 
   $contentContainer.on('click', '.recipe-container', function(event) {
-    // event.preventDefault();
     var $target = $(event.target);
     var recipeId = $target.closest('.recipe-container')[0].dataset.recipeid
     BigOvenGetRecipeJson(recipeId)
