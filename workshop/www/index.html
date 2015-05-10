@@ -39,6 +39,12 @@
       <li>{{quantity}} {{name}} {{unit}}</li>
       {{/ingredients}}
     </script>
+    <script id="instructions" type="x-tmpl-mustache">
+      {{#instructions}}
+      <li>{{content}}</li>
+      {{/instructions}}
+    </script>
+
     <link rel="stylesheet" href="css/application.css">
   </head>
   <body>
