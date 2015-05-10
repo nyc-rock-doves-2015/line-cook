@@ -1,12 +1,3 @@
-// BigOven free account limited to title keyword or any keyword searches only.
-// Cannot search by ingredients seperated with commas.
-
-// BigOven recipe fetch
-
-var Recipe = function(instructions) {
-  this.instructions = instructions
-}
-
 function BigOvenGetRecipeJson(recipeId) {
   var apiKey = APIKEY;
   var url = "https://api.bigoven.com/recipe/" + recipeId + "?api_key="+apiKey;
@@ -17,9 +8,11 @@ function BigOvenGetRecipeJson(recipeId) {
     cache: false,
     url: url
   }).then(function(data) {
-    $contentContainer.html('<h2>' + data.Title + '</h2>');
-    $contentContainer.append(data.Instructions)
-    return data.Instructions.split(/\s{2,}/).filter(Boolean);
+    var currentRecipe = new Recipe(data);
+    for(i = 0; i < data.Ingredients.length; i ++){
+      currentRecipe.ingredients.push(new Ingredient(data.Ingredients[i]));
+    };
+    return currentRecipe.instructions.split(/\s{2,}/).filter(Boolean);
   }).then(function(data) {
 
     var instructions = data;
@@ -61,8 +54,9 @@ function BigOvenGetRecipeJson(recipeId) {
 
 // BigOven recipe search
 function BigOvenRecipeSearchJson(query) {
+  var allRecipes = [];
   var noImageLink = "http://redirect.bigoven.com/pics/recipe-no-image.jpg"
-  var apiKey = APIKEY;
+  var apiKey = "dvx7zJ0x53M8X5U4nOh6CMGpB3d0PEhH";
   var titleKeyword = query;
   var url = "https://api.bigoven.com/recipes?pg=1&rpp=25&title_kw="
             + titleKeyword
@@ -74,12 +68,20 @@ function BigOvenRecipeSearchJson(query) {
     url: url
   }).then(function (data) {
     $contentContainer.html('')
-    data.Results.forEach(function(result) {
-      if (result.IsBookmark || result.ImageURL == noImageLink) { return }
-      $contentContainer.append("<li><h3>" + result.Title + "</h3><img class='recipe-container' data-recipeId='" + result.RecipeID + "' src='" + result.ImageURL + "' alt='food pic' height='200' width='300p'></li>")
-      $contentContainer.append("<li class='recipe-container' data-recipeId='" + result.RecipeID + "'>" + result.WebURL + "</li>")
-    })
-  });
+    var recipes = data.Results.filter(function(result) {
+      return !(result.IsBookmark || result.ImageURL == noImageLink)
+    });
+    return recipes;
+  }).then(function(data){
+    for(i = 0; i < data.length; i ++) {
+      allRecipes.push(new RecipePreview(data[i]));
+    };
+    return allRecipes
+  }).then(function(recipes){
+    var template = $('#search-results').html();
+    var output = Mustache.render(template, {recipes: recipes});
+    $contentContainer.append(output);
+  })
 }
 
 $(document).ready(function() {
@@ -96,8 +98,7 @@ $(document).ready(function() {
     event.preventDefault();
 
     var $target = $(event.target);
-    var recipeId = $target[0].dataset.recipeid
-    
+    var recipeId = $target.closest('.recipe-container')[0].dataset.recipeid
     BigOvenGetRecipeJson(recipeId)
 
   })
