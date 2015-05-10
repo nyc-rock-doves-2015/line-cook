@@ -135,6 +135,35 @@ $(document).ready(function() {
       url: "http://10.0.2.210:3000/signup",
       type: "POST",
       data: $target.serialize()
+    }).then(function(response) {
+      window.location.assign("index.html")
+    })
+
+  })
+
+  $('.signin-form').on('submit', function(event) {
+    event.preventDefault();
+
+    $target = $(event.target)
+
+    $.ajax({
+      url: "http://10.0.2.210:3000/signin",
+      type: "POST",
+      data: $target.serialize()
+    }).then(function(response) {
+      window.location.assign("index.html")
+    })
+
+  })
+
+  $('#signout-index').on('click', function(event) {
+    event.preventDefault();
+
+    $target = $(event.target)
+
+    $.ajax("http://10.0.2.210:3000/signout")
+    .then(function(response) {
+      window.location.assign("index.html")
     })
 
   })
