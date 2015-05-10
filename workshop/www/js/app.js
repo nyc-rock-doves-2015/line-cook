@@ -1,5 +1,5 @@
 function BigOvenGetRecipeJson(recipeId) {
-  var apiKey = APIKEY;
+  var apiKey = "dvx7zJ0x53M8X5U4nOh6CMGpB3d0PEhH";
   var url = "https://api.bigoven.com/recipe/" + recipeId + "?api_key="+apiKey;
 
   $.ajax({
@@ -12,6 +12,13 @@ function BigOvenGetRecipeJson(recipeId) {
     for(i = 0; i < data.Ingredients.length; i ++){
       currentRecipe.ingredients.push(new Ingredient(data.Ingredients[i]));
     };
+    var template = $('#recipe-show').html();
+    var output = Mustache.render(template, currentRecipe);
+    $('.container').html(output);
+    var template = $('#ingredients-template').html();
+    var output = Mustache.render(template, {ingredients: currentRecipe.ingredients});
+    $('#ingredients').append(output);
+
     return currentRecipe.instructions.split(/\s{2,}/).filter(Boolean);
   }).then(function(data) {
 
