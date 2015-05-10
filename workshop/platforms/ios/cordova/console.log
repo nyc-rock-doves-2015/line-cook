@@ -99,3 +99,419 @@ To disable web storage backup to iCloud, set the BackupWebStorage preference to 
 
 2015-05-09 10:49:24.162 Workshop[34126:4071562] Resetting plugins due to page load.
 2015-05-09 10:49:24.266 Workshop[34126:4071562] Finished load of: file:///Users/bkmorimoto/Library/Developer/CoreSimulator/Devices/067076A3-92FE-472D-89B3-3E714A2EB2AE/data/Containers/Bundle/Application/4118A0D5-D664-4B91-97AF-88C67991CC7D/Workshop.app/www/index.html
+2015-05-10 10:26:44.205 Workshop[1448:8164] DiskCookieStorage changing policy from 2 to 0, cookie file: file:///Users/danasselin/Library/Developer/CoreSimulator/Devices/08BAD1ED-9985-4198-B14C-384E048558F3/data/Containers/Data/Application/FDCB663C-0FA6-48C9-AAF6-DAA76E4A6C51/Library/Cookies/Cookies.binarycookies
+2015-05-10 10:26:45.233 Workshop[1448:8164] Apache Cordova native platform version 3.8.0 is starting.
+2015-05-10 10:26:45.234 Workshop[1448:8164] Multi-tasking -> Device: YES, App: YES
+2015-05-10 10:26:45.273 Workshop[1448:8164] Unlimited access to network resources
+2015-05-10 10:26:45.318 Workshop[1448:8164] 
+
+Started backup to iCloud! Please be careful.
+Your application might be rejected by Apple if you store too much data.
+For more information please read "iOS Data Storage Guidelines" at:
+https://developer.apple.com/icloud/documentation/data-storage/
+To disable web storage backup to iCloud, set the BackupWebStorage preference to "local" in the Cordova config.xml file
+
+2015-05-10 10:26:47.578 Workshop[1448:8164] Resetting plugins due to page load.
+2015-05-10 10:26:48.292 Workshop[1448:8164] Finished load of: file:///Users/danasselin/Library/Developer/CoreSimulator/Devices/08BAD1ED-9985-4198-B14C-384E048558F3/data/Containers/Bundle/Application/78FF926A-028A-4FF1-871C-20A706D3DFAB/Workshop.app/www/index.html
+2015-05-10 10:28:24.713 Workshop[1448:8164] Resetting plugins due to page load.
+2015-05-10 10:28:24.862 Workshop[1448:8164] Failed to load webpage with error: The requested URL was not found on this server.
+2015-05-10 10:28:29.016 Workshop[1448:8164] Resetting plugins due to page load.
+2015-05-10 10:28:29.215 Workshop[1448:8164] Finished load of: file:///Users/danasselin/Library/Developer/CoreSimulator/Devices/08BAD1ED-9985-4198-B14C-384E048558F3/data/Containers/Bundle/Application/78FF926A-028A-4FF1-871C-20A706D3DFAB/Workshop.app/www/home.html
+2015-05-10 10:29:50.808 Workshop[1655:9848] DiskCookieStorage changing policy from 2 to 0, cookie file: file:///Users/danasselin/Library/Developer/CoreSimulator/Devices/08BAD1ED-9985-4198-B14C-384E048558F3/data/Containers/Data/Application/4882626D-4832-4347-9882-0EE4AF53ADFD/Library/Cookies/Cookies.binarycookies
+2015-05-10 10:29:50.881 Workshop[1655:9848] Apache Cordova native platform version 3.8.0 is starting.
+2015-05-10 10:29:50.881 Workshop[1655:9848] Multi-tasking -> Device: YES, App: YES
+2015-05-10 10:29:50.949 Workshop[1655:9848] Unlimited access to network resources
+2015-05-10 10:29:50.989 Workshop[1655:9848] 
+
+Started backup to iCloud! Please be careful.
+Your application might be rejected by Apple if you store too much data.
+For more information please read "iOS Data Storage Guidelines" at:
+https://developer.apple.com/icloud/documentation/data-storage/
+To disable web storage backup to iCloud, set the BackupWebStorage preference to "local" in the Cordova config.xml file
+
+2015-05-10 10:29:51.681 Workshop[1655:9848] Resetting plugins due to page load.
+2015-05-10 10:29:51.901 Workshop[1655:9848] Finished load of: file:///Users/danasselin/Library/Developer/CoreSimulator/Devices/08BAD1ED-9985-4198-B14C-384E048558F3/data/Containers/Bundle/Application/6CCF84C3-046F-415B-9E2A-96665E9BD9B3/Workshop.app/www/index.html
+2015-05-10 10:30:41.119 Workshop[1655:9848] Resetting plugins due to page load.
+2015-05-10 10:30:41.228 Workshop[1655:9848] Finished load of: file:///Users/danasselin/Library/Developer/CoreSimulator/Devices/08BAD1ED-9985-4198-B14C-384E048558F3/data/Containers/Bundle/Application/6CCF84C3-046F-415B-9E2A-96665E9BD9B3/Workshop.app/www/home.html
+2015-05-10 10:37:23.431 Workshop[1963:12059] DiskCookieStorage changing policy from 2 to 0, cookie file: file:///Users/danasselin/Library/Developer/CoreSimulator/Devices/08BAD1ED-9985-4198-B14C-384E048558F3/data/Containers/Data/Application/48140B91-7B04-489E-8EDC-9045370E5503/Library/Cookies/Cookies.binarycookies
+2015-05-10 10:37:23.533 Workshop[1963:12059] Apache Cordova native platform version 3.8.0 is starting.
+2015-05-10 10:37:23.533 Workshop[1963:12059] Multi-tasking -> Device: YES, App: YES
+2015-05-10 10:37:23.562 Workshop[1963:12059] Unlimited access to network resources
+2015-05-10 10:37:23.601 Workshop[1963:12059] 
+
+Started backup to iCloud! Please be careful.
+Your application might be rejected by Apple if you store too much data.
+For more information please read "iOS Data Storage Guidelines" at:
+https://developer.apple.com/icloud/documentation/data-storage/
+To disable web storage backup to iCloud, set the BackupWebStorage preference to "local" in the Cordova config.xml file
+
+2015-05-10 10:37:23.933 Workshop[1963:12059] Resetting plugins due to page load.
+2015-05-10 10:37:24.147 Workshop[1963:12059] Finished load of: file:///Users/danasselin/Library/Developer/CoreSimulator/Devices/08BAD1ED-9985-4198-B14C-384E048558F3/data/Containers/Bundle/Application/A9EECC05-819D-4C05-93B3-D546D219B589/Workshop.app/www/index.html
+2015-05-10 10:37:32.983 Workshop[1963:12059] THREAD WARNING: ['OpenEars'] took '110.190186' ms. Plugin should use a background thread.
+
+2015-05-10 10:37:34.855 Workshop[1963:12059] ***Starting with new lm.
+2015-05-10 10:37:36.623 Workshop[1963:12059] THREAD WARNING: ['OpenEars'] took '3398.041748' ms. Plugin should use a background thread.
+2015-05-10 10:37:36.624 Workshop[1963:12059] Pocketsphinx did start listening
+2015-05-10 10:37:38.884 Workshop[1963:12059] Pockesphinx did detect speech
+2015-05-10 10:37:39.874 Workshop[1963:12059] Pocketsphinx did detect finished speech
+2015-05-10 10:37:39.887 Workshop[1963:12059] Pocketsphinx received a hypothesis is START with a score of -7 and an ID of 0
+2015-05-10 10:37:39.888 Workshop[1963:12059] fliteControllerSay: Brown the chopmeat and then make Mom's Spaghetti sauce in same pot w/ meat
+2015-05-10 10:37:39.998 Workshop[1963:12059] THREAD WARNING: ['OpenEars'] took '110.687988' ms. Plugin should use a background thread.
+2015-05-10 10:37:39.999 Workshop[1963:12059] Flite has started speaking
+2015-05-10 10:37:39.999 Workshop[1963:12059] Pockesphinx did suspend recognition
+2015-05-10 10:37:45.891 Workshop[1963:12059] Flite has finished speaking
+2015-05-10 10:37:45.892 Workshop[1963:12059] Pockesphinx did resume recognition
+2015-05-10 10:37:46.381 Workshop[1963:12059] Pockesphinx did detect speech
+2015-05-10 10:37:47.170 Workshop[1963:12059] Pocketsphinx did detect finished speech
+2015-05-10 10:37:47.178 Workshop[1963:12059] Pocketsphinx received a hypothesis is NEXT with a score of -4147 and an ID of 1
+2015-05-10 10:37:47.179 Workshop[1963:12059] fliteControllerSay: Mix ricotta, eggs, salt and pepper, italian seasoning and parmesan cheese
+2015-05-10 10:37:47.202 Workshop[1963:12059] THREAD WARNING: ['OpenEars'] took '22.611328' ms. Plugin should use a background thread.
+2015-05-10 10:37:47.202 Workshop[1963:12059] Flite has started speaking
+2015-05-10 10:37:47.203 Workshop[1963:12059] Pockesphinx did suspend recognition
+2015-05-10 10:37:53.601 Workshop[1963:12059] Flite has finished speaking
+2015-05-10 10:37:53.602 Workshop[1963:12059] Pockesphinx did resume recognition
+2015-05-10 10:37:53.830 Workshop[1963:12059] Pockesphinx did detect speech
+2015-05-10 10:37:57.534 Workshop[1963:12059] Pocketsphinx did detect finished speech
+2015-05-10 10:37:57.565 Workshop[1963:12059] Pocketsphinx received a hypothesis is NEXT with a score of -647 and an ID of 2
+2015-05-10 10:37:57.566 Workshop[1963:12059] fliteControllerSay: Start layering w/ sauce, then w/ noodles, ricotta and end w/ spaghetti sauce. Top w/ shredded mozzarella cheese, and then sprinkle some more w/ parmesan cheese.
+2015-05-10 10:37:57.592 Workshop[1963:12059] THREAD WARNING: ['OpenEars'] took '26.186035' ms. Plugin should use a background thread.
+2015-05-10 10:37:57.592 Workshop[1963:12059] Flite has started speaking
+2015-05-10 10:37:57.593 Workshop[1963:12059] Pockesphinx did suspend recognition
+2015-05-10 10:38:12.651 Workshop[1963:12059] Flite has finished speaking
+2015-05-10 10:38:12.652 Workshop[1963:12059] Pockesphinx did resume recognition
+2015-05-10 10:38:13.533 Workshop[1963:12059] Pockesphinx did detect speech
+2015-05-10 10:38:16.353 Workshop[1963:12059] Pocketsphinx did detect finished speech
+2015-05-10 10:38:16.380 Workshop[1963:12059] Pocketsphinx received a hypothesis is REPEAT with a score of -11057 and an ID of 3
+2015-05-10 10:38:16.736 Workshop[1963:12059] Pockesphinx did detect speech
+2015-05-10 10:38:17.885 Workshop[1963:12059] Pocketsphinx did detect finished speech
+2015-05-10 10:38:17.895 Workshop[1963:12059] Pocketsphinx received a hypothesis is NEXT with a score of -6119 and an ID of 4
+2015-05-10 10:38:17.896 Workshop[1963:12059] fliteControllerSay: You can add some mozzarella within your layers as well
+2015-05-10 10:38:17.908 Workshop[1963:12059] THREAD WARNING: ['OpenEars'] took '12.257080' ms. Plugin should use a background thread.
+2015-05-10 10:38:17.908 Workshop[1963:12059] Flite has started speaking
+2015-05-10 10:38:17.909 Workshop[1963:12059] Pockesphinx did suspend recognition
+2015-05-10 10:38:21.683 Workshop[1963:12059] Flite has finished speaking
+2015-05-10 10:38:21.684 Workshop[1963:12059] Pockesphinx did resume recognition
+2015-05-10 10:38:21.856 Workshop[1963:12059] Pockesphinx did detect speech
+2015-05-10 10:38:23.899 Workshop[1963:12059] Pocketsphinx did detect finished speech
+2015-05-10 10:38:23.918 Workshop[1963:12059] Pocketsphinx received a hypothesis is OFF with a score of -2162 and an ID of 5
+2015-05-10 10:38:27.606 Workshop[1963:12059] Pockesphinx did detect speech
+2015-05-10 10:38:28.513 Workshop[1963:12059] Pocketsphinx did detect finished speech
+2015-05-10 10:38:29.527 Workshop[1963:12059] Pockesphinx did detect speech
+2015-05-10 10:38:31.066 Workshop[1963:12059] Pocketsphinx did detect finished speech
+2015-05-10 10:38:31.081 Workshop[1963:12059] Pocketsphinx received a hypothesis is OFF with a score of -339 and an ID of 7
+2015-05-10 10:38:36.066 Workshop[1963:12059] Pockesphinx did detect speech
+2015-05-10 10:38:38.870 Workshop[1963:12059] Pocketsphinx did detect finished speech
+2015-05-10 10:38:38.897 Workshop[1963:12059] Pocketsphinx received a hypothesis is OFF with a score of -2863 and an ID of 8
+2015-05-10 10:38:39.769 Workshop[1963:12059] Pockesphinx did detect speech
+2015-05-10 10:38:40.536 Workshop[1963:12059] Pocketsphinx did detect finished speech
+2015-05-10 10:38:40.542 Workshop[1963:12059] Pocketsphinx received a hypothesis is OFF with a score of -506 and an ID of 9
+2015-05-10 10:38:44.124 Workshop[1963:12059] Pockesphinx did detect speech
+2015-05-10 10:38:45.272 Workshop[1963:12059] Pocketsphinx did detect finished speech
+2015-05-10 10:38:45.285 Workshop[1963:12059] Pocketsphinx received a hypothesis is OFF with a score of -13714 and an ID of 10
+2015-05-10 10:38:46.555 Workshop[1963:12059] Pockesphinx did detect speech
+2015-05-10 10:38:50.265 Workshop[1963:12059] Pocketsphinx did detect finished speech
+2015-05-10 10:38:50.307 Workshop[1963:12059] Pocketsphinx received a hypothesis is OFF NEXT with a score of -17112 and an ID of 11
+2015-05-10 10:38:52.702 Workshop[1963:12059] Pockesphinx did detect speech
+2015-05-10 10:38:54.097 Workshop[1963:12059] Pocketsphinx did detect finished speech
+2015-05-10 10:38:54.110 Workshop[1963:12059] Pocketsphinx received a hypothesis is START with a score of -15 and an ID of 12
+2015-05-10 10:38:54.110 Workshop[1963:12059] fliteControllerSay: Brown the chopmeat and then make Mom's Spaghetti sauce in same pot w/ meat
+2015-05-10 10:38:54.129 Workshop[1963:12059] THREAD WARNING: ['OpenEars'] took '19.176025' ms. Plugin should use a background thread.
+2015-05-10 10:38:54.130 Workshop[1963:12059] Flite has started speaking
+2015-05-10 10:38:54.130 Workshop[1963:12059] Pockesphinx did suspend recognition
+2015-05-10 10:38:59.982 Workshop[1963:12059] Flite has finished speaking
+2015-05-10 10:38:59.983 Workshop[1963:12059] Pockesphinx did resume recognition
+2015-05-10 10:39:00.504 Workshop[1963:12059] Pockesphinx did detect speech
+2015-05-10 10:39:01.277 Workshop[1963:12059] Pocketsphinx did detect finished speech
+2015-05-10 10:39:01.664 Workshop[1963:12059] Pockesphinx did detect speech
+2015-05-10 10:39:03.452 Workshop[1963:12059] Pocketsphinx did detect finished speech
+2015-05-10 10:39:03.464 Workshop[1963:12059] Pocketsphinx received a hypothesis is START with a score of 0 and an ID of 14
+2015-05-10 10:39:03.465 Workshop[1963:12059] fliteControllerSay: Brown the chopmeat and then make Mom's Spaghetti sauce in same pot w/ meat
+2015-05-10 10:39:03.486 Workshop[1963:12059] THREAD WARNING: ['OpenEars'] took '21.675293' ms. Plugin should use a background thread.
+2015-05-10 10:39:03.487 Workshop[1963:12059] Flite has started speaking
+2015-05-10 10:39:03.487 Workshop[1963:12059] Pockesphinx did suspend recognition
+2015-05-10 10:39:09.339 Workshop[1963:12059] Flite has finished speaking
+2015-05-10 10:39:09.340 Workshop[1963:12059] Pockesphinx did resume recognition
+2015-05-10 10:39:16.379 Workshop[1963:12059] Pockesphinx did detect speech
+2015-05-10 10:39:17.275 Workshop[1963:12059] Pocketsphinx did detect finished speech
+2015-05-10 10:39:17.284 Workshop[1963:12059] Pocketsphinx received a hypothesis is OFF with a score of -1772 and an ID of 15
+2015-05-10 10:39:18.428 Workshop[1963:12059] Pockesphinx did detect speech
+2015-05-10 10:39:19.189 Workshop[1963:12059] Pocketsphinx did detect finished speech
+2015-05-10 10:39:19.195 Workshop[1963:12059] Pocketsphinx received a hypothesis is OFF with a score of 0 and an ID of 16
+2015-05-10 10:39:20.208 Workshop[1963:12059] Pockesphinx did detect speech
+2015-05-10 10:39:23.030 Workshop[1963:12059] Pocketsphinx did detect finished speech
+2015-05-10 10:39:23.053 Workshop[1963:12059] Pocketsphinx received a hypothesis is REPEAT with a score of -9590 and an ID of 17
+2015-05-10 10:39:23.677 Workshop[1963:12059] Pockesphinx did detect speech
+2015-05-10 10:39:27.253 Workshop[1963:12059] Pocketsphinx did detect finished speech
+2015-05-10 10:39:27.290 Workshop[1963:12059] Pocketsphinx received a hypothesis is NEXT with a score of -16328 and an ID of 18
+2015-05-10 10:39:27.290 Workshop[1963:12059] fliteControllerSay: Mix ricotta, eggs, salt and pepper, italian seasoning and parmesan cheese
+2015-05-10 10:39:27.309 Workshop[1963:12059] THREAD WARNING: ['OpenEars'] took '18.529053' ms. Plugin should use a background thread.
+2015-05-10 10:39:27.309 Workshop[1963:12059] Flite has started speaking
+2015-05-10 10:39:27.310 Workshop[1963:12059] Pockesphinx did suspend recognition
+2015-05-10 10:39:33.707 Workshop[1963:12059] Flite has finished speaking
+2015-05-10 10:39:33.708 Workshop[1963:12059] Pockesphinx did resume recognition
+2015-05-10 10:39:34.547 Workshop[1963:12059] Pockesphinx did detect speech
+2015-05-10 11:07:29.447 Workshop[3434:21684] DiskCookieStorage changing policy from 2 to 0, cookie file: file:///Users/danasselin/Library/Developer/CoreSimulator/Devices/08BAD1ED-9985-4198-B14C-384E048558F3/data/Containers/Data/Application/3A48C984-D4DB-42C8-B473-4513A3106D2C/Library/Cookies/Cookies.binarycookies
+2015-05-10 11:07:29.785 Workshop[3434:21684] Apache Cordova native platform version 3.8.0 is starting.
+2015-05-10 11:07:29.811 Workshop[3434:21684] Multi-tasking -> Device: YES, App: YES
+2015-05-10 11:07:29.836 Workshop[3434:21684] Unlimited access to network resources
+2015-05-10 11:07:29.850 Workshop[3434:21684] 
+
+Started backup to iCloud! Please be careful.
+Your application might be rejected by Apple if you store too much data.
+For more information please read "iOS Data Storage Guidelines" at:
+https://developer.apple.com/icloud/documentation/data-storage/
+To disable web storage backup to iCloud, set the BackupWebStorage preference to "local" in the Cordova config.xml file
+
+2015-05-10 11:07:30.980 Workshop[3434:21684] Resetting plugins due to page load.
+2015-05-10 11:07:31.530 Workshop[3434:21684] Finished load of: file:///Users/danasselin/Library/Developer/CoreSimulator/Devices/08BAD1ED-9985-4198-B14C-384E048558F3/data/Containers/Bundle/Application/92D704E0-E0D2-4766-AAD3-903B083B3257/Workshop.app/www/index.html
+2015-05-10 11:13:18.185 Workshop[3434:21684] THREAD WARNING: ['OpenEars'] took '18.774902' ms. Plugin should use a background thread.
+
+2015-05-10 11:13:18.313 Workshop[3434:21684] ***Starting with new lm.
+2015-05-10 11:13:19.813 Workshop[3434:21684] THREAD WARNING: ['OpenEars'] took '1611.659180' ms. Plugin should use a background thread.
+2015-05-10 11:13:19.814 Workshop[3434:21684] Pocketsphinx did start listening
+2015-05-10 11:13:21.934 Workshop[3434:21684] Pockesphinx did detect speech
+2015-05-10 11:13:22.602 Workshop[3434:21684] Pocketsphinx did detect finished speech
+2015-05-10 11:13:22.610 Workshop[3434:21684] Pocketsphinx received a hypothesis is START with a score of 0 and an ID of 0
+2015-05-10 11:13:22.611 Workshop[3434:21684] fliteControllerSay: Brown the chopmeat and then make Mom's Spaghetti sauce in same pot w/ meat
+2015-05-10 11:13:22.964 Workshop[3434:21684] THREAD WARNING: ['OpenEars'] took '353.609863' ms. Plugin should use a background thread.
+2015-05-10 11:13:22.965 Workshop[3434:21684] Flite has started speaking
+2015-05-10 11:13:22.966 Workshop[3434:21684] Pockesphinx did suspend recognition
+2015-05-10 11:13:28.817 Workshop[3434:21684] Flite has finished speaking
+2015-05-10 11:13:28.818 Workshop[3434:21684] Pockesphinx did resume recognition
+2015-05-10 11:13:32.244 Workshop[3434:21684] Pockesphinx did detect speech
+2015-05-10 11:13:49.352 Workshop[3434:21684] Pocketsphinx did detect finished speech
+2015-05-10 11:13:49.819 Workshop[3434:21684] Pocketsphinx received a hypothesis is NEXT NEXT NEXT with a score of -37271 and an ID of 1
+2015-05-10 11:13:53.188 Workshop[3434:21684] Pockesphinx did detect speech
+2015-05-10 11:13:53.959 Workshop[3434:21684] Pocketsphinx did detect finished speech
+2015-05-10 11:13:53.976 Workshop[3434:21684] Pocketsphinx received a hypothesis is OFF with a score of 0 and an ID of 2
+2015-05-10 11:13:56.426 Workshop[3434:21684] Pockesphinx did detect speech
+2015-05-10 11:13:57.031 Workshop[3434:21684] Pocketsphinx did detect finished speech
+2015-05-10 11:13:57.037 Workshop[3434:21684] Pocketsphinx received a hypothesis is OFF with a score of -518 and an ID of 3
+2015-05-10 11:13:58.040 Workshop[3434:21684] Pockesphinx did detect speech
+2015-05-10 11:14:09.187 Workshop[3434:21684] Pocketsphinx did detect finished speech
+2015-05-10 11:14:09.359 Workshop[3434:21684] Pocketsphinx received a hypothesis is OFF with a score of -7726 and an ID of 4
+2015-05-10 11:14:11.237 Workshop[3434:21684] Pockesphinx did detect speech
+2015-05-10 11:14:30.181 Workshop[3434:21684] Pocketsphinx did detect finished speech
+2015-05-10 11:14:30.789 Workshop[3434:21684] Pocketsphinx received a hypothesis is NEXT NEXT OFF OFF OFF with a score of -41013 and an ID of 5
+2015-05-10 11:14:30.794 Workshop[3434:21684] Pockesphinx did detect speech
+2015-05-10 11:14:38.366 Workshop[3434:21684] Pocketsphinx did detect finished speech
+2015-05-10 11:14:38.455 Workshop[3434:21684] Pocketsphinx received a hypothesis is NEXT OFF NEXT NEXT with a score of -29756 and an ID of 6
+2015-05-10 11:14:38.883 Workshop[3434:21684] Pockesphinx did detect speech
+2015-05-10 11:14:42.337 Workshop[3434:21684] Pocketsphinx did detect finished speech
+2015-05-10 11:14:42.368 Workshop[3434:21684] Pocketsphinx received a hypothesis is NEXT with a score of -3427 and an ID of 7
+2015-05-10 11:14:42.369 Workshop[3434:21684] fliteControllerSay: Mix ricotta, eggs, salt and pepper, italian seasoning and parmesan cheese
+2015-05-10 11:14:42.522 Workshop[3434:21684] THREAD WARNING: ['OpenEars'] took '152.945068' ms. Plugin should use a background thread.
+2015-05-10 11:14:42.522 Workshop[3434:21684] Flite has started speaking
+2015-05-10 11:14:42.523 Workshop[3434:21684] Pockesphinx did suspend recognition
+2015-05-10 11:14:48.921 Workshop[3434:21684] Flite has finished speaking
+2015-05-10 11:14:48.922 Workshop[3434:21684] Pockesphinx did resume recognition
+2015-05-10 11:14:51.546 Workshop[3434:21684] Pockesphinx did detect speech
+2015-05-10 11:14:54.372 Workshop[3434:21684] Pocketsphinx did detect finished speech
+2015-05-10 11:14:54.404 Workshop[3434:21684] Pocketsphinx received a hypothesis is NEXT with a score of -15518 and an ID of 8
+2015-05-10 11:14:54.404 Workshop[3434:21684] fliteControllerSay: Start layering w/ sauce, then w/ noodles, ricotta and end w/ spaghetti sauce. Top w/ shredded mozzarella cheese, and then sprinkle some more w/ parmesan cheese.
+2015-05-10 11:14:54.677 Workshop[3434:21684] THREAD WARNING: ['OpenEars'] took '272.549072' ms. Plugin should use a background thread.
+2015-05-10 11:14:54.677 Workshop[3434:21684] Flite has started speaking
+2015-05-10 11:14:54.678 Workshop[3434:21684] Pockesphinx did suspend recognition
+2015-05-10 11:15:09.736 Workshop[3434:21684] Flite has finished speaking
+2015-05-10 11:15:09.737 Workshop[3434:21684] Pockesphinx did resume recognition
+2015-05-10 11:15:10.240 Workshop[3434:21684] Pockesphinx did detect speech
+2015-05-10 11:15:13.944 Workshop[3434:21684] Pocketsphinx did detect finished speech
+2015-05-10 11:15:13.986 Workshop[3434:21684] Pocketsphinx received a hypothesis is OFF with a score of -15493 and an ID of 9
+2015-05-10 11:15:17.025 Workshop[3434:21684] Pockesphinx did detect speech
+2015-05-10 11:15:19.449 Workshop[3434:21684] Pocketsphinx did detect finished speech
+2015-05-10 11:15:19.472 Workshop[3434:21684] Pocketsphinx received a hypothesis is NEXT OFF with a score of -15591 and an ID of 10
+2015-05-10 11:15:20.349 Workshop[3434:21684] Pockesphinx did detect speech
+2015-05-10 11:15:29.443 Workshop[3434:21684] Pocketsphinx did detect finished speech
+2015-05-10 11:15:29.567 Workshop[3434:21684] Pocketsphinx received a hypothesis is NEXT NEXT REPEAT with a score of -15484 and an ID of 11
+2015-05-10 11:15:30.334 Workshop[3434:21684] Pockesphinx did detect speech
+2015-05-10 11:15:35.835 Workshop[3434:21684] Pocketsphinx did detect finished speech
+2015-05-10 11:15:35.915 Workshop[3434:21684] Pocketsphinx received a hypothesis is NEXT with a score of -8274 and an ID of 12
+2015-05-10 11:15:35.915 Workshop[3434:21684] fliteControllerSay: You can add some mozzarella within your layers as well
+2015-05-10 11:15:36.017 Workshop[3434:21684] THREAD WARNING: ['OpenEars'] took '101.914062' ms. Plugin should use a background thread.
+2015-05-10 11:15:36.018 Workshop[3434:21684] Flite has started speaking
+2015-05-10 11:15:36.018 Workshop[3434:21684] Pockesphinx did suspend recognition
+2015-05-10 11:15:39.792 Workshop[3434:21684] Flite has finished speaking
+2015-05-10 11:15:39.792 Workshop[3434:21684] Pockesphinx did resume recognition
+2015-05-10 11:15:39.927 Workshop[3434:21684] Pockesphinx did detect speech
+2015-05-10 11:15:52.736 Workshop[3434:21684] Pocketsphinx did detect finished speech
+2015-05-10 11:15:52.989 Workshop[3434:21684] Pocketsphinx received a hypothesis is OFF with a score of -17329 and an ID of 13
+2015-05-10 11:15:53.501 Workshop[3434:21684] Pockesphinx did detect speech
+2015-05-10 11:15:55.925 Workshop[3434:21684] Pocketsphinx did detect finished speech
+2015-05-10 11:15:55.946 Workshop[3434:21684] Pocketsphinx received a hypothesis is REPEAT with a score of -8080 and an ID of 14
+2015-05-10 11:15:57.215 Workshop[3434:21684] Pockesphinx did detect speech
+2015-05-10 11:15:58.622 Workshop[3434:21684] Pocketsphinx did detect finished speech
+2015-05-10 11:15:58.635 Workshop[3434:21684] Pocketsphinx received a hypothesis is REPEAT with a score of -2256 and an ID of 15
+2015-05-10 11:16:00.399 Workshop[3434:21684] Pockesphinx did detect speech
+2015-05-10 11:16:01.181 Workshop[3434:21684] Pocketsphinx did detect finished speech
+2015-05-10 11:16:01.188 Workshop[3434:21684] Pocketsphinx received a hypothesis is OFF with a score of -369 and an ID of 16
+2015-05-10 11:16:01.821 Workshop[3434:21684] Pockesphinx did detect speech
+2015-05-10 11:16:03.604 Workshop[3434:21684] Pocketsphinx did detect finished speech
+2015-05-10 11:16:03.622 Workshop[3434:21684] Pocketsphinx received a hypothesis is OFF with a score of -263 and an ID of 17
+2015-05-10 11:16:05.665 Workshop[3434:21684] Pockesphinx did detect speech
+2015-05-10 11:16:07.833 Workshop[3434:21684] Pocketsphinx did detect finished speech
+2015-05-10 11:16:07.854 Workshop[3434:21684] Pocketsphinx received a hypothesis is OFF with a score of -5288 and an ID of 18
+2015-05-10 11:16:09.248 Workshop[3434:21684] Pockesphinx did detect speech
+2015-05-10 11:16:13.726 Workshop[3434:21684] Pocketsphinx did detect finished speech
+2015-05-10 11:16:13.771 Workshop[3434:21684] Pocketsphinx received a hypothesis is OFF OFF OFF with a score of -11187 and an ID of 19
+2015-05-10 11:16:13.979 Workshop[3434:21684] Pockesphinx did detect speech
+2015-05-10 11:16:18.333 Workshop[3434:21684] Pocketsphinx did detect finished speech
+2015-05-10 11:16:18.380 Workshop[3434:21684] Pocketsphinx received a hypothesis is START OFF with a score of -20399 and an ID of 20
+2015-05-10 11:16:18.583 Workshop[3434:21684] Pockesphinx did detect speech
+2015-05-10 11:16:27.278 Workshop[3434:21684] Pocketsphinx did detect finished speech
+2015-05-10 11:16:27.360 Workshop[3434:21684] Pocketsphinx received a hypothesis is OFF with a score of -7024 and an ID of 21
+2015-05-10 11:16:27.805 Workshop[3434:21684] Pockesphinx did detect speech
+2015-05-10 11:16:37.139 Workshop[3434:21684] Pocketsphinx did detect finished speech
+2015-05-10 11:16:37.269 Workshop[3434:21684] Pocketsphinx received a hypothesis is OFF with a score of -9375 and an ID of 22
+2015-05-10 11:16:38.045 Workshop[3434:21684] Pockesphinx did detect speech
+2015-05-10 11:16:45.468 Workshop[3434:21684] Pocketsphinx did detect finished speech
+2015-05-10 11:16:45.575 Workshop[3434:21684] Pocketsphinx received a hypothesis is REPEAT with a score of -17880 and an ID of 23
+2015-05-10 11:16:49.427 Workshop[3434:21684] Pockesphinx did detect speech
+2015-05-10 11:16:50.575 Workshop[3434:21684] Pocketsphinx did detect finished speech
+2015-05-10 11:16:50.584 Workshop[3434:21684] Pocketsphinx received a hypothesis is OFF with a score of -1967 and an ID of 24
+2015-05-10 11:16:51.087 Workshop[3434:21684] Pockesphinx did detect speech
+2015-05-10 11:16:55.703 Workshop[3434:21684] Pocketsphinx did detect finished speech
+2015-05-10 11:16:55.765 Workshop[3434:21684] Pocketsphinx received a hypothesis is START NEXT with a score of -17551 and an ID of 25
+2015-05-10 11:16:56.725 Workshop[3434:21684] Pockesphinx did detect speech
+2015-05-10 11:17:00.312 Workshop[3434:21684] Pocketsphinx did detect finished speech
+2015-05-10 11:17:00.351 Workshop[3434:21684] Pocketsphinx received a hypothesis is START with a score of -5022 and an ID of 26
+2015-05-10 11:17:00.352 Workshop[3434:21684] fliteControllerSay: Brown the chopmeat and then make Mom's Spaghetti sauce in same pot w/ meat
+2015-05-10 11:17:00.369 Workshop[3434:21684] THREAD WARNING: ['OpenEars'] took '17.545166' ms. Plugin should use a background thread.
+2015-05-10 11:17:00.370 Workshop[3434:21684] Flite has started speaking
+2015-05-10 11:17:00.416 Workshop[3434:21684] Pockesphinx did suspend recognition
+2015-05-10 11:17:06.221 Workshop[3434:21684] Flite has finished speaking
+2015-05-10 11:17:06.222 Workshop[3434:21684] Pockesphinx did resume recognition
+2015-05-10 11:17:09.657 Workshop[3434:21684] Pockesphinx did detect speech
+2015-05-10 11:17:10.544 Workshop[3434:21684] Pocketsphinx did detect finished speech
+2015-05-10 11:17:10.550 Workshop[3434:21684] Pocketsphinx received a hypothesis is OFF with a score of 0 and an ID of 27
+2015-05-10 11:17:13.500 Workshop[3434:21684] Pockesphinx did detect speech
+2015-05-10 11:17:14.896 Workshop[3434:21684] Pocketsphinx did detect finished speech
+2015-05-10 11:17:14.909 Workshop[3434:21684] Pocketsphinx received a hypothesis is START with a score of 0 and an ID of 28
+2015-05-10 11:17:14.909 Workshop[3434:21684] fliteControllerSay: Brown the chopmeat and then make Mom's Spaghetti sauce in same pot w/ meat
+2015-05-10 11:17:14.927 Workshop[3434:21684] THREAD WARNING: ['OpenEars'] took '17.802734' ms. Plugin should use a background thread.
+2015-05-10 11:17:14.928 Workshop[3434:21684] Flite has started speaking
+2015-05-10 11:17:14.928 Workshop[3434:21684] Pockesphinx did suspend recognition
+2015-05-10 11:17:20.779 Workshop[3434:21684] Flite has finished speaking
+2015-05-10 11:17:20.780 Workshop[3434:21684] Pockesphinx did resume recognition
+2015-05-10 11:17:20.917 Workshop[3434:21684] Pockesphinx did detect speech
+2015-05-10 11:17:23.222 Workshop[3434:21684] Pocketsphinx did detect finished speech
+2015-05-10 11:17:23.246 Workshop[3434:21684] Pocketsphinx received a hypothesis is OFF with a score of -743 and an ID of 29
+2015-05-10 11:17:23.993 Workshop[3434:21684] Pockesphinx did detect speech
+2015-05-10 11:17:26.676 Workshop[3434:21684] Pocketsphinx did detect finished speech
+2015-05-10 11:17:26.700 Workshop[3434:21684] Pocketsphinx received a hypothesis is NEXT with a score of -3974 and an ID of 30
+2015-05-10 11:17:26.701 Workshop[3434:21684] fliteControllerSay: Mix ricotta, eggs, salt and pepper, italian seasoning and parmesan cheese
+2015-05-10 11:17:26.722 Workshop[3434:21684] THREAD WARNING: ['OpenEars'] took '21.310791' ms. Plugin should use a background thread.
+2015-05-10 11:17:26.722 Workshop[3434:21684] Flite has started speaking
+2015-05-10 11:17:26.723 Workshop[3434:21684] Pockesphinx did suspend recognition
+2015-05-10 11:17:33.121 Workshop[3434:21684] Flite has finished speaking
+2015-05-10 11:17:33.122 Workshop[3434:21684] Pockesphinx did resume recognition
+2015-05-10 11:17:33.713 Workshop[3434:21684] Pockesphinx did detect speech
+2015-05-10 11:17:42.929 Workshop[3434:21684] Pocketsphinx did detect finished speech
+2015-05-10 11:17:43.096 Workshop[3434:21684] Pocketsphinx received a hypothesis is NEXT with a score of -14060 and an ID of 31
+2015-05-10 11:17:43.096 Workshop[3434:21684] fliteControllerSay: Start layering w/ sauce, then w/ noodles, ricotta and end w/ spaghetti sauce. Top w/ shredded mozzarella cheese, and then sprinkle some more w/ parmesan cheese.
+2015-05-10 11:17:43.126 Workshop[3434:21684] THREAD WARNING: ['OpenEars'] took '29.520264' ms. Plugin should use a background thread.
+2015-05-10 11:17:43.126 Workshop[3434:21684] Flite has started speaking
+2015-05-10 11:17:43.127 Workshop[3434:21684] Pockesphinx did suspend recognition
+2015-05-10 11:17:58.184 Workshop[3434:21684] Flite has finished speaking
+2015-05-10 11:17:58.185 Workshop[3434:21684] Pockesphinx did resume recognition
+2015-05-10 11:17:58.423 Workshop[3434:21684] Pockesphinx did detect speech
+2015-05-10 11:18:11.983 Workshop[3434:21684] Pocketsphinx did detect finished speech
+2015-05-10 11:18:12.297 Workshop[3434:21684] Pocketsphinx received a hypothesis is START with a score of -13143 and an ID of 32
+2015-05-10 11:18:12.298 Workshop[3434:21684] fliteControllerSay: Brown the chopmeat and then make Mom's Spaghetti sauce in same pot w/ meat
+2015-05-10 11:18:12.311 Workshop[3434:21684] THREAD WARNING: ['OpenEars'] took '13.075195' ms. Plugin should use a background thread.
+2015-05-10 11:18:12.311 Workshop[3434:21684] Pockesphinx did detect speech
+2015-05-10 11:18:12.312 Workshop[3434:21684] Flite has started speaking
+2015-05-10 11:18:12.312 Workshop[3434:21684] Pockesphinx did suspend recognition
+2015-05-10 11:18:18.164 Workshop[3434:21684] Flite has finished speaking
+2015-05-10 11:18:18.165 Workshop[3434:21684] Pockesphinx did resume recognition
+2015-05-10 11:18:20.822 Workshop[3434:21684] Pockesphinx did detect speech
+2015-05-10 11:18:21.835 Workshop[3434:21684] Pocketsphinx did detect finished speech
+2015-05-10 11:18:21.843 Workshop[3434:21684] Pocketsphinx received a hypothesis is OFF with a score of -1993 and an ID of 33
+2015-05-10 11:18:24.019 Workshop[3434:21684] Pockesphinx did detect speech
+2015-05-10 11:18:25.428 Workshop[3434:21684] Pocketsphinx did detect finished speech
+2015-05-10 11:18:25.441 Workshop[3434:21684] Pocketsphinx received a hypothesis is OFF with a score of -4527 and an ID of 34
+2015-05-10 11:18:25.679 Workshop[3434:21684] Pockesphinx did detect speech
+2015-05-10 11:18:26.700 Workshop[3434:21684] Pocketsphinx did detect finished speech
+2015-05-10 11:18:26.708 Workshop[3434:21684] Pocketsphinx received a hypothesis is OFF with a score of -4 and an ID of 35
+2015-05-10 11:18:29.393 Workshop[3434:21684] Pockesphinx did detect speech
+2015-05-10 11:18:31.315 Workshop[3434:21684] Pocketsphinx did detect finished speech
+2015-05-10 11:18:31.333 Workshop[3434:21684] Pocketsphinx received a hypothesis is OFF with a score of -4029 and an ID of 36
+2015-05-10 11:18:34.501 Workshop[3434:21684] Pockesphinx did detect speech
+2015-05-10 11:18:38.478 Workshop[3434:21684] Pocketsphinx did detect finished speech
+2015-05-10 11:18:38.521 Workshop[3434:21684] Pocketsphinx received a hypothesis is OFF with a score of -13579 and an ID of 37
+2015-05-10 11:18:38.868 Workshop[3434:21684] Pockesphinx did detect speech
+2015-05-10 11:18:42.323 Workshop[3434:21684] Pocketsphinx did detect finished speech
+2015-05-10 11:18:42.359 Workshop[3434:21684] Pocketsphinx received a hypothesis is START with a score of -12629 and an ID of 38
+2015-05-10 11:18:42.359 Workshop[3434:21684] fliteControllerSay: Brown the chopmeat and then make Mom's Spaghetti sauce in same pot w/ meat
+2015-05-10 11:18:42.379 Workshop[3434:21684] THREAD WARNING: ['OpenEars'] took '19.643066' ms. Plugin should use a background thread.
+2015-05-10 11:18:42.379 Workshop[3434:21684] Flite has started speaking
+2015-05-10 11:18:42.380 Workshop[3434:21684] Pockesphinx did suspend recognition
+2015-05-10 11:18:48.232 Workshop[3434:21684] Flite has finished speaking
+2015-05-10 11:18:48.233 Workshop[3434:21684] Pockesphinx did resume recognition
+2015-05-10 11:18:48.462 Workshop[3434:21684] Pockesphinx did detect speech
+2015-05-10 11:18:57.164 Workshop[3434:21684] Pocketsphinx did detect finished speech
+2015-05-10 11:18:57.300 Workshop[3434:21684] Pocketsphinx received a hypothesis is NEXT with a score of -7068 and an ID of 39
+2015-05-10 11:18:57.301 Workshop[3434:21684] fliteControllerSay: Mix ricotta, eggs, salt and pepper, italian seasoning and parmesan cheese
+2015-05-10 11:18:57.320 Workshop[3434:21684] THREAD WARNING: ['OpenEars'] took '19.012939' ms. Plugin should use a background thread.
+2015-05-10 11:18:57.320 Workshop[3434:21684] Flite has started speaking
+2015-05-10 11:18:57.321 Workshop[3434:21684] Pockesphinx did suspend recognition
+2015-05-10 11:19:03.718 Workshop[3434:21684] Flite has finished speaking
+2015-05-10 11:19:03.719 Workshop[3434:21684] Pockesphinx did resume recognition
+2015-05-10 11:19:03.951 Workshop[3434:21684] Pockesphinx did detect speech
+2015-05-10 11:19:06.130 Workshop[3434:21684] Pocketsphinx did detect finished speech
+2015-05-10 11:19:06.147 Workshop[3434:21684] Pocketsphinx received a hypothesis is NEXT NEXT OFF with a score of -20034 and an ID of 40
+2015-05-10 11:19:06.259 Workshop[3434:21684] Pockesphinx did detect speech
+2015-05-10 11:19:07.274 Workshop[3434:21684] Pocketsphinx did detect finished speech
+2015-05-10 11:19:07.284 Workshop[3434:21684] Pocketsphinx received a hypothesis is REPEAT with a score of -7 and an ID of 41
+2015-05-10 11:19:08.175 Workshop[3434:21684] Pockesphinx did detect speech
+2015-05-10 11:19:13.041 Workshop[3434:21684] Pocketsphinx did detect finished speech
+2015-05-10 11:19:13.096 Workshop[3434:21684] Pocketsphinx received a hypothesis is NEXT with a score of -7329 and an ID of 42
+2015-05-10 11:19:13.097 Workshop[3434:21684] fliteControllerSay: Start layering w/ sauce, then w/ noodles, ricotta and end w/ spaghetti sauce. Top w/ shredded mozzarella cheese, and then sprinkle some more w/ parmesan cheese.
+2015-05-10 11:19:13.120 Workshop[3434:21684] THREAD WARNING: ['OpenEars'] took '22.925781' ms. Plugin should use a background thread.
+2015-05-10 11:19:13.120 Workshop[3434:21684] Flite has started speaking
+2015-05-10 11:19:13.121 Workshop[3434:21684] Pockesphinx did suspend recognition
+2015-05-10 11:19:28.178 Workshop[3434:21684] Flite has finished speaking
+2015-05-10 11:19:28.178 Workshop[3434:21684] Pockesphinx did resume recognition
+2015-05-10 11:19:28.400 Workshop[3434:21684] Pockesphinx did detect speech
+2015-05-10 11:19:38.381 Workshop[3434:21684] Pocketsphinx did detect finished speech
+2015-05-10 11:19:38.596 Workshop[3434:21684] Pocketsphinx received a hypothesis is OFF with a score of -3820 and an ID of 43
+2015-05-10 11:19:38.769 Workshop[3434:21684] Pockesphinx did detect speech
+2015-05-10 11:19:46.193 Workshop[3434:21684] Pocketsphinx did detect finished speech
+2015-05-10 11:19:46.264 Workshop[3434:21684] Pocketsphinx received a hypothesis is START START with a score of -15663 and an ID of 44
+2015-05-10 11:19:47.720 Workshop[3434:21684] Pockesphinx did detect speech
+2015-05-10 11:19:51.949 Workshop[3434:21684] Pocketsphinx did detect finished speech
+2015-05-10 11:19:51.994 Workshop[3434:21684] Pocketsphinx received a hypothesis is OFF with a score of -7351 and an ID of 45
+2015-05-10 11:19:52.207 Workshop[3434:21684] Pockesphinx did detect speech
+2015-05-10 11:19:53.996 Workshop[3434:21684] Pocketsphinx did detect finished speech
+2015-05-10 11:19:54.013 Workshop[3434:21684] Pocketsphinx received a hypothesis is OFF with a score of -1851 and an ID of 46
+2015-05-10 11:19:54.375 Workshop[3434:21684] Pockesphinx did detect speech
+2015-05-10 11:19:55.920 Workshop[3434:21684] Pocketsphinx did detect finished speech
+2015-05-10 11:19:55.935 Workshop[3434:21684] Pocketsphinx received a hypothesis is OFF with a score of -410 and an ID of 47
+2015-05-10 11:19:57.838 Workshop[3434:21684] Pockesphinx did detect speech
+2015-05-10 11:19:59.243 Workshop[3434:21684] Pocketsphinx did detect finished speech
+2015-05-10 11:19:59.255 Workshop[3434:21684] Pocketsphinx received a hypothesis is OFF with a score of -1316 and an ID of 48
+2015-05-10 11:19:59.495 Workshop[3434:21684] Pockesphinx did detect speech
+2015-05-10 11:20:01.037 Workshop[3434:21684] Pocketsphinx did detect finished speech
+2015-05-10 11:20:01.049 Workshop[3434:21684] Pocketsphinx received a hypothesis is OFF with a score of -3640 and an ID of 49
+2015-05-10 11:20:03.597 Workshop[3434:21684] Pockesphinx did detect speech
+2015-05-10 11:20:06.539 Workshop[3434:21684] Pocketsphinx did detect finished speech
+2015-05-10 11:20:06.563 Workshop[3434:21684] Pocketsphinx received a hypothesis is NEXT with a score of -5031 and an ID of 50
+2015-05-10 11:20:06.564 Workshop[3434:21684] fliteControllerSay: You can add some mozzarella within your layers as well
+2015-05-10 11:20:06.580 Workshop[3434:21684] THREAD WARNING: ['OpenEars'] took '16.180908' ms. Plugin should use a background thread.
+2015-05-10 11:20:06.580 Workshop[3434:21684] Flite has started speaking
+2015-05-10 11:20:06.581 Workshop[3434:21684] Pockesphinx did suspend recognition
+2015-05-10 11:20:10.354 Workshop[3434:21684] Flite has finished speaking
+2015-05-10 11:20:10.356 Workshop[3434:21684] Pockesphinx did resume recognition
+2015-05-10 11:20:16.645 Workshop[3434:21684] Pockesphinx did detect speech
+2015-05-10 11:20:26.372 Workshop[3434:21684] Pocketsphinx did detect finished speech
+2015-05-10 11:20:26.517 Workshop[3434:21684] Pocketsphinx received a hypothesis is NEXT START with a score of -8871 and an ID of 51
+2015-05-10 11:20:28.550 Workshop[3434:21684] Pockesphinx did detect speech
+2015-05-10 11:20:30.347 Workshop[3434:21684] Pocketsphinx did detect finished speech
+2015-05-10 11:20:30.365 Workshop[3434:21684] Pocketsphinx received a hypothesis is NEXT with a score of -2844 and an ID of 52
+2015-05-10 11:20:30.366 Workshop[3434:21684] fliteControllerSay: Bake @ 350 for 45 min to 1 hour. Let slightly cool before serving
+2015-05-10 11:20:30.483 Workshop[3434:21684] THREAD WARNING: ['OpenEars'] took '117.368896' ms. Plugin should use a background thread.
+2015-05-10 11:20:30.484 Workshop[3434:21684] Flite has started speaking
+2015-05-10 11:20:30.484 Workshop[3434:21684] Pockesphinx did suspend recognition
+2015-05-10 11:20:36.766 Workshop[3434:21684] Flite has finished speaking
+2015-05-10 11:20:36.868 Workshop[3434:21684] THREAD WARNING: ['OpenEars'] took '101.460938' ms. Plugin should use a background thread.
+2015-05-10 11:20:36.869 Workshop[3434:21684] Pockesphinx did resume recognition
+2015-05-10 11:20:36.869 Workshop[3434:21684] Pocketsphinx did stop listening
