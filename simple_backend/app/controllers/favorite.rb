@@ -1,4 +1,6 @@
 post '/favorites' do
+  content_type :json
+
   big_oven_id = params[:bigOvenId].to_s
   user_name = params[:userName]
   recipe = Recipe.find_or_create_by(big_oven_id: big_oven_id)
