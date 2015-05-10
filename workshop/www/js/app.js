@@ -12,6 +12,11 @@ function BigOvenGetRecipeJson(recipeId) {
     for(i = 0; i < data.Ingredients.length; i ++){
       currentRecipe.ingredients.push(new Ingredient(data.Ingredients[i]));
     };
+
+    var instructions = data.Instructions.split(/\s{2,}/).filter(Boolean);
+    for(i = 0; i < instructions.length; i ++){
+      currentRecipe.instructions.push(new Instruction(instructions[i]));
+    };
     var template = $('#recipe-show').html();
     var output = Mustache.render(template, currentRecipe);
     $('.container').html(output);
@@ -19,7 +24,6 @@ function BigOvenGetRecipeJson(recipeId) {
     var output = Mustache.render(template, {ingredients: currentRecipe.ingredients});
     $('#ingredients').append(output);
 
-    return currentRecipe.instructions.split(/\s{2,}/).filter(Boolean);
   }).then(function(data) {
 
     var instructions = data;
