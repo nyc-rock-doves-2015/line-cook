@@ -21,6 +21,19 @@
       </div>
       {{/recipes}}
     </script>
+    <script id="recipe-show" type="x-tmpl-mustache">
+      <div class="recipe">
+        <div id="recipe-pic" style="background-image: url({{imageUrl}})">
+          <p>{{stars}}</p>
+        </div>
+        <div class="left" id="serving">{{yieldNumber}} {{yieldUnit}}</div>
+        <div class="right" id="prep-time">{{prepTime}}</div>
+        <h3>{{title}}</h3>
+        <ul id="ingredients"></ul>
+        <ol id="instructions"></ol>
+      </div>
+      <button type="button" id="cook">Start Cooking</button>
+    </script>
     <link rel="stylesheet" href="css/application.css">
   </head>
   <body>
