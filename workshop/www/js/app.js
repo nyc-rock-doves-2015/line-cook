@@ -113,7 +113,7 @@ function BigOvenRecipeSearchJson(query) {
 $(document).ready(function() {
 
   var authBar = Mustache.render($('#logged-out').html()) ;
-  $('.auth-bar').html(authBar);
+  $('.container').html(authBar);
 
   $contentContainer = $('.content-container')
 
@@ -129,7 +129,15 @@ $(document).ready(function() {
     BigOvenGetRecipeJson(recipeId)
   });
 
-  $('.signup-form').on('submit', function(event) {
+  $('.signup-link').on('click', function(event) {
+    event.preventDefault();
+
+    var loginTemplate = Mustache.render($('#sign-up-template').html()) ;
+    $('.container').html(loginTemplate);
+    
+  })
+
+  $('.container').on('submit', '.signup-form', function(event) {
     event.preventDefault();
 
     $target = $(event.target)
@@ -139,18 +147,8 @@ $(document).ready(function() {
       type: "POST",
       data: $target.serialize()
     }).then(function(response) {
-      window.location.assign("index.html")
-      return response
-    // }).then(function(response) {
-    //   $('body').append(response.status)
-    //   $('body').append(response.id)
-    //   $('body').append(response.name)
-    //   if (response.status == "success") {
-    //     var authBar = Mustache.render($('#logged-in').html()) ;
-    //     $('.auth-bar').html(authBar);
-    //   } else {
-    //     window.location.assign("signup.html")
-    //   }
+      var authBar = Mustache.render($('#logged-in').html()) ;
+      $('.container').html(authBar);
     })
 
   })

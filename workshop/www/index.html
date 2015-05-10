@@ -57,21 +57,30 @@
 
     <!-- Logged In Template -->
     <script id="logged-in" type="x-tmpl-mustache">
-      <a id="signout-index" href="#">Signout</a>
+      <br><br><br><br>
+      <div class="auth-bar">
+        <a id="signout-index" href="#">Signout</a>
+      </div>
+      <div class="search-container">
+        <form id="search-form">
+          <label for="search">Search: </label>
+          <input id="search" type="search" name="search-params">
+          <input type="submit" value="search">
+        </form>
+      </div>
+      <h2>Recipes</h2>
+      <div class="content-container">
+      </div>
     </script>
 
     <!-- Logged Out Template -->
     <script id="logged-out" type="x-tmpl-mustache">
-      <a href="signin.html">Signin</a>
-      <a href="signup.html">Signup</a>
-    </script>
-
-    <link rel="stylesheet" href="css/application.css">
-  </head>
-  <body>
-    <div class="container-fluid">
       <br><br><br><br>
-      <div class="search-container form-group">
+      <div class="auth-bar">
+      <a class="signin-link" href="signin.html">Signin</a>
+      <a class="signup-link" href="signup.html">Signup</a>
+      </div>
+      <div class="search-container">
         <form id="search-form">
           <input id="search" class="form-control" type="search" name="search-params" placeholder="Search">
           <input type="submit" value="search">
@@ -90,6 +99,35 @@
           </form>
         </div>
       </div>
+    </script>
+
+    <!-- Sign Up Template -->
+    <script id="sign-up-template" type="x-tmpl-mustache">
+      <div id="signup-container">
+        <form class="signup-form">
+          <br><br><br><br>
+          <div class="form-group">
+            <input type="text" name="user[name]" class="form-control" placeholder="name">
+          </div>
+          <div class="form-group">
+            <input type="password" name="user[password]" class="form-control" placeholder="password">
+          </div>
+          <div class="form-group">
+            <input type="password" name="user[password_confirmation]" class="form-control" placeholder="password confirmation">
+          </div>
+          <br><br>
+          <button type="submit" class="btn btn-default">Sign Up</button>
+          <br><br>
+        </form>
+        <a href="index.html">Index</a>
+      </div>
+    </script>
+
+    <link rel="stylesheet" href="css/application.css">
+  </head>
+
+  <body>
+    <div class="container">
     </div>
 
     <a href="recipes.html">Recipes</a>
