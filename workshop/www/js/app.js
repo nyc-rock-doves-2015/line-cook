@@ -21,7 +21,7 @@ function BigOvenGetRecipeJson(recipeId) {
 
     var template = $('#recipe-show').html();
     var output = Mustache.render(template, currentRecipe);
-    $('.container').html(output);
+    $('.content-container').html(output);
 
     var template = $('#ingredients-template').html();
     var output = Mustache.render(template, {ingredients: currentRecipe.ingredients});
@@ -107,19 +107,17 @@ $(document).ready(function() {
 
   $contentContainer = $('.content-container')
 
-  $("#search-form").on('submit', function(event) {
+  $('#search-form').on('submit', function(event) {
     event.preventDefault();
     var data = $('#search').val();
     BigOvenRecipeSearchJson(data)
   });
 
-  $('.container').on('click', '.recipe-container', function(event) {
-    event.preventDefault();
-
+  $contentContainer.on('click', '.recipe-container', function(event) {
+    // event.preventDefault();
     var $target = $(event.target);
     var recipeId = $target.closest('.recipe-container')[0].dataset.recipeid
     BigOvenGetRecipeJson(recipeId)
-
-  })
+  });
 
 });
