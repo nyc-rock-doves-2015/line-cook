@@ -1,4 +1,5 @@
 function BigOvenGetRecipeJson(recipeId) {
+  var currentRecipe;
   var apiKey = "dvx7zJ0x53M8X5U4nOh6CMGpB3d0PEhH";
   var url = "https://api.bigoven.com/recipe/" + recipeId + "?api_key="+apiKey;
 
@@ -8,18 +9,36 @@ function BigOvenGetRecipeJson(recipeId) {
     cache: false,
     url: url
   }).then(function(data) {
-    var currentRecipe = new Recipe(data);
+    currentRecipe = new Recipe(data);
     for(i = 0; i < data.Ingredients.length; i ++){
       currentRecipe.ingredients.push(new Ingredient(data.Ingredients[i]));
     };
+
+    var instructions = data.Instructions.split(/\s{2,}/).filter(Boolean);
+    for(i = 0; i < instructions.length; i ++){
+      currentRecipe.instructions.push(new Instruction(instructions[i]));
+    };
+
     var template = $('#recipe-show').html();
     var output = Mustache.render(template, currentRecipe);
-    $('.container').html(output);
+    $('.content-container').html(output);
+
     var template = $('#ingredients-template').html();
     var output = Mustache.render(template, {ingredients: currentRecipe.ingredients});
     $('#ingredients').append(output);
 
-    return currentRecipe.instructions.split(/\s{2,}/).filter(Boolean);
+    var template = $('#instructions-template').html();
+    var output = Mustache.render(template, {instructions: currentRecipe.instructions});
+    $('#instructions').append(output);
+
+    return instructions;
+  }).then(function(data) {
+    $('.content-container').on('click', '#cook', function(event) {
+    var template = $('#instructions-template').html();
+    var output = Mustache.render(template, {instructions: currentRecipe.instructions});
+    $('.container-fluid').html(output);
+    });
+    return data;
   }).then(function(data) {
 
     var instructions = data;
@@ -87,7 +106,7 @@ function BigOvenRecipeSearchJson(query) {
   }).then(function(recipes){
     var template = $('#search-results').html();
     var output = Mustache.render(template, {recipes: recipes});
-    $contentContainer.append(output);
+    $contentContainer.html(output);
   })
 }
 
@@ -95,19 +114,16 @@ $(document).ready(function() {
 
   $contentContainer = $('.content-container')
 
-  $("#search-form").on('submit', function(event) {
+  $('#search-form').on('submit', function(event) {
     event.preventDefault();
     var data = $('#search').val();
     BigOvenRecipeSearchJson(data)
   });
 
-  $('.container').on('click', '.recipe-container', function(event) {
-    event.preventDefault();
-
+  $contentContainer.on('click', '.recipe-container', function(event) {
     var $target = $(event.target);
     var recipeId = $target.closest('.recipe-container')[0].dataset.recipeid
     BigOvenGetRecipeJson(recipeId)
-
-  })
+  });
 
 });
