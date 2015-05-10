@@ -121,7 +121,7 @@ $(document).ready(function() {
     BigOvenRecipeSearchJson(data)
   });
 
-  $contentContainer.on('click', '.recipe-container', function(event) {
+  $('.container').on('click', '.recipe-container', function(event) {
     var $target = $(event.target);
     var recipeId = $target.closest('.recipe-container')[0].dataset.recipeid
     BigOvenGetRecipeJson(recipeId)
@@ -183,7 +183,6 @@ $(document).ready(function() {
       var indexTemplate = Mustache.render($('#logged-in').html()) ;
       $('.container').html(indexTemplate);
     })
-
   })
 
 });
