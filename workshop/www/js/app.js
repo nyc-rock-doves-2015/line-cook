@@ -30,6 +30,7 @@ function BigOvenGetRecipeJson(recipeId) {
     var template = $('#recipe-show').html();
     var output = Mustache.render(template, currentRecipe);
     $('.content-container').html(output);
+    $('span.stars').stars();
 
     var template = $('#ingredients-template').html();
     var output = Mustache.render(template, {ingredients: currentRecipe.ingredients});
@@ -147,23 +148,32 @@ function BigOvenRecipeSearchJson(query) {
     var template = $('#search-results').html();
     var output = Mustache.render(template, {recipes: recipes});
     $('.content-container').append(output);
+    $('span.stars').stars();
   })
 }
 
+$.fn.stars = function() {
+  return $(this).each(function() {
+    $(this).html($('<span />').width(Math.max(0, (Math.min(5, parseFloat($(this).html())))) * 16));
+  });
+}
+
 $(document).ready(function() {
+
+  var indexTemplate = Mustache.render($('#logged-out').html()) ;
+  $('.container').html(indexTemplate);
+
+  $('.container').on('submit', '#search-form', function(event) {
+    event.preventDefault();
+    var data = $('#search').val();
+    BigOvenRecipeSearchJson(data)
+  });
 
   $(document).on("deviceready", function() {
     Ears = cordova.plugins.OpenEars;
     Ears.startAudioSession();
 
-    var indexTemplate = Mustache.render($('#logged-out').html()) ;
-    $('.container').html(indexTemplate);
-
-    $('.container').on('submit', '#search-form', function(event) {
-      event.preventDefault();
-      var data = $('#search').val();
-      BigOvenRecipeSearchJson(data)
-    });
+    
 
     $('.container').on('click', '.recipe-container', function(event) {
       var $target = $(event.target);
