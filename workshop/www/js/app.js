@@ -136,7 +136,7 @@ $(document).ready(function() {
     event.preventDefault();
 
     var loginTemplate = Mustache.render($('#sign-up-template').html()) ;
-    $('.container').html(loginTemplate);
+    $('.content-container').html(loginTemplate);
     
   })
 
