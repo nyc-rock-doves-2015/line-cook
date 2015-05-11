@@ -216,6 +216,15 @@ $(document).ready(function() {
 
       //I cannot add this to as a then response to the deferred object
       var indexTemplate = Mustache.render($('#logged-out').html()) ;
+
+    $.ajax({
+      // dan's IP
+      url: "http://10.0.2.89:3000/signup",
+      type: "POST",
+      data: $target.serialize()
+    }).then(function(response) {
+      var indexTemplate = Mustache.render($('#logged-in').html()) ;
+
       $('.container').html(indexTemplate);
 
     })
@@ -249,6 +258,15 @@ $(document).ready(function() {
         var indexTemplate = Mustache.render($('#logged-in').html()) ;
         $('.container').html(indexTemplate);
       })
+
+    $.ajax({
+      //dan's IP
+      url: "http://10.0.2.89:3000/signin",
+      type: "POST",
+      data: $target.serialize()
+    }).then(function(response) {
+      var indexTemplate = Mustache.render($('#logged-in').html()) ;
+      $('.container').html(indexTemplate);
     })
   })
 
