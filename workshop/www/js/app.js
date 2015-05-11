@@ -171,11 +171,6 @@ $(document).ready(function() {
     var indexTemplate = Mustache.render($('#logged-out').html()) ;
     $('.container').html(indexTemplate);
 
-    var loginTemplate = Mustache.render($('#sign-up-template').html()) ;
-    $('.content-container').html(loginTemplate);
-
-  })
-
     $('.container').on('submit', '#search-form', function(event) {
       event.preventDefault();
       var data = $('#search').val();
@@ -188,11 +183,6 @@ $(document).ready(function() {
       BigOvenGetRecipeJson(recipeId)
     });
 
-    var loginTemplate = Mustache.render($('#sign-in-template').html()) ;
-    $('.container').html(loginTemplate);
-
-  })
-
     $('.container').on('click', '.signup-link', function(event) {
       event.preventDefault();
 
@@ -201,38 +191,13 @@ $(document).ready(function() {
 
     })
 
-    $('.container').on('click', '.signin-link', function(event) {
-      event.preventDefault();
-
-    window.localStorage.removeItem("sessionId");
-    var indexTemplate = Mustache.render($('#logged-out').html()) ;
-    $('.container').html(indexTemplate);
-
-      var loginTemplate = Mustache.render($('#sign-in-template').html()) ;
-      $('.container').html(loginTemplate);
-
-    })
-
     $('.container').on('click', '.signout-link', function(event) {
       event.preventDefault();
-
-      $.get("http://10.0.2.210:3000/signout")
-
-      //I cannot add this to as a then response to the deferred object
+      window.localStorage.removeItem("sessionId");
       var indexTemplate = Mustache.render($('#logged-out').html()) ;
-
-    $.ajax({
-      // dan's IP
-      url: "http://10.0.2.89:3000/signup",
-      type: "POST",
-      data: $target.serialize()
-    }).then(function(response) {
-      window.localStorage.setItem("sessionId", response.id);
-      var indexTemplate = Mustache.render($('#logged-in').html()) ;
-
       $('.container').html(indexTemplate);
+    });
 
-    })
 
     $('.container').on('submit', '.signup-form', function(event) {
       event.preventDefault();
@@ -240,15 +205,17 @@ $(document).ready(function() {
       $target = $(event.target)
 
       $.ajax({
-        url: "http://10.0.2.210:3000/signup",
+        // dan's IP
+        url: "http://10.0.2.89:3000/signup",
         type: "POST",
         data: $target.serialize()
       }).then(function(response) {
+        window.localStorage.setItem("sessionId", response.id);
         var indexTemplate = Mustache.render($('#logged-in').html()) ;
         $('.container').html(indexTemplate);
       })
 
-    })
+  })
 
     $('.container').on('submit', '.signin-form', function(event) {
       event.preventDefault();
@@ -256,24 +223,15 @@ $(document).ready(function() {
       $target = $(event.target)
 
       $.ajax({
-        url: "http://10.0.2.210:3000/signin",
+        //dan's IP
+        url: "http://10.0.2.89:3000/signin",
         type: "POST",
         data: $target.serialize()
       }).then(function(response) {
+        window.localStorage.setItem("sessionId", response.id);
         var indexTemplate = Mustache.render($('#logged-in').html()) ;
         $('.container').html(indexTemplate);
       })
-
-    $.ajax({
-      //dan's IP
-      url: "http://10.0.2.89:3000/signin",
-      type: "POST",
-      data: $target.serialize()
-    }).then(function(response) {
-      window.localStorage.setItem("sessionId", response.id);
-      var indexTemplate = Mustache.render($('#logged-in').html()) ;
-      $('.container').html(indexTemplate);
     })
-  })
 
 });
