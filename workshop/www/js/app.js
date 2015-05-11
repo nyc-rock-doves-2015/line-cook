@@ -168,6 +168,7 @@ $(document).ready(function() {
     Ears = cordova.plugins.OpenEars;
     Ears.startAudioSession();
 
+
     var indexTemplate = Mustache.render($('#logged-out').html()) ;
     $('.container').html(indexTemplate);
 
@@ -188,7 +189,6 @@ $(document).ready(function() {
 
       var loginTemplate = Mustache.render($('#sign-up-template').html());
       $('.content-container').html(loginTemplate);
-
     });
 
     $('.container').on('click', '.signout-link', function(event) {
@@ -201,7 +201,6 @@ $(document).ready(function() {
 
     $('.container').on('submit', '.signup-form', function(event) {
       event.preventDefault();
-
       $target = $(event.target)
 
       $.ajax({
@@ -218,9 +217,7 @@ $(document).ready(function() {
 
     $('.container').on('submit', '.signin-form', function(event) {
       event.preventDefault();
-
       $target = $(event.target)
-
       $.ajax({
         //dan's IP
         url: "http://10.0.2.89:3000/signin",
