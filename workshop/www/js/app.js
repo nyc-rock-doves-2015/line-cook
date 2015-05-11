@@ -163,7 +163,8 @@ $(document).ready(function() {
     $target = $(event.target)
 
     $.ajax({
-      url: "http://10.0.2.210:3000/signup",
+      // dan's IP
+      url: "http://10.0.2.89:3000/signup",
       type: "POST",
       data: $target.serialize()
     }).then(function(response) {
@@ -179,7 +180,8 @@ $(document).ready(function() {
     $target = $(event.target)
 
     $.ajax({
-      url: "http://10.0.2.210:3000/signin",
+      //dan's IP
+      url: "http://10.0.2.89:3000/signin",
       type: "POST",
       data: $target.serialize()
     }).then(function(response) {
