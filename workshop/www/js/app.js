@@ -137,7 +137,7 @@ $(document).ready(function() {
 
     var loginTemplate = Mustache.render($('#sign-up-template').html()) ;
     $('.content-container').html(loginTemplate);
-    
+
   })
 
   $('.container').on('click', '.signin-link', function(event) {
@@ -145,15 +145,13 @@ $(document).ready(function() {
 
     var loginTemplate = Mustache.render($('#sign-in-template').html()) ;
     $('.container').html(loginTemplate);
-    
+
   })
 
   $('.container').on('click', '.signout-link', function(event) {
     event.preventDefault();
 
-    $.get("http://10.0.2.210:3000/signout")
-
-    //I cannot add this to as a then response to the deferred object
+    window.localStorage.removeItem("sessionId");
     var indexTemplate = Mustache.render($('#logged-out').html()) ;
     $('.container').html(indexTemplate);
 
