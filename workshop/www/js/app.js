@@ -151,6 +151,7 @@ function BigOvenRecipeSearchJson(query) {
   }).then(function(recipes){
     var template = $('#search-results').html();
     var output = Mustache.render(template, {recipes: recipes});
+    window.sessionStorage.setItem("searchResults", output)
     $('.content-container').append(output);
     $('span.stars').stars();
   })
@@ -175,6 +176,7 @@ $(document).ready(function() {
     $('.container').on('submit', '#search-form', function(event) {
       event.preventDefault();
       var data = $('#search').val();
+      $('#search').val('');
       BigOvenRecipeSearchJson(data)
     });
 
@@ -190,6 +192,20 @@ $(document).ready(function() {
       var loginTemplate = Mustache.render($('#sign-up-template').html());
       $('.content-container').html(loginTemplate);
     });
+
+    $('.container').on('click', '.back-search-results', function(event) {
+      event.preventDefault();
+
+      $('.content-container').html(window.sessionStorage.getItem("searchResults"));
+      $('span.stars').stars();
+    })
+
+    $('.container').on('click', '.back-recipe', function(event) {
+      event.preventDefault();
+
+      $('.content-container').html(window.sessionStorage.getItem("recipeResult"));
+      $('span.stars').stars();
+    })
 
     $('.container').on('click', '.signout-link', function(event) {
       event.preventDefault();
