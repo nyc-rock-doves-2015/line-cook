@@ -36,7 +36,7 @@ function BigOvenGetRecipeJson(recipeId) {
     $('.content-container').on('click', '#cook', function(event) {
     var template = $('#instructions-template').html();
     var output = Mustache.render(template, {instructions: currentRecipe.instructions});
-    $('.container-fluid').html(output);
+    $('.content-container').html(output);
     });
     return data;
   }).then(function(data) {
