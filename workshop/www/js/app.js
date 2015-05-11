@@ -61,6 +61,13 @@ function BigOvenGetRecipeJson(recipeId) {
           instructionsIndex = 0;
           Ears.say(instructions[instructionsIndex]);
           instructionsIndex += 1;
+        } else if (detail.hypothesis == "REPEAT") {
+          instructionsIndex -= 1;
+          Ears.say(instructions[instructionsIndex]);
+          instructionsIndex += 1;
+        } else if (detail.hypothesis == "OFF") {
+          Ears.say("Why don't you love me?")
+          Ears.stopListening();
         }
       };
 
