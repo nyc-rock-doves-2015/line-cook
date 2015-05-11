@@ -33,48 +33,46 @@ function BigOvenGetRecipeJson(recipeId) {
 
     return instructions;
   }).then(function(data) {
-    $('.content-container').on('click', '#cook', function(event) {
-    var template = $('#instructions-template').html();
-    var output = Mustache.render(template, {instructions: currentRecipe.instructions});
-    $('.content-container').html(output);
-    });
-    return data;
-  }).then(function(data) {
+    $('.content-container').on('click', '#cook-button', function(event) {
+      var template = $('#instructions-template').html();
+      var output = Mustache.render(template, {instructions: currentRecipe.instructions});
+      $('.content-container').html(output);
 
-    var instructions = data;
-    var instructionsIndex = 0
+      var instructions = data;
+      var instructionsIndex = 0
 
-    var Ears = cordova.plugins.OpenEars;
-    Ears.startAudioSession();
-    var languages = {};
-    languages["commands"] = {};
-    languages["commands"].name = "commands";
-    languages["commands"].csv = "START,NEXT,REPEAT,OFF";
-    languages["commands"].paths = {};
-    Ears.generateLanguageModel(languages["commands"].name, languages["commands"].csv);
-    $(document).on("generateLanguageModel", function(evt) {
-      languages["commands"].paths = evt.originalEvent.detail;
-    });
+      var Ears = cordova.plugins.OpenEars;
+      Ears.startAudioSession();
+      var languages = {};
+      languages["commands"] = {};
+      languages["commands"].name = "commands";
+      languages["commands"].csv = "START,NEXT,REPEAT,OFF";
+      languages["commands"].paths = {};
+      Ears.generateLanguageModel(languages["commands"].name, languages["commands"].csv);
+      $(document).on("generateLanguageModel", function(evt) {
+        languages["commands"].paths = evt.originalEvent.detail;
+      });
 
-    var processHeard = function(detail) {
-      if (detail.hypothesis == "NEXT") {
-        Ears.say(instructions[instructionsIndex]);
-        instructionsIndex += 1;
-      } else if (detail.hypothesis == "START") {
-        instructionsIndex = 0;
-        Ears.say(instructions[instructionsIndex]);
-        instructionsIndex += 1;
-      }
-    };
+      var processHeard = function(detail) {
+        if (detail.hypothesis == "NEXT") {
+          Ears.say(instructions[instructionsIndex]);
+          instructionsIndex += 1;
+        } else if (detail.hypothesis == "START") {
+          instructionsIndex = 0;
+          Ears.say(instructions[instructionsIndex]);
+          instructionsIndex += 1;
+        }
+      };
 
-    $(document).on("receivedHypothesis", function(evt) {
-      detail = evt.originalEvent.detail;
-      processHeard(detail);
-    });
+      $(document).on("receivedHypothesis", function(evt) {
+        detail = evt.originalEvent.detail;
+        processHeard(detail);
+      });
 
-    $(document).on("finishedSpeaking", function(evt) {
-      if (instructionsIndex >= instructions.length) { Ears.stopListening(); }
-    });
+      $(document).on("finishedSpeaking", function(evt) {
+        if (instructionsIndex >= instructions.length) { Ears.stopListening(); }
+      });
+    })
   })
 }
 
