@@ -3,8 +3,16 @@
   width: 40%;
 }
 
+.content-container {
+  margin-bottom: 10%;
+}
+
 .signin-container {
   padding-top: 20px;
+}
+
+.signup-link {
+  margin-top: 8px;
 }
 
 .auth-form {
