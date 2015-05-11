@@ -20,3 +20,7 @@
   margin: 0 auto;
   width: 60%;
 }
+
+.container-fluid {
+  margin-top: 10%;
+}
