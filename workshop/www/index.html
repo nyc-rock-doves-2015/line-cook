@@ -38,7 +38,7 @@
         <div class="left" id="serving">{{yieldNumber}} {{yieldUnit}}</div>
         <div class="right" id="prep-time">{{prepTime}} Minutes</div>
         <h3>{{title}}</h3>
-        <li id="favorite-icon"><a class="nav-icon" href="#"><span class="glyphicon glyphicon-heart"></span></a></li>
+        <li id="favorite-icon"><a class="nav-icon" href="#"><span data-title="{{ title }}" data-big-oven-id="{{ id }}" class="glyphicon glyphicon-heart"></span></a></li>
       </div>
       <button type="button" id="cook-button">Start Cooking</button>
     </script>
