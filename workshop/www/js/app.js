@@ -167,6 +167,11 @@ $(document).ready(function() {
     var indexTemplate = Mustache.render($('#logged-out').html()) ;
     $('.container').html(indexTemplate);
 
+    var loginTemplate = Mustache.render($('#sign-up-template').html()) ;
+    $('.content-container').html(loginTemplate);
+
+  })
+
     $('.container').on('submit', '#search-form', function(event) {
       event.preventDefault();
       var data = $('#search').val();
@@ -179,20 +184,29 @@ $(document).ready(function() {
       BigOvenGetRecipeJson(recipeId)
     });
 
+    var loginTemplate = Mustache.render($('#sign-in-template').html()) ;
+    $('.container').html(loginTemplate);
+
+  })
+
     $('.container').on('click', '.signup-link', function(event) {
       event.preventDefault();
 
       var loginTemplate = Mustache.render($('#sign-up-template').html()) ;
       $('.content-container').html(loginTemplate);
-      
+
     })
 
     $('.container').on('click', '.signin-link', function(event) {
       event.preventDefault();
 
+    window.localStorage.removeItem("sessionId");
+    var indexTemplate = Mustache.render($('#logged-out').html()) ;
+    $('.container').html(indexTemplate);
+
       var loginTemplate = Mustache.render($('#sign-in-template').html()) ;
       $('.container').html(loginTemplate);
-      
+
     })
 
     $('.container').on('click', '.signout-link', function(event) {
