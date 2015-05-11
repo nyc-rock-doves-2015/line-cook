@@ -19,7 +19,8 @@ var Recipe = function(data){
   this.yieldNumber = data.YieldNumber;
   this.yieldUnit = data.YieldUnit;
   this.stars = data.StarRating;
-  this.imageUrl = data.ImageURL
+  this.imageUrl = data.ImageURL;
+  this.id = data.RecipeID
 }
 
 var Instruction = function(data){

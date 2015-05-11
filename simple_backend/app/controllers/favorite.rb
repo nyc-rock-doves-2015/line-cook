@@ -1,19 +1,18 @@
 post '/favorites' do
   content_type :json
-
-  big_oven_id = params[:bigOvenId].to_s
-  user_name = params[:userName]
-  recipe = Recipe.find_or_create_by(big_oven_id: big_oven_id)
-  user = User.find_or_create_by(name: user_name)
+  recipe = Recipe.find_or_create_by(title: params[:title],
+                                    big_oven_id: params[:bigOvenId].to_i
+                                    )
+  user = User.find(params[:userId])
 
   favorite = Favorite.new( user_id:   user.id,
                            recipe_id: recipe.id
                          )
 
   if favorite.save
-    return { status: "success" }.to_json
+    return { status: "Favorited!" }.to_json
   else
-    return { status: "fail" }.to_json
+    return { status: "Sorry, something went wrong." }.to_json
   end
 
 end
