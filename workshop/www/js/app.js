@@ -186,15 +186,15 @@ $(document).ready(function() {
     $('.container').on('click', '.signup-link', function(event) {
       event.preventDefault();
 
-      var loginTemplate = Mustache.render($('#sign-up-template').html()) ;
+      var loginTemplate = Mustache.render($('#sign-up-template').html());
       $('.content-container').html(loginTemplate);
 
-    })
+    });
 
     $('.container').on('click', '.signout-link', function(event) {
       event.preventDefault();
       window.localStorage.removeItem("sessionId");
-      var indexTemplate = Mustache.render($('#logged-out').html()) ;
+      var indexTemplate = Mustache.render($('#logged-out').html());
       $('.container').html(indexTemplate);
     });
 
@@ -213,9 +213,8 @@ $(document).ready(function() {
         window.localStorage.setItem("sessionId", response.id);
         var indexTemplate = Mustache.render($('#logged-in').html()) ;
         $('.container').html(indexTemplate);
-      })
-
-  })
+      });
+    });
 
     $('.container').on('submit', '.signin-form', function(event) {
       event.preventDefault();
@@ -231,7 +230,7 @@ $(document).ready(function() {
         window.localStorage.setItem("sessionId", response.id);
         var indexTemplate = Mustache.render($('#logged-in').html()) ;
         $('.container').html(indexTemplate);
-      })
-    })
-
+      });
+    });
+  });
 });
