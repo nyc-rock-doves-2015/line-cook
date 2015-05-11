@@ -21,7 +21,7 @@
       {{#recipes}}
       <div class="recipe-container" data-recipeId="{{id}}" style="background-image: url({{imageUrl}})">
         <h3>{{title}}</h3>
-        <p class="left">{{stars}}</p>
+        <p class="left"><span class="stars">{{stars}}</span></p>
         <p class="right">{{prepTime}}</p>
       </div>
       {{/recipes}}
@@ -31,10 +31,10 @@
     <script id="recipe-show" type="x-tmpl-mustache">
       <div class="recipe">
         <div id="recipe-pic" style="background-image: url({{imageUrl}})">
-          <p>{{stars}}</p>
+          <p><span class="stars">{{stars}}</span></p>
         </div>
         <div class="left" id="serving">{{yieldNumber}} {{yieldUnit}}</div>
-        <div class="right" id="prep-time">{{prepTime}}</div>
+        <div class="right" id="prep-time">{{prepTime}} Minutes</div>
         <h3>{{title}}</h3>
       </div>
       <button type="button" id="cook-button">Start Cooking</button>
