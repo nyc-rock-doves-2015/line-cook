@@ -146,8 +146,8 @@
     <!-- Sign Up Template -->
     <script id="sign-up-template" type="x-tmpl-mustache">
       <div id="signup-container">
-        <form class="signup-form">
-          <br><br><br><br>
+        <form class="signup-form auth-form">
+          <h2 class="text-center">Sign Up</h2>
           <div class="form-group">
             <input type="text" name="user[name]" class="form-control" placeholder="name">
           </div>
@@ -157,28 +157,23 @@
           <div class="form-group">
             <input type="password" name="user[password_confirmation]" class="form-control" placeholder="password confirmation">
           </div>
-          <br><br>
           <button type="submit" class="btn btn-default">Sign Up</button>
-          <br><br>
         </form>
-        <a href="index.html">Index</a>
       </div>
     </script>
 
     <!-- Sign In Template -->
     <script id="sign-in-template" type="x-tmpl-mustache">
       <div id="signin-container">
-        <form class="signin-form">
-          <br><br><br><br>
+        <form class="signin-form auth-form">
+        <h2 class="text-center">Sign In</h2>
           <div class="form-group">
             <input type="text" name="user[name]" class="form-control" placeholder="name">
           </div>
           <div class="form-group">
             <input type="password" name="user[password]" class="form-control" placeholder="password">
           </div>
-          <br><br>
-          <button type="submit" class="btn btn-default">Sign In</button>
-          <br><br>
+          <button type="submit" class="btn btn-primary">Sign In</button>
         </form>
       </div>
     </script>
