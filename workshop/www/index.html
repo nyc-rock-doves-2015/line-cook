@@ -16,6 +16,7 @@
     <script src="js/app.js"></script>
     <script src="js/favorites.js"></script>
     <script src="js/user.js"></script>
+    <script src="js/get_favorites.js"></script>
     <link rel="stylesheet" href="css/application.css">
     <link rel="stylesheet" href="css/home.css">
 
@@ -70,6 +71,7 @@
 
     <!-- Logged In Template -->
     <script id="logged-in" type="x-tmpl-mustache">
+<<<<<<< HEAD
       <nav class="navbar navbar-default">
         <div class="container-fluid">
           <div class="navbar-header">
@@ -102,6 +104,20 @@
           </form>
         </div>
       </nav>
+=======
+      <br><br><br><br>
+      <div class="auth-bar">
+        <a class="signout-link" href="#">Signout</a>
+        <a id="user-dashboard-link" href="#">Go to Dashboard</a>
+      </div>
+      <div class="search-container">
+        <form id="search-form">
+          <label for="search">Search: </label>
+          <input id="search" type="search" name="search-params">
+          <input type="submit" value="search">
+        </form>
+      </div>
+>>>>>>> e61e93b0f9be0c537041d68ac5c039c932c411dd
       <div class="content-container">
       </div>
     </script>
@@ -169,6 +185,17 @@
           </div>
           <button type="submit" class="btn btn-success">Sign Up</button>
         </form>
+      </div>
+    </script>
+
+    <!-- User Dashboard Template -->
+    <script id="user-dashboard-template" type="x-tmpl-mustache">
+      <div id="dashboard-container">
+        <h1>{{ name }}</h1>
+        <h2>favorites</h2>
+        {{ #favorites }}
+          <li>{{ id }}</li>
+        {{ /favorites }}
       </div>
     </script>
 
