@@ -3,6 +3,18 @@
   width: 40%;
 }
 
+.signin-container {
+  padding-top: 20px;
+}
+
+.auth-form {
+  padding: 10px;
+  background: #ccc;
+  border-radius: 2%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .right-inner-addon {
     position: relative;
 }
@@ -23,4 +35,24 @@
 
 .container-fluid {
   margin-top: 10%;
+}
+
+.nav>li>a {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.nav-pills>li {
+  height: 1px;
+}
+
+.nav-icons {
+  margin-top: 9px;
+  padding-bottom: 0px;
+  margin-bottom: 0px;
+}
+
+.navbar-form {
+  margin-top: 0px;
+  margin-bottom: 0px;
 }
