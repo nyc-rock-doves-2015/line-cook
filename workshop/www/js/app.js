@@ -28,6 +28,10 @@ function BigOvenGetRecipeJson(recipeId) {
     };
 
     var template = $('#recipe-show').html();
+    var userId = window.localStorage.getItem("sessionId")
+    if (userId) {
+      currentRecipe.userId = userId;
+    }
     var output = Mustache.render(template, currentRecipe);
     $('.content-container').html(output);
     $('span.stars').stars();
