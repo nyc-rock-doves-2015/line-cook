@@ -1,4 +1,12 @@
 function BigOvenGetRecipeJson(recipeId) {
+  $(document).off("receivedHypothesis")
+  $(document).off("finishedSpeaking")
+  $('.content-container').off('click', '#cook-button')
+  $('.content-container').off('click', '.backup-start')
+  $('.content-container').off('click', '.backup-next')
+  $('.content-container').off('click', '.backup-repeat')
+  $('.content-container').off('click', '.backup-off')
+
   var currentRecipe;
   var apiKey = "dvx7zJ0x53M8X5U4nOh6CMGpB3d0PEhH";
   var url = "https://api.bigoven.com/recipe/" + recipeId + "?api_key="+apiKey;
@@ -33,20 +41,45 @@ function BigOvenGetRecipeJson(recipeId) {
 
     return instructions;
   }).then(function(data) {
+
     $('.content-container').on('click', '#cook-button', function(event) {
       var template = $('#instructions-template').html();
       var output = Mustache.render(template, {instructions: currentRecipe.instructions});
       $('.content-container').html(output);
 
+      var template = $('#backup-buttons-template').html();
+      var output = Mustache.render(template);
+      $('.content-container').append(output);
+
       var instructions = data;
       var instructionsIndex = 0
 
-      var Ears = cordova.plugins.OpenEars;
-      Ears.startAudioSession();
+      $('.content-container').on('click', '.backup-start', function(event) {
+        instructionsIndex = 0;
+        Ears.say(instructions[instructionsIndex]);
+        instructionsIndex += 1;
+      })
+
+      $('.content-container').on('click', '.backup-next', function(event) {
+        Ears.say(instructions[instructionsIndex]);
+        instructionsIndex += 1;
+      })
+
+      $('.content-container').on('click', '.backup-repeat', function(event) {
+        instructionsIndex -= 1;
+        Ears.say(instructions[instructionsIndex]);
+        instructionsIndex += 1;
+      })
+
+      $('.content-container').on('click', '.backup-off', function(event) {
+        Ears.say("Why don't you love me?")
+        Ears.stopListening();
+      })
+
       var languages = {};
       languages["commands"] = {};
       languages["commands"].name = "commands";
-      languages["commands"].csv = "START,NEXT,REPEAT,OFF";
+      languages["commands"].csv = "START,NEXT,REPEAT,TURN OFF";
       languages["commands"].paths = {};
       Ears.generateLanguageModel(languages["commands"].name, languages["commands"].csv);
       $(document).on("generateLanguageModel", function(evt) {
@@ -65,7 +98,7 @@ function BigOvenGetRecipeJson(recipeId) {
           instructionsIndex -= 1;
           Ears.say(instructions[instructionsIndex]);
           instructionsIndex += 1;
-        } else if (detail.hypothesis == "OFF") {
+        } else if (detail.hypothesis == "TURN OFF") {
           Ears.say("Why don't you love me?")
           Ears.stopListening();
         }
@@ -79,12 +112,14 @@ function BigOvenGetRecipeJson(recipeId) {
       $(document).on("finishedSpeaking", function(evt) {
         if (instructionsIndex >= instructions.length) { Ears.stopListening(); }
       });
+
     })
   })
 }
 
 // BigOven recipe search
 function BigOvenRecipeSearchJson(query) {
+  $(document).off("receivedHypothesis")
   var allRecipes = [];
   var noImageLink = "http://redirect.bigoven.com/pics/recipe-no-image.jpg"
   var apiKey = "dvx7zJ0x53M8X5U4nOh6CMGpB3d0PEhH";
@@ -117,76 +152,81 @@ function BigOvenRecipeSearchJson(query) {
 
 $(document).ready(function() {
 
-  var indexTemplate = Mustache.render($('#logged-out').html()) ;
-  $('.container').html(indexTemplate);
+  $(document).on("deviceready", function() {
+    Ears = cordova.plugins.OpenEars;
+    Ears.startAudioSession();
 
-  $('.container').on('submit', '#search-form', function(event) {
-    event.preventDefault();
-    var data = $('#search').val();
-    BigOvenRecipeSearchJson(data)
-  });
-
-  $('.container').on('click', '.recipe-container', function(event) {
-    var $target = $(event.target);
-    var recipeId = $target.closest('.recipe-container')[0].dataset.recipeid
-    BigOvenGetRecipeJson(recipeId)
-  });
-
-  $('.container').on('click', '.signup-link', function(event) {
-    event.preventDefault();
-
-    var loginTemplate = Mustache.render($('#sign-up-template').html()) ;
-    $('.content-container').html(loginTemplate);
-    
-  })
-
-  $('.container').on('click', '.signin-link', function(event) {
-    event.preventDefault();
-
-    var loginTemplate = Mustache.render($('#sign-in-template').html()) ;
-    $('.container').html(loginTemplate);
-    
-  })
-
-  $('.container').on('click', '.signout-link', function(event) {
-    event.preventDefault();
-
-    $.get("http://10.0.2.210:3000/signout")
-
-    //I cannot add this to as a then response to the deferred object
     var indexTemplate = Mustache.render($('#logged-out').html()) ;
     $('.container').html(indexTemplate);
 
-  })
+    $('.container').on('submit', '#search-form', function(event) {
+      event.preventDefault();
+      var data = $('#search').val();
+      BigOvenRecipeSearchJson(data)
+    });
 
-  $('.container').on('submit', '.signup-form', function(event) {
-    event.preventDefault();
+    $('.container').on('click', '.recipe-container', function(event) {
+      var $target = $(event.target);
+      var recipeId = $target.closest('.recipe-container')[0].dataset.recipeid
+      BigOvenGetRecipeJson(recipeId)
+    });
 
-    $target = $(event.target)
+    $('.container').on('click', '.signup-link', function(event) {
+      event.preventDefault();
 
-    $.ajax({
-      url: "http://10.0.2.210:3000/signup",
-      type: "POST",
-      data: $target.serialize()
-    }).then(function(response) {
-      var indexTemplate = Mustache.render($('#logged-in').html()) ;
-      $('.container').html(indexTemplate);
+      var loginTemplate = Mustache.render($('#sign-up-template').html()) ;
+      $('.content-container').html(loginTemplate);
+      
     })
 
-  })
+    $('.container').on('click', '.signin-link', function(event) {
+      event.preventDefault();
 
-  $('.container').on('submit', '.signin-form', function(event) {
-    event.preventDefault();
+      var loginTemplate = Mustache.render($('#sign-in-template').html()) ;
+      $('.container').html(loginTemplate);
+      
+    })
 
-    $target = $(event.target)
+    $('.container').on('click', '.signout-link', function(event) {
+      event.preventDefault();
 
-    $.ajax({
-      url: "http://10.0.2.210:3000/signin",
-      type: "POST",
-      data: $target.serialize()
-    }).then(function(response) {
-      var indexTemplate = Mustache.render($('#logged-in').html()) ;
+      $.get("http://10.0.2.210:3000/signout")
+
+      //I cannot add this to as a then response to the deferred object
+      var indexTemplate = Mustache.render($('#logged-out').html()) ;
       $('.container').html(indexTemplate);
+
+    })
+
+    $('.container').on('submit', '.signup-form', function(event) {
+      event.preventDefault();
+
+      $target = $(event.target)
+
+      $.ajax({
+        url: "http://10.0.2.210:3000/signup",
+        type: "POST",
+        data: $target.serialize()
+      }).then(function(response) {
+        var indexTemplate = Mustache.render($('#logged-in').html()) ;
+        $('.container').html(indexTemplate);
+      })
+
+    })
+
+    $('.container').on('submit', '.signin-form', function(event) {
+      event.preventDefault();
+
+      $target = $(event.target)
+
+      $.ajax({
+        url: "http://10.0.2.210:3000/signin",
+        type: "POST",
+        data: $target.serialize()
+      }).then(function(response) {
+        var indexTemplate = Mustache.render($('#logged-in').html()) ;
+        $('.container').html(indexTemplate);
+      })
     })
   })
 
