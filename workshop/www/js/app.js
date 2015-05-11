@@ -38,8 +38,34 @@ function BigOvenGetRecipeJson(recipeId) {
       var output = Mustache.render(template, {instructions: currentRecipe.instructions});
       $('.content-container').html(output);
 
+      var template = $('#backup-buttons-template').html();
+      var output = Mustache.render(template);
+      $('.content-container').append(output);
+
       var instructions = data;
       var instructionsIndex = 0
+
+      $('.content-container').on('click', '.backup-start', function(event) {
+        instructionsIndex = 0;
+        Ears.say(instructions[instructionsIndex]);
+        instructionsIndex += 1;
+      })
+
+      $('.content-container').on('click', '.backup-next', function(event) {
+        Ears.say(instructions[instructionsIndex]);
+        instructionsIndex += 1;
+      })
+
+      $('.content-container').on('click', '.backup-repeat', function(event) {
+        instructionsIndex -= 1;
+        Ears.say(instructions[instructionsIndex]);
+        instructionsIndex += 1;
+      })
+
+      $('.content-container').on('click', '.backup-off', function(event) {
+        Ears.say("Why don't you love me?")
+        Ears.stopListening();
+      })
 
       var Ears = cordova.plugins.OpenEars;
       Ears.startAudioSession();
