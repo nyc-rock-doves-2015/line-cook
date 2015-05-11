@@ -25,18 +25,18 @@ function BigOvenGetRecipeJson(recipeId) {
 
     var template = $('#ingredients-template').html();
     var output = Mustache.render(template, {ingredients: currentRecipe.ingredients});
-    $('#ingredients').append(output);
+    $('.recipe').append(output);
 
     var template = $('#instructions-template').html();
     var output = Mustache.render(template, {instructions: currentRecipe.instructions});
-    $('#instructions').append(output);
+    $('.recipe').append(output);
 
     return instructions;
   }).then(function(data) {
     $('.content-container').on('click', '#cook', function(event) {
     var template = $('#instructions-template').html();
     var output = Mustache.render(template, {instructions: currentRecipe.instructions});
-    $('.container-fluid').html(output);
+    $('.content-container').html(output);
     });
     return data;
   }).then(function(data) {

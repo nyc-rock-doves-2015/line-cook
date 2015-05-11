@@ -36,38 +36,59 @@
         <div class="left" id="serving">{{yieldNumber}} {{yieldUnit}}</div>
         <div class="right" id="prep-time">{{prepTime}}</div>
         <h3>{{title}}</h3>
-        <ul id="ingredients"></ul>
-        <ol id="instructions"></ol>
       </div>
       <button type="button" id="cook">Start Cooking</button>
     </script>
 
     <!-- Ingredients Template -->
     <script id="ingredients-template" type="x-tmpl-mustache">
-      {{#ingredients}}
-      <li>{{quantity}} {{unit}} {{name}}</li>
-      {{/ingredients}}
+      <div class="panel panel-default">
+        <div class="panel-heading">Ingredients</div>
+          <div class="panel-body">
+            <ul id="ingredients">
+              {{#ingredients}}
+              <li>{{quantity}} {{unit}} {{name}}</li>
+              {{/ingredients}}
+            </ul>
+          </div>
+        </div>
+      </div>
     </script>
 
     <!-- Instructions Template -->
     <script id="instructions-template" type="x-tmpl-mustache">
-      {{#instructions}}
-      <li>{{content}}</li>
-      {{/instructions}}
+      <ol class="list-group" id="instructions">
+        {{#instructions}}
+        <li class="list-group-item">{{content}}</li>
+        {{/instructions}}
+      </ol>
     </script>
 
     <!-- Logged In Template -->
     <script id="logged-in" type="x-tmpl-mustache">
+      <div class="container-fluid">
+        <nav>
+          <ul class="nav nav-pills nav-inverse">
+            <li><a href="#"><span class="glyphicon glyphicon-home"></span></a></li>
+            <li><a href="#"><span class="glyphicon glyphicon-user"></span></a></li>
+            <li><a href="#"><span class="glyphicon glyphicon-heart"></span></a></li>
+
+            <li>
+              <form id="search-form" role="search">
+                <div class="form-group">
+                  <input id="search" type="text" class="form-control" placeholder="Search">
+                  <button type="submit" class="btn btn-info">
+                    <span class="glyphicon glyphicon-search"></span>
+                  </button>
+                </div>
+              </form>
+            </li>
+          </ul>
+        </nav>
+      </div>
       <br><br><br><br>
       <div class="auth-bar">
         <a class="signout-link" href="#">Signout</a>
-      </div>
-      <div class="search-container">
-        <form id="search-form">
-          <label for="search">Search: </label>
-          <input id="search" type="search" name="search-params">
-          <input type="submit" value="search">
-        </form>
       </div>
       <div class="content-container">
       </div>
@@ -75,16 +96,29 @@
 
     <!-- Logged Out Template -->
     <script id="logged-out" type="x-tmpl-mustache">
-      <br><br><br><br>
+      <div class="container-fluid">
+        <nav>
+          <ul class="nav nav-pills nav-inverse">
+            <li><a href="#"><span class="glyphicon glyphicon-home"></span></a></li>
+            <li><a href="#"><span class="glyphicon glyphicon-user"></span></a></li>
+            <li><a href="#"><span class="glyphicon glyphicon-heart"></span></a></li>
+
+            <li>
+              <form id="search-form" role="search">
+                <div class="form-group">
+                  <input id="search" type="text" class="form-control" placeholder="Search">
+                  <button type="submit" class="btn btn-info">
+                    <span class="glyphicon glyphicon-search"></span>
+                  </button>
+                </div>
+              </form>
+            </li>
+          </ul>
+        </nav>
+      </div>
       <div class="auth-bar">
         <a class="signin-link" href="#">Signin</a>
         <a class="signup-link" href="#">Signup</a>
-      </div>
-      <div class="search-container">
-        <form id="search-form">
-          <input id="search" class="form-control" type="search" name="search-params" placeholder="Search">
-          <input type="submit" value="search">
-        </form>
       </div>
       <div class="content-container">
       </div>
