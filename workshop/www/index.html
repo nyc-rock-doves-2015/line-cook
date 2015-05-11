@@ -36,24 +36,32 @@
         <div class="left" id="serving">{{yieldNumber}} {{yieldUnit}}</div>
         <div class="right" id="prep-time">{{prepTime}}</div>
         <h3>{{title}}</h3>
-        <ul id="ingredients"></ul>
-        <ol id="instructions"></ol>
       </div>
       <button type="button" id="cook">Start Cooking</button>
     </script>
 
     <!-- Ingredients Template -->
     <script id="ingredients-template" type="x-tmpl-mustache">
-      {{#ingredients}}
-      <li>{{quantity}} {{unit}} {{name}}</li>
-      {{/ingredients}}
+      <div class="panel panel-default">
+        <div class="panel-heading">Ingredients</div>
+          <div class="panel-body">
+            <ul id="ingredients">
+              {{#ingredients}}
+              <li>{{quantity}} {{unit}} {{name}}</li>
+              {{/ingredients}}
+            </ul>
+          </div>
+        </div>
+      </div>
     </script>
 
     <!-- Instructions Template -->
     <script id="instructions-template" type="x-tmpl-mustache">
-      {{#instructions}}
-      <li>{{content}}</li>
-      {{/instructions}}
+      <ol class="list-group" id="instructions">
+        {{#instructions}}
+        <li class="list-group-item">{{content}}</li>
+        {{/instructions}}
+      </ol>
     </script>
 
     <!-- Logged In Template -->
