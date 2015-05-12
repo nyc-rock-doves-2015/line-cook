@@ -79,3 +79,11 @@ span.stars span {
 .back-button {
   margin-bottom: 10px;
 }
+
+#favorite-icon {
+  list-style-type: none;
+}
+
+/*.glyphicon-heart {
+
+}*/
