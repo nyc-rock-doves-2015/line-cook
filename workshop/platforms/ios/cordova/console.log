@@ -609,3 +609,53 @@ To disable web storage backup to iCloud, set the BackupWebStorage preference to 
 
 2015-05-10 18:23:33.789 Workshop[37044:4647074] Resetting plugins due to page load.
 2015-05-10 18:23:33.901 Workshop[37044:4647074] Finished load of: file:///Users/bkmorimoto/Library/Developer/CoreSimulator/Devices/067076A3-92FE-472D-89B3-3E714A2EB2AE/data/Containers/Bundle/Application/12D27425-4D5E-4702-925C-69A42DF08099/Workshop.app/www/index.html
+2015-05-11 14:10:23.628 Workshop[1665:55918] DiskCookieStorage changing policy from 2 to 0, cookie file: file:///Users/groot/Library/Developer/CoreSimulator/Devices/7AE774DE-3636-4F52-AA23-1DDAC55E94FA/data/Containers/Data/Application/EC219501-AA59-456B-B4D6-F775F68AAAA3/Library/Cookies/Cookies.binarycookies
+2015-05-11 14:10:24.541 Workshop[1665:55918] Apache Cordova native platform version 3.8.0 is starting.
+2015-05-11 14:10:24.542 Workshop[1665:55918] Multi-tasking -> Device: YES, App: YES
+2015-05-11 14:10:24.589 Workshop[1665:55918] Unlimited access to network resources
+2015-05-11 14:10:24.613 Workshop[1665:55918] 
+
+Started backup to iCloud! Please be careful.
+Your application might be rejected by Apple if you store too much data.
+For more information please read "iOS Data Storage Guidelines" at:
+https://developer.apple.com/icloud/documentation/data-storage/
+To disable web storage backup to iCloud, set the BackupWebStorage preference to "local" in the Cordova config.xml file
+
+2015-05-11 14:10:26.152 Workshop[1665:55918] Resetting plugins due to page load.
+2015-05-11 14:10:26.517 Workshop[1665:55918] Finished load of: file:///Users/groot/Library/Developer/CoreSimulator/Devices/7AE774DE-3636-4F52-AA23-1DDAC55E94FA/data/Containers/Bundle/Application/98AF054A-00F7-4FD6-952B-EF0D4B72ED73/Workshop.app/www/index.html
+
+2015-05-11 14:11:52.405 Workshop[1665:55918] ***Starting with new lm.
+2015-05-11 14:11:52.989 Workshop[1665:55918] THREAD WARNING: ['OpenEars'] took '684.896973' ms. Plugin should use a background thread.
+2015-05-11 14:11:52.990 Workshop[1665:55918] Pocketsphinx did start listening
+2015-05-11 14:11:54.183 Workshop[1665:55918] Pockesphinx did detect speech
+2015-05-11 14:11:55.566 Workshop[1665:55918] Pocketsphinx did detect finished speech
+2015-05-11 14:11:55.588 Workshop[1665:55918] Pocketsphinx received a hypothesis is START with a score of -81 and an ID of 0
+2015-05-11 14:11:55.589 Workshop[1665:55918] fliteControllerSay: NOTE:
+2015-05-11 14:11:55.648 Workshop[1665:55918] THREAD WARNING: ['OpenEars'] took '58.808838' ms. Plugin should use a background thread.
+2015-05-11 14:11:55.648 Workshop[1665:55918] Flite has started speaking
+2015-05-11 14:11:55.649 Workshop[1665:55918] Pockesphinx did suspend recognition
+2015-05-11 14:11:57.083 Workshop[1665:55918] Flite has finished speaking
+2015-05-11 14:11:57.084 Workshop[1665:55918] Pockesphinx did resume recognition
+2015-05-11 14:11:57.217 Workshop[1665:55918] Pockesphinx did detect speech
+2015-05-11 14:12:05.408 Workshop[1665:55918] Pocketsphinx did detect finished speech
+2015-05-11 14:12:05.557 Workshop[1665:55918] Pocketsphinx received a hypothesis is OFF with a score of -1376 and an ID of 1
+2015-05-11 14:12:05.558 Workshop[1665:55918] fliteControllerSay: Why don't you love me?
+2015-05-11 14:12:05.583 Workshop[1665:55918] THREAD WARNING: ['OpenEars'] took '24.676270' ms. Plugin should use a background thread.
+2015-05-11 14:12:05.652 Workshop[1665:55918] THREAD WARNING: ['OpenEars'] took '69.270020' ms. Plugin should use a background thread.
+2015-05-11 14:12:05.653 Workshop[1665:55918] Flite has started speaking
+2015-05-11 14:12:05.653 Workshop[1665:55918] Pocketsphinx did stop listening
+2015-05-11 14:12:07.756 Workshop[1665:55918] Flite has finished speaking
+2015-05-11 14:42:07.180 Workshop[1818:74363] DiskCookieStorage changing policy from 2 to 0, cookie file: file:///Users/groot/Library/Developer/CoreSimulator/Devices/7AE774DE-3636-4F52-AA23-1DDAC55E94FA/data/Containers/Data/Application/E179B462-3EC3-43A1-B2E8-64C8AFE50092/Library/Cookies/Cookies.binarycookies
+2015-05-11 14:42:07.470 Workshop[1818:74363] Apache Cordova native platform version 3.8.0 is starting.
+2015-05-11 14:42:07.470 Workshop[1818:74363] Multi-tasking -> Device: YES, App: YES
+2015-05-11 14:42:07.475 Workshop[1818:74363] Unlimited access to network resources
+2015-05-11 14:42:07.481 Workshop[1818:74363] 
+
+Started backup to iCloud! Please be careful.
+Your application might be rejected by Apple if you store too much data.
+For more information please read "iOS Data Storage Guidelines" at:
+https://developer.apple.com/icloud/documentation/data-storage/
+To disable web storage backup to iCloud, set the BackupWebStorage preference to "local" in the Cordova config.xml file
+
+2015-05-11 14:42:08.226 Workshop[1818:74363] Resetting plugins due to page load.
+2015-05-11 14:42:08.676 Workshop[1818:74363] Finished load of: file:///Users/groot/Library/Developer/CoreSimulator/Devices/7AE774DE-3636-4F52-AA23-1DDAC55E94FA/data/Containers/Bundle/Application/E6561885-6810-4019-861F-D91AF592514D/Workshop.app/www/index.html
