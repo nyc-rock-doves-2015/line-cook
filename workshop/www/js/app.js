@@ -211,6 +211,7 @@ $(document).ready(function() {
         var output = Mustache.render(template);
       }
       $('.container').html(output);
+      $('body').css("background-color", "#FFF")
       
       BigOvenRecipeSearchJson(data)
     });
@@ -255,6 +256,7 @@ $(document).ready(function() {
 
     $('.container').on('click', '.home-glyph', function(event) {
       event.preventDefault();
+      $('body').css("background-color", "#A2DAE2")
       
       if (window.localStorage.getItem("sessionId")) {
         var indexTemplate = Mustache.render($('#home-page-logged-in').html());
@@ -267,8 +269,8 @@ $(document).ready(function() {
 
     $('.container').on('submit', '.signup-form', function(event) {
       event.preventDefault();
-      $target = $(event.target)
 
+      $target = $(event.target)
       $.ajax({
         // dan's IP
         url: "http://10.0.2.89:3000/signup",
@@ -283,6 +285,7 @@ $(document).ready(function() {
 
     $('.container').on('submit', '.signin-form', function(event) {
       event.preventDefault();
+
       $target = $(event.target)
       $.ajax({
         //dan's IP
@@ -293,6 +296,7 @@ $(document).ready(function() {
         window.localStorage.setItem("sessionId", response.id);
         var indexTemplate = Mustache.render($('#logged-in').html()) ;
         $('.container').html(indexTemplate);
+        $('body').css("background-color", "#FFF")
       });
     });
   });
