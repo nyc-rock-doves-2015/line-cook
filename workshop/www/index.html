@@ -206,7 +206,7 @@
     <!-- User Dashboard Template -->
     <script id="user-dashboard-template" type="x-tmpl-mustache">
       <div id="dashboard-container" class="list-group">
-        <h2 class="list-group-heading">favorites</h2>
+        <h2 class="list-group-heading">{{ name }}&#39s favorites</h2>
         {{ #favorites }}
           <li class="list-group-item recipe-container" data-recipeId="{{bigOvenId}}">{{ title }}</li>
         {{ /favorites }}
