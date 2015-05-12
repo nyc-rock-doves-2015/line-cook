@@ -15,14 +15,6 @@ body {
   margin-top: 8px;
 }
 
-.auth-form {
-  padding: 10px;
-  background: #ccc;
-  border-radius: 2%;
-  margin-left: auto;
-  margin-right: auto;
-}
-
 .right-inner-addon {
     position: relative;
 }

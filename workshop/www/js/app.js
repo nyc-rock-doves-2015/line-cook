@@ -186,20 +186,20 @@ $.fn.stars = function() {
 
 $(document).ready(function() {
 
+  if (window.localStorage.getItem("sessionId")) {
+    var indexTemplate = Mustache.render($('#home-page-logged-in').html());
+  } else {
+    var indexTemplate = Mustache.render($('#home-page-logged-out').html());
+  }
+  $('.container').html(indexTemplate);
+
   $(document).on("deviceready", function() {
     Ears = cordova.plugins.OpenEars;
     Ears.startAudioSession();
-
-    if (window.localStorage.getItem("sessionId")) {
-      var indexTemplate = Mustache.render($('#home-page-logged-in').html());
-    } else {
-      var indexTemplate = Mustache.render($('#home-page-logged-out').html());
-    }
-    $('.container').html(indexTemplate);
-    $('body').css("background-color", "#59BBC8");
-
+    
     $('.container').on('submit', '#search-form', function(event) {
       event.preventDefault();
+
       var data = $('#search').val();
       $('#search').val('');
 
@@ -226,6 +226,7 @@ $(document).ready(function() {
       event.preventDefault();
 
       var loginTemplate = Mustache.render($('#sign-up-template').html());
+      $('.navbar-collapse').collapse('toggle')
       $('.content-container').html(loginTemplate);
     });
 
@@ -250,8 +251,9 @@ $(document).ready(function() {
     $('.container').on('click', '.signout-link', function(event) {
       event.preventDefault();
       window.localStorage.removeItem("sessionId");
-      var indexTemplate = Mustache.render($('#logged-out').html());
+      var indexTemplate = Mustache.render($('#home-page-logged-out').html());
       $('.container').html(indexTemplate);
+      $('body').css("background-color", "#A2DAE2")
     });
 
     $('.container').on('click', '.home-glyph', function(event) {
@@ -272,14 +274,15 @@ $(document).ready(function() {
 
       $target = $(event.target)
       $.ajax({
-        // dan's IP
-        url: "http://10.0.2.89:3000/signup",
+        // ben's IP
+        url: "http://10.0.2.210:3000/signup",
         type: "POST",
         data: $target.serialize()
       }).then(function(response) {
         window.localStorage.setItem("sessionId", response.id);
         var indexTemplate = Mustache.render($('#logged-in').html()) ;
         $('.container').html(indexTemplate);
+        $('body').css("background-color", "#FFF")
       });
     });
 
@@ -288,8 +291,8 @@ $(document).ready(function() {
 
       $target = $(event.target)
       $.ajax({
-        //dan's IP
-        url: "http://10.0.2.89:3000/signin",
+        //ben's IP
+        url: "http://10.0.2.210:3000/signin",
         type: "POST",
         data: $target.serialize()
       }).then(function(response) {
