@@ -206,7 +206,9 @@
       <div id="dashboard-container" class="list-group">
         <h2 class="list-group-heading">{{ name }}&#39s favorites</h2>
         {{ #favorites }}
-          <li class="list-group-item recipe-container" data-recipeId="{{bigOvenId}}">{{ title }}</li>
+          <li class="list-group-item recipe-container" data-recipeId="{{bigOvenId}}">{{ title }}
+          <img class="broken-heart" src="img/heart-broken.png"></img>
+          </li>
         {{ /favorites }}
       </div>
     </script>
