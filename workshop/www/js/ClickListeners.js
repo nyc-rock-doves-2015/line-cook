@@ -23,3 +23,14 @@ var goBackSearchResultsEvent = function() {
     window.scrollTo(0, 0);
   });
 };
+
+var goBackRecipeEvent = function() {
+  $('.container').on('click', '.back-recipe', function(event) {
+    event.preventDefault();
+    $('.content-container').html(window.sessionStorage.getItem("recipeResult"));
+    $('span.stars').stars();
+    Ears.stopListening();
+    clearBinds();
+    window.scrollTo(0, 0);
+  });
+};
