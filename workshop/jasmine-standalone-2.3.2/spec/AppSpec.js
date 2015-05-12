@@ -9,11 +9,6 @@ describe("Splash Page", function() {
     it('should have a div with container class', function() {
       expect(document.getElementsByClassName('container')[0]).toBeInDOM();
     });
-
-    it('should have a div with container class', function() {
-      expect(document.getElementsByClassName('container')[0]).toBeInDOM();
-    });
-
   });
 });
 
