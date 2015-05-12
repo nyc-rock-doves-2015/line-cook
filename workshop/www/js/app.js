@@ -39,6 +39,7 @@ function BigOvenGetRecipeJson(recipeId) {
     var output = Mustache.render(template, {instructions: currentRecipe.instructions});
     $('.recipe').append(output);
 
+    window.scrollTo(0, 0);
     window.sessionStorage.setItem("recipeResult", $('.content-container').html());
 
     return instructions;
@@ -57,6 +58,8 @@ function BigOvenGetRecipeJson(recipeId) {
       var template = $('#backup-buttons-template').html();
       var output = Mustache.render(template);
       $('.content-container').append(output);
+
+      window.scrollTo(0, 0);
 
       var instructions = data;
       var instructionsIndex = 0;
@@ -215,6 +218,7 @@ $(document).ready(function() {
 
       $('.content-container').html(window.sessionStorage.getItem("searchResults"));
       $('span.stars').stars();
+      window.scrollTo(0, 0);
     })
 
     $('.container').on('click', '.back-recipe', function(event) {
@@ -224,6 +228,7 @@ $(document).ready(function() {
       $('span.stars').stars();
       Ears.stopListening();
       clearBinds();
+      window.scrollTo(0, 0);
     })
 
     $('.container').on('click', '.signout-link', function(event) {
