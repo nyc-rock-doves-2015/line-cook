@@ -186,25 +186,24 @@ $.fn.stars = function() {
 
 $(document).ready(function() {
 
-  var sessionInfo = window.localStorage.getItem("sessionId")
-
   $(document).on("deviceready", function() {
     Ears = cordova.plugins.OpenEars;
     Ears.startAudioSession();
 
-    if (sessionInfo) {
+    if (window.localStorage.getItem("sessionId")) {
       var indexTemplate = Mustache.render($('#home-page-logged-in').html());
     } else {
       var indexTemplate = Mustache.render($('#home-page-logged-out').html());
     }
     $('.container').html(indexTemplate);
+    $('body').css("background-color", "#59BBC8");
 
     $('.container').on('submit', '#search-form', function(event) {
       event.preventDefault();
       var data = $('#search').val();
       $('#search').val('');
 
-      if (sessionInfo) {
+      if (window.localStorage.getItem("sessionId")) {
         var template = $('#logged-in').html();
         var output = Mustache.render(template);
       } else {
@@ -257,7 +256,7 @@ $(document).ready(function() {
     $('.container').on('click', '.home-glyph', function(event) {
       event.preventDefault();
       
-      if (sessionInfo) {
+      if (window.localStorage.getItem("sessionId")) {
         var indexTemplate = Mustache.render($('#home-page-logged-in').html());
       } else {
         var indexTemplate = Mustache.render($('#home-page-logged-out').html());

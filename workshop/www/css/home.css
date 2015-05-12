@@ -95,14 +95,14 @@ span.glyphicon-heart {
 }
 
 .splash-title {
-  font-size: 25pt;
+  font-size: 24pt;
   color: #425961;
   vertical-align: bottom;
 }
 
 #chefs-hat {
-  height: 55px;
-  width: 55px;
+  height: 42px;
+  width: 42px;
   vertical-align: bottom;
 }
 
@@ -113,3 +113,9 @@ span.glyphicon-heart {
 .bottom-aligned-text {
   vertical-align: bottom;
 }
+
+.splash-login {
+  margin-top: 0;
+  margin-right: 0;
+}
+
