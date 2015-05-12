@@ -1,5 +1,5 @@
-get '/users/:id' do |id|
-  @user = User.find(id)
+get '/dashboard' do
   content_type :json
-  return { status: "success", id: user.id, name: user.name }.to_json
+  user = User.find(params[:userId])
+  return { dashboardInfo: user.favorite_recipes }.to_json
 end
