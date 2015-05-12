@@ -14,3 +14,12 @@ var getSignUpFormEvent = function(){
     $('.content-container').html(loginTemplate);
   });
 };
+
+var goBackSearchResultsEvent = function() {
+  $('.container').on('click', '.back-search-results', function(event) {
+    event.preventDefault();
+    $('.content-container').html(window.sessionStorage.getItem("searchResults"));
+    $('span.stars').stars();
+    window.scrollTo(0, 0);
+  });
+};
