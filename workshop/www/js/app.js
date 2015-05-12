@@ -210,5 +210,7 @@ $(document).ready(function() {
 
     signInEvent(serverUrl);
 
+    getUserProfileEvent(serverUrl);
+
   });
 });
