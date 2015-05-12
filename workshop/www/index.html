@@ -193,10 +193,10 @@
 
     <!-- User Dashboard Template -->
     <script id="user-dashboard-template" type="x-tmpl-mustache">
-      <div id="dashboard-container">
-        <h2>favorites</h2>
+      <div id="dashboard-container" class="list-group">
+        <h2 class="list-group-heading">favorites</h2>
         {{ #favorites }}
-          <li>{{ title }}</li>
+          <li class="list-group-item recipe-container" data-recipeId="{{bigOvenId}}">{{ title }}</li>
         {{ /favorites }}
       </div>
     </script>
