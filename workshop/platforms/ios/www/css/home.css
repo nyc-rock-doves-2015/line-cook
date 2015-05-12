@@ -1,0 +1,26 @@
+#login-container {
+  margin: 0 auto;
+  width: 40%;
+}
+
+.right-inner-addon {
+    position: relative;
+}
+.right-inner-addon input {
+    padding-right: 30px;
+}
+.right-inner-addon i {
+    position: absolute;
+    right: 0px;
+    padding: 10px 12px;
+    pointer-events: none;
+}
+
+.search-container {
+  margin: 0 auto;
+  width: 60%;
+}
+
+.container-fluid {
+  margin-top: 10%;
+}
