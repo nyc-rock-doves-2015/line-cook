@@ -1,11 +1,6 @@
 function BigOvenGetRecipeJson(recipeId) {
-  $(document).off("receivedHypothesis")
-  $(document).off("finishedSpeaking")
-  $('.content-container').off('click', '#cook-button')
-  $('.content-container').off('click', '.backup-start')
-  $('.content-container').off('click', '.backup-next')
-  $('.content-container').off('click', '.backup-repeat')
-  $('.content-container').off('click', '.backup-off')
+  clearBinds();
+  $('.content-container').off('click', '#cook-button');
 
   var currentRecipe;
   var apiKey = "dvx7zJ0x53M8X5U4nOh6CMGpB3d0PEhH";
@@ -64,9 +59,14 @@ function BigOvenGetRecipeJson(recipeId) {
       $('.content-container').append(output);
 
       var instructions = data;
-      var instructionsIndex = 0
+      var instructionsIndex = 0;
+
+      Ears.stopListening();
+      Ears.resumeListening();
 
       $('.content-container').on('click', '.backup-start', function(event) {
+        Ears.stopListening();
+        Ears.resumeListening();
         instructionsIndex = 0;
         Ears.say(instructions[instructionsIndex]);
         instructionsIndex += 1;
@@ -91,7 +91,7 @@ function BigOvenGetRecipeJson(recipeId) {
       var languages = {};
       languages["commands"] = {};
       languages["commands"].name = "commands";
-      languages["commands"].csv = "START,NEXT,REPEAT,TURN OFF";
+      languages["commands"].csv = "START,NEXT,REPEAT,QUIT";
       languages["commands"].paths = {};
       Ears.generateLanguageModel(languages["commands"].name, languages["commands"].csv);
       $(document).on("generateLanguageModel", function(evt) {
@@ -103,6 +103,8 @@ function BigOvenGetRecipeJson(recipeId) {
           Ears.say(instructions[instructionsIndex]);
           instructionsIndex += 1;
         } else if (detail.hypothesis == "START") {
+          Ears.stopListening();
+          Ears.resumeListening();
           instructionsIndex = 0;
           Ears.say(instructions[instructionsIndex]);
           instructionsIndex += 1;
@@ -110,7 +112,7 @@ function BigOvenGetRecipeJson(recipeId) {
           instructionsIndex -= 1;
           Ears.say(instructions[instructionsIndex]);
           instructionsIndex += 1;
-        } else if (detail.hypothesis == "TURN OFF") {
+        } else if (detail.hypothesis == "QUIT") {
           Ears.say("Why don't you love me?")
           Ears.stopListening();
         }
@@ -164,6 +166,15 @@ function BigOvenRecipeSearchJson(query) {
   })
 }
 
+var clearBinds = function() {
+  $(document).off("receivedHypothesis");
+  $(document).off("finishedSpeaking");
+  $('.content-container').off('click', '.backup-start');
+  $('.content-container').off('click', '.backup-next');
+  $('.content-container').off('click', '.backup-repeat');
+  $('.content-container').off('click', '.backup-off');
+};
+
 $.fn.stars = function() {
   return $(this).each(function() {
     $(this).html($('<span />').width(Math.max(0, (Math.min(5, parseFloat($(this).html())))) * 16));
@@ -175,7 +186,6 @@ $(document).ready(function() {
   $(document).on("deviceready", function() {
     Ears = cordova.plugins.OpenEars;
     Ears.startAudioSession();
-
 
     var indexTemplate = Mustache.render($('#logged-out').html()) ;
     $('.container').html(indexTemplate);
@@ -212,6 +222,8 @@ $(document).ready(function() {
 
       $('.content-container').html(window.sessionStorage.getItem("recipeResult"));
       $('span.stars').stars();
+      Ears.stopListening();
+      clearBinds();
     })
 
     $('.container').on('click', '.signout-link', function(event) {
