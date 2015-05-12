@@ -1,3 +1,7 @@
+body {
+  background-color: #A2DAE2;
+}
+
 #login-container {
   margin: 0 auto;
   width: 40%;
@@ -104,14 +108,15 @@ span.glyphicon-heart {
   height: 42px;
   width: 42px;
   vertical-align: bottom;
+  margin-bottom: 5px;
 }
 
-.lato-font {
-  font-family: 'Lato';
+.abril-font {
+  font-family: 'Abril Fatface', cursive;
 }
 
 .bottom-aligned-text {
-  vertical-align: bottom;
+  vertical-align: text-bottom;
 }
 
 .splash-login {
