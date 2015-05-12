@@ -9,6 +9,7 @@
 		1D3623260D0F684500981E51 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* AppDelegate.m */; };
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
 		288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
+		2A77CCE71B01278100A8E6B5 /* Kal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C297811E1AFFA1A000823D2F /* Kal.framework */; };
 		2DFEEA373FA54065BA7FAF08 /* OpenEars.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D734BC99E584847B3CF47A0 /* OpenEars.framework */; };
 		301BF552109A68D80062928A /* libCordova.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 301BF535109A57CC0062928A /* libCordova.a */; };
 		302D95F114D2391D003F00A1 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 302D95EF14D2391D003F00A1 /* MainViewController.m */; };
@@ -45,7 +46,6 @@
 		819FBA861BC84BC09799388B /* AcousticModelSpanish.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 699FFA8418C34AEF9AFD1D55 /* AcousticModelSpanish.bundle */; };
 		A3081B013297414FB9AE8F7F /* CDVDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B1578240AEC417FA095DBB0 /* CDVDevice.m */; };
 		A9B8C5136A6F48A4B98997FD /* AcousticModelEnglish.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 98B8D484384A4EBC93F60DA3 /* AcousticModelEnglish.bundle */; };
-		C297811F1AFFA1A000823D2F /* Kal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C297811E1AFFA1A000823D2F /* Kal.framework */; };
 		D4A0D8761607E02300AEF8BB /* Default-568h@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = D4A0D8751607E02300AEF8BB /* Default-568h@2x~iphone.png */; };
 		E156C45F692F4CAD935E55E0 /* CDVLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 58905E15AEF440D28958CA25 /* CDVLogger.m */; };
 		FEA9893EA2CF4C218EC67A92 /* Slt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5665314B1314B6A8B784648 /* Slt.framework */; };
@@ -135,7 +135,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C297811F1AFFA1A000823D2F /* Kal.framework in Frameworks */,
+				2A77CCE71B01278100A8E6B5 /* Kal.framework in Frameworks */,
 				5B1594DD16A7569C00FEF299 /* AssetsLibrary.framework in Frameworks */,
 				301BF552109A68D80062928A /* libCordova.a in Frameworks */,
 				288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */,
@@ -462,6 +462,7 @@
 					Workshop/Plugins/com.skytek.cordova.openears,
 					"/Users/bkmorimoto/DBC/phase-3/final-project/openearsextras/FliteVoices",
 					"/Users/danasselin/Documents/Stevensez_Phase_3/finalProj/line-cook/OpenEars/src/ios/Framework",
+					"/Users/groot/dev/DBC-phase-3/line-cook/OpenEars/src/ios/Framework",
 				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -501,6 +502,7 @@
 					Workshop/Plugins/com.skytek.cordova.openears,
 					"/Users/bkmorimoto/DBC/phase-3/final-project/openearsextras/FliteVoices",
 					"/Users/danasselin/Documents/Stevensez_Phase_3/finalProj/line-cook/OpenEars/src/ios/Framework",
+					"/Users/groot/dev/DBC-phase-3/line-cook/OpenEars/src/ios/Framework",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Workshop/Workshop-Prefix.pch";
