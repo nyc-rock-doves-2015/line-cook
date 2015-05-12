@@ -34,3 +34,13 @@ var goBackRecipeEvent = function() {
     window.scrollTo(0, 0);
   });
 };
+
+var signOutEvent = function() {
+  $('.container').on('click', '.signout-link', function(event) {
+    event.preventDefault();
+    window.localStorage.removeItem("sessionId");
+    var indexTemplate = Mustache.render($('#home-page-logged-out').html());
+    $('.container').html(indexTemplate);
+    $('body').css("background-color", "#A2DAE2");
+  });
+};
