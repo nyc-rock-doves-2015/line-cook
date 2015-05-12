@@ -208,22 +208,7 @@ $(document).ready(function() {
 
     signUpEvent(serverUrl);
 
+    signInEvent(serverUrl);
 
-    $('.container').on('submit', '.signin-form', function(event) {
-      event.preventDefault();
-
-      $target = $(event.target)
-      $.ajax({
-        //dan's IP
-        url: "http://10.0.2.210:3000/signin",
-        type: "POST",
-        data: $target.serialize()
-      }).then(function(response) {
-        window.localStorage.setItem("sessionId", response.id);
-        var indexTemplate = Mustache.render($('#logged-in').html()) ;
-        $('.container').html(indexTemplate);
-        $('body').css("background-color", "#FFF")
-      });
-    });
   });
 });

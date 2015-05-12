@@ -26,3 +26,21 @@ var signUpEvent = function(serverUrl) {
     });
   });
 };
+
+var signInEvent = function(serverUrl) {
+  $('.container').on('submit', '.signin-form', function(event) {
+    event.preventDefault();
+
+    $target = $(event.target)
+    $.ajax({
+      url: serverUrl + "/signin",
+      type: "POST",
+      data: $target.serialize()
+    }).then(function(response) {
+      window.localStorage.setItem("sessionId", response.id);
+      var indexTemplate = Mustache.render($('#logged-in').html());
+      $('.container').html(indexTemplate);
+      $('body').css("background-color", "#FFF");
+    });
+  });
+};
