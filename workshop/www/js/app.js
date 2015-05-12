@@ -39,7 +39,7 @@ function BigOvenGetRecipeJson(recipeId) {
     var output = Mustache.render(template, {instructions: currentRecipe.instructions});
     $('.recipe').append(output);
 
-    window.scrollTo(0, 0);
+    window.scrollTo(0, 0);  
     window.sessionStorage.setItem("recipeResult", $('.content-container').html());
 
     return instructions;
@@ -186,17 +186,33 @@ $.fn.stars = function() {
 
 $(document).ready(function() {
 
+  if (window.localStorage.getItem("sessionId")) {
+    var indexTemplate = Mustache.render($('#home-page-logged-in').html());
+  } else {
+    var indexTemplate = Mustache.render($('#home-page-logged-out').html());
+  }
+  $('.container').html(indexTemplate);
+
   $(document).on("deviceready", function() {
     Ears = cordova.plugins.OpenEars;
     Ears.startAudioSession();
-
-    var indexTemplate = Mustache.render($('#logged-out').html()) ;
-    $('.container').html(indexTemplate);
-
+    
     $('.container').on('submit', '#search-form', function(event) {
       event.preventDefault();
+
       var data = $('#search').val();
       $('#search').val('');
+
+      if (window.localStorage.getItem("sessionId")) {
+        var template = $('#logged-in').html();
+        var output = Mustache.render(template);
+      } else {
+        var template = $('#logged-out').html();
+        var output = Mustache.render(template);
+      }
+      $('.container').html(output);
+      $('body').css("background-color", "#FFF")
+      
       BigOvenRecipeSearchJson(data)
     });
 
@@ -210,6 +226,7 @@ $(document).ready(function() {
       event.preventDefault();
 
       var loginTemplate = Mustache.render($('#sign-up-template').html());
+      $('.navbar-collapse').collapse('toggle')
       $('.content-container').html(loginTemplate);
     });
 
@@ -234,15 +251,28 @@ $(document).ready(function() {
     $('.container').on('click', '.signout-link', function(event) {
       event.preventDefault();
       window.localStorage.removeItem("sessionId");
-      var indexTemplate = Mustache.render($('#logged-out').html());
+      var indexTemplate = Mustache.render($('#home-page-logged-out').html());
       $('.container').html(indexTemplate);
+      $('body').css("background-color", "#A2DAE2")
     });
+
+    $('.container').on('click', '.home-glyph', function(event) {
+      event.preventDefault();
+      $('body').css("background-color", "#A2DAE2")
+      
+      if (window.localStorage.getItem("sessionId")) {
+        var indexTemplate = Mustache.render($('#home-page-logged-in').html());
+      } else {
+        var indexTemplate = Mustache.render($('#home-page-logged-out').html());
+      }
+      $('.container').html(indexTemplate);
+    })
 
 
     $('.container').on('submit', '.signup-form', function(event) {
       event.preventDefault();
-      $target = $(event.target)
 
+      $target = $(event.target)
       $.ajax({
         // dan's IP
         url: "http://10.0.2.89:3000/signup",
@@ -252,11 +282,13 @@ $(document).ready(function() {
         window.localStorage.setItem("sessionId", response.id);
         var indexTemplate = Mustache.render($('#logged-in').html()) ;
         $('.container').html(indexTemplate);
+        $('body').css("background-color", "#FFF")
       });
     });
 
     $('.container').on('submit', '.signin-form', function(event) {
       event.preventDefault();
+
       $target = $(event.target)
       $.ajax({
         //dan's IP
@@ -267,6 +299,7 @@ $(document).ready(function() {
         window.localStorage.setItem("sessionId", response.id);
         var indexTemplate = Mustache.render($('#logged-in').html()) ;
         $('.container').html(indexTemplate);
+        $('body').css("background-color", "#FFF")
       });
     });
   });

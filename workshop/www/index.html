@@ -19,6 +19,7 @@
     <script src="js/dashboard.js"></script>
     <link rel="stylesheet" href="css/application.css">
     <link rel="stylesheet" href="css/home.css">
+    <link href='http://fonts.googleapis.com/css?family=Abril+Fatface' rel='stylesheet' type='text/css'>
 
     <!-- Search Results Template -->
     <script id="search-results" type="x-tmpl-mustache">
@@ -99,6 +100,87 @@
       </div>
     </script>
 
+    <!-- Home Splash Page Logged Out-->
+    <script id="home-page-logged-out" type="x-tmpl-mustache">
+      <nav class="navbar navbar-default splash-navbar">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed splash-login" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="glyphicon glyphicon-lock"></span>
+            </button>
+          </div>
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <form class="navbar-form navbar-right signin-form well">
+              <div class="form-group">
+                <input type="text" name="user[name]" class="form-control" placeholder="name">
+              </div>
+              <div class="form-group">
+                <input type="password" name="user[password]" class="form-control" placeholder="password">
+              </div>
+              <div>
+                <button type="submit" class="btn btn-success">Sign in</button>
+                <a class="signup-link pull-right" href="#">Not a user? Sign Up</a>
+              </div>
+            </form>
+          </div>
+        </div>
+      </nav>
+      <div class="well">
+        <div class="splash-title-container text-center bottom-aligned-text">
+          <img id="chefs-hat" src="https://cdn3.iconfinder.com/data/icons/kitchen-icons-2/64/Chefs_Hat-128.png"></img><span class="abril-font splash-title"> Line Cook </span><img id="chefs-hat" src="https://cdn3.iconfinder.com/data/icons/kitchen-icons-2/64/Chefs_Hat-128.png"></img>
+        </div>
+        <form class="navbar-form" id="search-form" role="search">
+          <div class="input-group">
+            <input id="search" type="text" class="form-control" placeholder="Find Recipe...">
+            <span class="input-group-btn">
+              <button class="btn btn-info" type="submit">
+                <span class="glyphicon glyphicon-search"></span>
+              </button>
+            </span>
+          </div>
+        </form>
+      </div>
+      <div class="content-container">
+        <iframe src="img/chopping200new.gif" width="200" height="208" frameBorder="0" class="center-block chopping-gif"></iframe>
+      </div>
+    </script>
+
+    <!-- Home Splash Page Logged In-->
+    <script id="home-page-logged-in" type="x-tmpl-mustache">
+      <nav class="navbar navbar-default splash-navbar">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed splash-login pull-right" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="glyphicon glyphicon-lock"></span>
+            </button>
+          </div>
+          <div class="collapse navbar-collapse well" id="bs-example-navbar-collapse-1">
+            <a class="signout-link" href="#">Signout</a>
+          </div>
+        </div>
+      </nav>
+      <div class="well">
+        <div class="splash-title-container text-center bottom-aligned-text">
+          <img id="chefs-hat" src="https://cdn3.iconfinder.com/data/icons/kitchen-icons-2/64/Chefs_Hat-128.png"></img><span class="abril-font splash-title"> Line Cook </span><img id="chefs-hat" src="https://cdn3.iconfinder.com/data/icons/kitchen-icons-2/64/Chefs_Hat-128.png"></img>
+        </div>
+        <form class="navbar-form" id="search-form" role="search">
+          <div class="input-group">
+            <input id="search" type="text" class="form-control" placeholder="Find Recipe...">
+            <span class="input-group-btn">
+              <button class="btn btn-info" type="submit">
+                <span class="glyphicon glyphicon-search"></span>
+              </button>
+            </span>
+          </div>
+        </form>
+      </div>
+      <div class="content-container">
+        <iframe src="img/chopping200new.gif" width="200" height="208" frameBorder="0" class="center-block chopping-gif"></iframe>
+      </div>
+    </script>
+
     <!-- Logged In Template -->
     <script id="logged-in" type="x-tmpl-mustache">
       <nav class="navbar navbar-default">
@@ -106,13 +188,11 @@
           <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
               <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
+              <span class="glyphicon glyphicon-lock"></span>
             </button>
             <ul class="nav-icons nav nav-pills">
               <li><a class="nav-brand navbar-brand" href="#">Line Cook</a></li>
-              <li><a class="nav-icon" href="#"><span class="glyphicon glyphicon-home"></span></a></li>
+              <li class="home-glyph"><a class="nav-icon" href="#"><span class="glyphicon glyphicon-home"></span></a></li>
               <li id="user-icon"><a class="nav-icon" href="#"><span class="glyphicon glyphicon-user"></span></a></li>
             </ul>
           </div>
@@ -133,7 +213,6 @@
           </form>
         </div>
       </nav>
-
       <div class="content-container">
       </div>
     </script>
@@ -145,13 +224,11 @@
           <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
               <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
+              <span class="glyphicon glyphicon-lock"></span>
             </button>
             <ul class="nav-icons nav nav-pills">
               <li><a class="nav-brand navbar-brand" href="#">Line Cook</a></li>
-              <li><a class="nav-icon" href="#"><span class="glyphicon glyphicon-home"></span></a></li>
+              <li class="home-glyph"><a class="nav-icon" href="#"><span class="glyphicon glyphicon-home"></span></a></li>
             </ul>
           </div>
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -187,7 +264,7 @@
     <!-- Sign Up Template -->
     <script id="sign-up-template" type="x-tmpl-mustache">
       <div id="signup-container">
-        <form class="signup-form auth-form">
+        <form class="signup-form auth-form well">
           <h2 class="text-center">Sign Up</h2>
           <div class="form-group">
             <input type="text" name="user[name]" class="form-control" placeholder="name">
