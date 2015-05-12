@@ -254,6 +254,17 @@ $(document).ready(function() {
       $('.container').html(indexTemplate);
     });
 
+    $('.container').on('click', '.home-glyph', function(event) {
+      event.preventDefault();
+      
+      if (sessionInfo) {
+        var indexTemplate = Mustache.render($('#home-page-logged-in').html());
+      } else {
+        var indexTemplate = Mustache.render($('#home-page-logged-out').html());
+      }
+      $('.container').html(indexTemplate);
+    })
+
 
     $('.container').on('submit', '.signup-form', function(event) {
       event.preventDefault();

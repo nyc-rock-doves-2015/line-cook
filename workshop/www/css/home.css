@@ -86,3 +86,30 @@ span.stars span {
 span.glyphicon-heart {
   font-size: 3.2em;
 }
+
+.splash-navbar {
+  border: none;
+  background-image: none;
+  box-shadow: none;
+  background: none;
+}
+
+.splash-title {
+  font-size: 25pt;
+  color: #425961;
+  vertical-align: bottom;
+}
+
+#chefs-hat {
+  height: 55px;
+  width: 55px;
+  vertical-align: bottom;
+}
+
+.lato-font {
+  font-family: 'Lato';
+}
+
+.bottom-aligned-text {
+  vertical-align: bottom;
+}
