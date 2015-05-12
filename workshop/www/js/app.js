@@ -247,12 +247,13 @@ $(document).ready(function() {
       event.preventDefault();
       $('body').css("background-color", "#A2DAE2")
 
-      if (window.localStorage.getItem("sessionId")) {
-        var indexTemplate = Mustache.render($('#home-page-logged-in').html());
-      } else {
-        var indexTemplate = Mustache.render($('#home-page-logged-out').html());
-      }
-      $('.container').html(indexTemplate);
+      renderSplash('#home-page-logged-in', '#home-page-logged-out', '.container')
+    //   if (window.localStorage.getItem("sessionId")) {
+    //     var indexTemplate = Mustache.render($('#home-page-logged-in').html());
+    //   } else {
+    //     var indexTemplate = Mustache.render($('#home-page-logged-out').html());
+    //   }
+    //   $('.container').html(indexTemplate);
     })
 
 
