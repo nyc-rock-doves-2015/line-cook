@@ -194,13 +194,7 @@ $(document).ready(function() {
 
     getRecipeEvent(BigOvenGetRecipeJson);
 
-    $('.container').on('click', '.signup-link', function(event) {
-      event.preventDefault();
-
-      var loginTemplate = Mustache.render($('#sign-up-template').html());
-      $('.navbar-collapse').collapse('toggle')
-      $('.content-container').html(loginTemplate);
-    });
+    getSignUpFormEvent();
 
     $('.container').on('click', '.back-search-results', function(event) {
       event.preventDefault();
