@@ -3,8 +3,8 @@ var recipeSearchEvent = function(apiRequest){
     event.preventDefault();
     var data = $('#search').val();
     $('#search').val('');
-    renderSplash('#logged-in', '#logged-out', '.container')
-    $('body').css("background-color", "#FFF")
+    renderSplash('#logged-in', '#logged-out', '.container');
+    $('body').css("background-color", "#FFF");
     apiRequest(data);
   });
-}
+};
