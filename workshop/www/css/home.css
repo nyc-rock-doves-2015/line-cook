@@ -79,3 +79,14 @@ span.stars span {
 .back-button {
   margin-bottom: 10px;
 }
+
+#favorite-icon {
+  display: block;
+  text-align: center;
+  list-style-type: none;
+  vertical-align: middle;
+}
+
+span.glyphicon-heart {
+  font-size: 3.2em;
+}
