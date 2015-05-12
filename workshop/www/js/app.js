@@ -212,5 +212,7 @@ $(document).ready(function() {
 
     getUserProfileEvent(serverUrl);
 
+    addFavorite(serverUrl);
+
   });
 });
