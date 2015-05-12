@@ -7,7 +7,7 @@ $(document).ready(function(){
       data: { userId: userId }
     }).then(function(response){
       var template = $('#user-dashboard-template').html();
-      var output = Mustache.render(template, { favorites: response.dashboardInfo });
+      var output = Mustache.render(template, { favorites: response.dashboardInfo, name: response.userName });
     $('.content-container').html(output);
     });
   });
