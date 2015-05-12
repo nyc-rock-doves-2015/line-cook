@@ -1,3 +1,5 @@
+var serverUrl = "http://10.0.2.210:3000"
+
 function BigOvenGetRecipeJson(recipeId) {
   clearBinds();
   $('.content-container').off('click', '#cook-button');
@@ -39,7 +41,7 @@ function BigOvenGetRecipeJson(recipeId) {
     var output = Mustache.render(template, {instructions: currentRecipe.instructions});
     $('.recipe').append(output);
 
-    window.scrollTo(0, 0);  
+    window.scrollTo(0, 0);
     window.sessionStorage.setItem("recipeResult", $('.content-container').html());
 
     return instructions;
@@ -185,122 +187,32 @@ $.fn.stars = function() {
 }
 
 $(document).ready(function() {
-
-  if (window.localStorage.getItem("sessionId")) {
-    var indexTemplate = Mustache.render($('#home-page-logged-in').html());
-  } else {
-    var indexTemplate = Mustache.render($('#home-page-logged-out').html());
-  }
-  $('.container').html(indexTemplate);
-
+  renderSplash('#home-page-logged-in', '#home-page-logged-out', '.container')
   $(document).on("deviceready", function() {
     Ears = cordova.plugins.OpenEars;
     Ears.startAudioSession();
-    
-    $('.container').on('submit', '#search-form', function(event) {
-      event.preventDefault();
 
-      var data = $('#search').val();
-      $('#search').val('');
+    recipeSearchEvent(BigOvenRecipeSearchJson);
 
-      if (window.localStorage.getItem("sessionId")) {
-        var template = $('#logged-in').html();
-        var output = Mustache.render(template);
-      } else {
-        var template = $('#logged-out').html();
-        var output = Mustache.render(template);
-      }
-      $('.container').html(output);
-      $('body').css("background-color", "#FFF")
-      
-      BigOvenRecipeSearchJson(data)
-    });
+    getRecipeEvent(BigOvenGetRecipeJson);
 
-    $('.container').on('click', '.recipe-container', function(event) {
-      var $target = $(event.target);
-      var recipeId = $target.closest('.recipe-container')[0].dataset.recipeid
-      BigOvenGetRecipeJson(recipeId)
-    });
+    getSignUpFormEvent();
 
-    $('.container').on('click', '.signup-link', function(event) {
-      event.preventDefault();
+    goBackSearchResultsEvent();
 
-      var loginTemplate = Mustache.render($('#sign-up-template').html());
-      $('.navbar-collapse').collapse('toggle')
-      $('.content-container').html(loginTemplate);
-    });
+    goBackRecipeEvent();
 
-    $('.container').on('click', '.back-search-results', function(event) {
-      event.preventDefault();
+    signOutEvent();
 
-      $('.content-container').html(window.sessionStorage.getItem("searchResults"));
-      $('span.stars').stars();
-      window.scrollTo(0, 0);
-    })
+    goHomeEvent();
 
-    $('.container').on('click', '.back-recipe', function(event) {
-      event.preventDefault();
+    signUpEvent(serverUrl);
 
-      $('.content-container').html(window.sessionStorage.getItem("recipeResult"));
-      $('span.stars').stars();
-      Ears.stopListening();
-      clearBinds();
-      window.scrollTo(0, 0);
-    })
+    signInEvent(serverUrl);
 
-    $('.container').on('click', '.signout-link', function(event) {
-      event.preventDefault();
-      window.localStorage.removeItem("sessionId");
-      var indexTemplate = Mustache.render($('#home-page-logged-out').html());
-      $('.container').html(indexTemplate);
-      $('body').css("background-color", "#A2DAE2")
-    });
+    getUserProfileEvent(serverUrl);
 
-    $('.container').on('click', '.home-glyph', function(event) {
-      event.preventDefault();
-      $('body').css("background-color", "#A2DAE2")
-      
-      if (window.localStorage.getItem("sessionId")) {
-        var indexTemplate = Mustache.render($('#home-page-logged-in').html());
-      } else {
-        var indexTemplate = Mustache.render($('#home-page-logged-out').html());
-      }
-      $('.container').html(indexTemplate);
-    })
+    addFavorite(serverUrl);
 
-
-    $('.container').on('submit', '.signup-form', function(event) {
-      event.preventDefault();
-
-      $target = $(event.target)
-      $.ajax({
-        // dan's IP
-        url: "http://10.0.2.89:3000/signup",
-        type: "POST",
-        data: $target.serialize()
-      }).then(function(response) {
-        window.localStorage.setItem("sessionId", response.id);
-        var indexTemplate = Mustache.render($('#logged-in').html()) ;
-        $('.container').html(indexTemplate);
-        $('body').css("background-color", "#FFF")
-      });
-    });
-
-    $('.container').on('submit', '.signin-form', function(event) {
-      event.preventDefault();
-
-      $target = $(event.target)
-      $.ajax({
-        //dan's IP
-        url: "http://10.0.2.89:3000/signin",
-        type: "POST",
-        data: $target.serialize()
-      }).then(function(response) {
-        window.localStorage.setItem("sessionId", response.id);
-        var indexTemplate = Mustache.render($('#logged-in').html()) ;
-        $('.container').html(indexTemplate);
-        $('body').css("background-color", "#FFF")
-      });
-    });
   });
 });

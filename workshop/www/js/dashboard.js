@@ -1,9 +1,9 @@
-$(document).ready(function(){
+var getUserProfileEvent = function(serverUrl) {
   $('.container').on('click', '#user-icon', function(){
     var userId = window.localStorage.getItem('sessionId');
     $.ajax({
       type: "GET",
-      url: "http://10.0.2.89:3000/dashboard",
+      url: serverUrl + "/dashboard",
       data: { userId: userId }
     }).then(function(response){
       var template = $('#user-dashboard-template').html();
@@ -11,4 +11,4 @@ $(document).ready(function(){
     $('.content-container').html(output);
     });
   });
-});
+};
