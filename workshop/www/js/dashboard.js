@@ -8,7 +8,7 @@ $(document).ready(function(){
     }).then(function(response){
       var template = $('#user-dashboard-template').html();
       var output = Mustache.render(template, { favorites: response.dashboardInfo });
-    $('.container').append(output);
+    $('.content-container').html(output);
     });
   });
 });
