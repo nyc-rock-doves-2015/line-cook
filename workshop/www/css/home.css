@@ -81,7 +81,10 @@ span.stars span {
 }
 
 #favorite-icon {
+  display: block;
+  text-align: center;
   list-style-type: none;
+  vertical-align: middle;
 }
 
 span.glyphicon-heart {
