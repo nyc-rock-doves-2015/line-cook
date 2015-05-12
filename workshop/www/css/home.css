@@ -7,10 +7,6 @@
   margin-bottom: 10%;
 }
 
-.signin-container {
-  padding-top: 20px;
-}
-
 .signup-link {
   margin-top: 8px;
 }
@@ -41,7 +37,7 @@
   width: 60%;
 }
 
-.container-fluid {
+.container {
   margin-top: 10%;
 }
 

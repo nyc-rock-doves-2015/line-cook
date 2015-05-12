@@ -39,7 +39,7 @@ function BigOvenGetRecipeJson(recipeId) {
     var output = Mustache.render(template, {instructions: currentRecipe.instructions});
     $('.recipe').append(output);
 
-    window.scrollTo(0, 0);
+    window.scrollTo(0, 0);  
     window.sessionStorage.setItem("recipeResult", $('.content-container').html());
 
     return instructions;
@@ -186,12 +186,12 @@ $.fn.stars = function() {
 
 $(document).ready(function() {
 
+  var indexTemplate = Mustache.render($('#logged-out').html()) ;
+  $('.container').html(indexTemplate);
+
   $(document).on("deviceready", function() {
     Ears = cordova.plugins.OpenEars;
     Ears.startAudioSession();
-
-    var indexTemplate = Mustache.render($('#logged-out').html()) ;
-    $('.container').html(indexTemplate);
 
     $('.container').on('submit', '#search-form', function(event) {
       event.preventDefault();
