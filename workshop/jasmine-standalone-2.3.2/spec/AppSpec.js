@@ -1,19 +1,26 @@
-describe("Player", function() {
-  var player;
-  var song;
+describe("Splash Page", function() {
 
   beforeEach(function() {
-    player = new Player();
-    song = new Song();
+    jasmine.getFixtures().fixturesPath = '../www/';
+    jasmine.getFixtures().load('index.html');
   });
 
-  // it("should be able to play a Song", function() {
-  //   player.play(song);
-  //   expect(player.currentlyPlayingSong).toEqual(song);
+  describe ('container div', function(){
+    it('should have a div with container class', function() {
+      expect(document.getElementsByClassName('container')[0]).toBeInDOM();
+    });
 
-  //   //demonstrates use of custom matcher
-  //   expect(player).toBePlaying(song);
-  // });
+    it('should have a div with container class', function() {
+      expect(document.getElementsByClassName('container')[0]).toBeInDOM();
+    });
+
+  });
+});
+
+
+
+
+
 
   // describe("when song has been paused", function() {
   //   beforeEach(function() {
@@ -54,5 +61,4 @@ describe("Player", function() {
   //       player.resume();
   //     }).toThrowError("song is already playing");
   //   });
-  });
-});
+
