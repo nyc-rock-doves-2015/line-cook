@@ -186,17 +186,33 @@ $.fn.stars = function() {
 
 $(document).ready(function() {
 
-  var indexTemplate = Mustache.render($('#logged-out').html()) ;
-  $('.container').html(indexTemplate);
+  var sessionInfo = window.localStorage.getItem("sessionId")
 
   $(document).on("deviceready", function() {
     Ears = cordova.plugins.OpenEars;
     Ears.startAudioSession();
 
+    if (sessionInfo) {
+      var indexTemplate = Mustache.render($('#home-page-logged-in').html());
+    } else {
+      var indexTemplate = Mustache.render($('#home-page-logged-out').html());
+    }
+    $('.container').html(indexTemplate);
+
     $('.container').on('submit', '#search-form', function(event) {
       event.preventDefault();
       var data = $('#search').val();
       $('#search').val('');
+
+      if (sessionInfo) {
+        var template = $('#logged-in').html();
+        var output = Mustache.render(template);
+      } else {
+        var template = $('#logged-out').html();
+        var output = Mustache.render(template);
+      }
+      $('.container').html(output);
+      
       BigOvenRecipeSearchJson(data)
     });
 
