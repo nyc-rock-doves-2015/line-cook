@@ -84,6 +84,6 @@ span.stars span {
   list-style-type: none;
 }
 
-/*.glyphicon-heart {
-
-}*/
+span.glyphicon-heart {
+  font-size: 3.2em;
+}
