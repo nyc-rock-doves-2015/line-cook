@@ -39,7 +39,7 @@ function BigOvenGetRecipeJson(recipeId) {
     var output = Mustache.render(template, {instructions: currentRecipe.instructions});
     $('.recipe').append(output);
 
-    window.scrollTo(0, 0);  
+    window.scrollTo(0, 0);
     window.sessionStorage.setItem("recipeResult", $('.content-container').html());
 
     return instructions;
@@ -185,34 +185,21 @@ $.fn.stars = function() {
 }
 
 $(document).ready(function() {
-
-  if (window.localStorage.getItem("sessionId")) {
-    var indexTemplate = Mustache.render($('#home-page-logged-in').html());
-  } else {
-    var indexTemplate = Mustache.render($('#home-page-logged-out').html());
-  }
-  $('.container').html(indexTemplate);
-
+  renderSplash('#home-page-logged-in', '#home-page-logged-out', '.container')
   $(document).on("deviceready", function() {
     Ears = cordova.plugins.OpenEars;
     Ears.startAudioSession();
-    
+
     $('.container').on('submit', '#search-form', function(event) {
       event.preventDefault();
 
       var data = $('#search').val();
       $('#search').val('');
 
-      if (window.localStorage.getItem("sessionId")) {
-        var template = $('#logged-in').html();
-        var output = Mustache.render(template);
-      } else {
-        var template = $('#logged-out').html();
-        var output = Mustache.render(template);
-      }
-      $('.container').html(output);
+      renderSplash('#logged-in', '#logged-out', '.container')
+
       $('body').css("background-color", "#FFF")
-      
+
       BigOvenRecipeSearchJson(data)
     });
 
@@ -259,7 +246,7 @@ $(document).ready(function() {
     $('.container').on('click', '.home-glyph', function(event) {
       event.preventDefault();
       $('body').css("background-color", "#A2DAE2")
-      
+
       if (window.localStorage.getItem("sessionId")) {
         var indexTemplate = Mustache.render($('#home-page-logged-in').html());
       } else {
