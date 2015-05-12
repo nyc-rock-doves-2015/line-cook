@@ -5,3 +5,12 @@
     apiRequest(recipeId);
   });
 };
+
+var getSignUpFormEvent = function(){
+  $('.container').on('click', '.signup-link', function(event) {
+    event.preventDefault();
+    var loginTemplate = Mustache.render($('#sign-up-template').html());
+    $('.navbar-collapse').collapse('toggle')
+    $('.content-container').html(loginTemplate);
+  });
+};
