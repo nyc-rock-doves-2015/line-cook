@@ -6,7 +6,9 @@ $(document).ready(function(){
       url: "http://10.0.2.89:3000/dashboard",
       data: { userId: userId }
     }).then(function(response){
-      alert(response.dashboardInfo[0].title);
+      var template = $('#user-dashboard-template').html();
+      var output = Mustache.render(template, { favorites: response.dashboardInfo });
+    $('.container').append(output);
     });
   });
 });
