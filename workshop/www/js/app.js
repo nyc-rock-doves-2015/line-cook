@@ -1,3 +1,5 @@
+var serverUrl = "http://10.0.2.210:3000"
+
 function BigOvenGetRecipeJson(recipeId) {
   clearBinds();
   $('.content-container').off('click', '#cook-button');
@@ -196,55 +198,16 @@ $(document).ready(function() {
 
     getSignUpFormEvent();
 
-    $('.container').on('click', '.back-search-results', function(event) {
-      event.preventDefault();
+    goBackSearchResultsEvent();
 
-      $('.content-container').html(window.sessionStorage.getItem("searchResults"));
-      $('span.stars').stars();
-      window.scrollTo(0, 0);
-    })
+    goBackRecipeEvent();
 
-    $('.container').on('click', '.back-recipe', function(event) {
-      event.preventDefault();
+    signOutEvent();
 
-      $('.content-container').html(window.sessionStorage.getItem("recipeResult"));
-      $('span.stars').stars();
-      Ears.stopListening();
-      clearBinds();
-      window.scrollTo(0, 0);
-    })
+    goHomeEvent();
 
-    $('.container').on('click', '.signout-link', function(event) {
-      event.preventDefault();
-      window.localStorage.removeItem("sessionId");
-      var indexTemplate = Mustache.render($('#home-page-logged-out').html());
-      $('.container').html(indexTemplate);
-      $('body').css("background-color", "#A2DAE2")
-    });
+    signUpEvent(serverUrl);
 
-    $('.container').on('click', '.home-glyph', function(event) {
-      event.preventDefault();
-      $('body').css("background-color", "#A2DAE2")
-      renderSplash('#home-page-logged-in', '#home-page-logged-out', '.container')
-    })
-
-
-    $('.container').on('submit', '.signup-form', function(event) {
-      event.preventDefault();
-
-      $target = $(event.target)
-      $.ajax({
-        // dan's IP
-        url: "http://10.0.2.89:3000/signup",
-        type: "POST",
-        data: $target.serialize()
-      }).then(function(response) {
-        window.localStorage.setItem("sessionId", response.id);
-        var indexTemplate = Mustache.render($('#logged-in').html()) ;
-        $('.container').html(indexTemplate);
-        $('body').css("background-color", "#FFF")
-      });
-    });
 
     $('.container').on('submit', '.signin-form', function(event) {
       event.preventDefault();
@@ -252,7 +215,7 @@ $(document).ready(function() {
       $target = $(event.target)
       $.ajax({
         //dan's IP
-        url: "http://10.0.2.89:3000/signin",
+        url: "http://10.0.2.210:3000/signin",
         type: "POST",
         data: $target.serialize()
       }).then(function(response) {
