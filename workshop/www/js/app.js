@@ -190,24 +190,9 @@ $(document).ready(function() {
     Ears = cordova.plugins.OpenEars;
     Ears.startAudioSession();
 
-    $('.container').on('submit', '#search-form', function(event) {
-      event.preventDefault();
+    recipeSearchEvent(BigOvenRecipeSearchJson);
 
-      var data = $('#search').val();
-      $('#search').val('');
-
-      renderSplash('#logged-in', '#logged-out', '.container')
-
-      $('body').css("background-color", "#FFF")
-
-      BigOvenRecipeSearchJson(data)
-    });
-
-    $('.container').on('click', '.recipe-container', function(event) {
-      var $target = $(event.target);
-      var recipeId = $target.closest('.recipe-container')[0].dataset.recipeid
-      BigOvenGetRecipeJson(recipeId)
-    });
+    getRecipeEvent(BigOvenGetRecipeJson);
 
     $('.container').on('click', '.signup-link', function(event) {
       event.preventDefault();
@@ -246,14 +231,7 @@ $(document).ready(function() {
     $('.container').on('click', '.home-glyph', function(event) {
       event.preventDefault();
       $('body').css("background-color", "#A2DAE2")
-
       renderSplash('#home-page-logged-in', '#home-page-logged-out', '.container')
-    //   if (window.localStorage.getItem("sessionId")) {
-    //     var indexTemplate = Mustache.render($('#home-page-logged-in').html());
-    //   } else {
-    //     var indexTemplate = Mustache.render($('#home-page-logged-out').html());
-    //   }
-    //   $('.container').html(indexTemplate);
     })
 
 
