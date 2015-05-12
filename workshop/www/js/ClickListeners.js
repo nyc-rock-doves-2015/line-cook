@@ -44,3 +44,11 @@ var signOutEvent = function() {
     $('body').css("background-color", "#A2DAE2");
   });
 };
+
+var goHomeEvent = function() {
+  $('.container').on('click', '.home-glyph', function(event) {
+    event.preventDefault();
+    $('body').css("background-color", "#A2DAE2");
+    renderSplash('#home-page-logged-in', '#home-page-logged-out', '.container');
+  });
+};
