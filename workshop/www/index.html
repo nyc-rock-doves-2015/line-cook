@@ -16,7 +16,7 @@
     <script src="js/app.js"></script>
     <script src="js/favorites.js"></script>
     <script src="js/user.js"></script>
-    <script src="js/get_favorites.js"></script>
+    <script src="js/dashboard.js"></script>
     <link rel="stylesheet" href="css/application.css">
     <link rel="stylesheet" href="css/home.css">
 
@@ -111,7 +111,7 @@
             <ul class="nav-icons nav nav-pills">
               <li><a class="nav-brand navbar-brand" href="#">Line Cook</a></li>
               <li><a class="nav-icon" href="#"><span class="glyphicon glyphicon-home"></span></a></li>
-              <li><a class="nav-icon" href="#"><span class="glyphicon glyphicon-user"></span></a></li>
+              <li id="user-icon"><a class="nav-icon" href="#"><span class="glyphicon glyphicon-user"></span></a></li>
             </ul>
           </div>
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -150,7 +150,6 @@
             <ul class="nav-icons nav nav-pills">
               <li><a class="nav-brand navbar-brand" href="#">Line Cook</a></li>
               <li><a class="nav-icon" href="#"><span class="glyphicon glyphicon-home"></span></a></li>
-              <li><a class="nav-icon" href="#"><span class="glyphicon glyphicon-user"></span></a></li>
             </ul>
           </div>
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -204,11 +203,10 @@
 
     <!-- User Dashboard Template -->
     <script id="user-dashboard-template" type="x-tmpl-mustache">
-      <div id="dashboard-container">
-        <h1>{{ name }}</h1>
-        <h2>favorites</h2>
+      <div id="dashboard-container" class="list-group">
+        <h2 class="list-group-heading">favorites</h2>
         {{ #favorites }}
-          <li>{{ id }}</li>
+          <li class="list-group-item recipe-container" data-recipeId="{{bigOvenId}}">{{ title }}</li>
         {{ /favorites }}
       </div>
     </script>
