@@ -13,6 +13,7 @@ function BigOvenGetRecipeJson(recipeId) {
     url: url
   }).then(function(data) {
     currentRecipe = new Recipe(data);
+    // do you mean for i to be global?
     for(i = 0; i < data.Ingredients.length; i ++){
       currentRecipe.ingredients.push(new Ingredient(data.Ingredients[i]));
     };

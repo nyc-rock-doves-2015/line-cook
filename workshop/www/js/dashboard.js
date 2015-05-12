@@ -3,6 +3,7 @@ $(document).ready(function(){
     var userId = window.localStorage.getItem('sessionId');
     $.ajax({
       type: "GET",
+      // Dislike hard-coded path
       url: "http://10.0.2.89:3000/dashboard",
       data: { userId: userId }
     }).then(function(response){
