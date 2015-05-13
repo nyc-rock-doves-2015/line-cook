@@ -11,4 +11,20 @@ describe("Return the recipe search results", function() {
       expect($('#search-form')).toBeInDOM();
     });
   });
+
+  describe('with async sign up', function() {
+    beforeEach(function(done) {
+      recipeSearchEvent(BigOvenRecipeSearchJson)
+      var recipe = 'lasagna';
+      $('#search').val(recipe);
+      $('#search-form').trigger('submit');
+      setTimeout(function() {
+        done();
+      }, 1000)
+    });
+
+    it('attaches divs with the recipe-container class', function() {
+      expect($('.recipe-container')[0]).toBeInDOM();
+    });
+  });
 });
