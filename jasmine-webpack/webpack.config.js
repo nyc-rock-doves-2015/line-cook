@@ -2,7 +2,8 @@ module.exports = {
   context: __dirname,
   entry: {
     spec: [
-      './spec/AuthSpec.js'
+      './spec/AuthSpec.js',
+      './spec/DashboardSpec.js'
     ]
   },
 

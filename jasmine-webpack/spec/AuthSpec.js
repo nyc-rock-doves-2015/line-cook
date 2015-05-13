@@ -36,7 +36,7 @@ describe("Splash page", function() {
 
       setTimeout(function() { 
         done();
-      }, 700);
+      }, 400);
     });
 
     it('should land on recipe results page', function() {
@@ -74,7 +74,7 @@ describe("Auth", function() {
         getSignUpFormEvent();
         $('.signup-link').trigger('click')
 
-        $('.signup-form').find('input[name="user[name]"]').val("Ben")
+        $('.signup-form').find('input[name="user[name]"]').val("testben")
         $('.signup-form').find('input[name="user[password]"]').val("123")
         $('.signup-form').find('input[name="user[password_confirmation]"]').val("123")
 
@@ -83,7 +83,7 @@ describe("Auth", function() {
 
         setTimeout(function() { 
           done();
-        }, 700);
+        }, 400);
       })
 
       it('should be able to submit a sign up form', function() {
