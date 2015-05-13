@@ -12,3 +12,9 @@ var renderPage = function(templateSelector, destinationSelector, jsonObject) {
   var output = Mustache.render(template, jsonObject);
   $(destinationSelector).html(output);
 };
+
+var renderAppend = function(templateSelector, destinationSelector, jsonObject) {
+  var template = $(templateSelector).html();
+  var output = Mustache.render(template, jsonObject);
+  $(destinationSelector).append(output);
+}
