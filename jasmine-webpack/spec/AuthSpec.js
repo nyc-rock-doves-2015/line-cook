@@ -27,7 +27,7 @@ describe("Splash page", function() {
     expect($('#search-form')[0]).toBeInDOM();
   })
 
-  describe('users ajax call to search', function() {
+  describe('uses ajax call to search', function() {
 
     beforeEach(function(done) {
       recipeSearchEvent(BigOvenRecipeSearchJson)
@@ -43,7 +43,7 @@ describe("Splash page", function() {
       expect($('.recipe-container')[0]).toBeInDOM();
     });
 
-    it('clears search bar after search comes back', function() {
+    it('should clear search bar after search comes back', function() {
       expect($('#search').val()).toEqual('');
     })
 
@@ -74,6 +74,12 @@ describe("Auth", function() {
         getSignUpFormEvent();
         $('.signup-link').trigger('click')
 
+        $('.signup-form').find('input[name="user[name]"]').val("Ben")
+        $('.signup-form').find('input[name="user[password]"]').val("123")
+        $('.signup-form').find('input[name="user[password_confirmation]"]').val("123")
+
+        debugger
+
         signUpEvent("http://10.0.2.210:3000");
         $('.signup-form').trigger('submit');
 
@@ -86,6 +92,10 @@ describe("Auth", function() {
         expect($('.signout-link')[0]).toBeInDOM(); 
       });
 
+      it('should add user id to localStorage', function() {
+        expect(window.localStorage.getItem("sessionId")).toBeGreaterThan(0);
+      })
+
       it('should land on the main page with user icon', function() {
         expect($('.glyphicon-user')[0]).toBeInDOM();
       });
@@ -96,7 +106,7 @@ describe("Auth", function() {
         expect($('.signin-form')[0]).toBeInDOM();
       });
 
-      it('should remove user from localStorage when signed out', function() {
+      it('should remove user from localStorage when signing out', function() {
         signOutEvent();
         $('.signout-link').trigger('click');
         expect(window.localStorage.getItem("sessionId")).toEqual(null);
