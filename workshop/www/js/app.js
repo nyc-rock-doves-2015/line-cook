@@ -24,13 +24,12 @@ function BigOvenGetRecipeJson(recipeId) {
       currentRecipe.instructions.push(new Instruction(instructions[i]));
     };
 
-    var template = $('#recipe-show').html();
     var userId = window.localStorage.getItem("sessionId")
     if (userId) {
       currentRecipe.userId = userId;
     }
-    var output = Mustache.render(template, currentRecipe);
-    $('.content-container').html(output);
+
+    renderPage('#recipe-show', '.content-container', currentRecipe)
     $('span.stars').stars();
 
     var template = $('#ingredients-template').html();
