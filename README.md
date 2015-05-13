@@ -1,5 +1,12 @@
-# line-cook
-Dan, Tara, and Ben most awesomest final project
+# Line-Cook
+Line-cook is a cooking-helper app for iOS that utilizes iPhone's speech-synthesis/speech-recognition to allow users to cook while their device reads recipe steps aloud to them.
+
+## Core Functionalities
+1. Search for recipes via the [BigOven](http://api.bigoven.com/documentation "BigOven Documentation") API
+2. Choose a recipe from search results
+3. View recipe ingredients and steps and issue voice commands
+4. Use buttons to over-ride voice commands
+5. Create an account to save favorite recipes
 
 Starting a python server
 
@@ -45,13 +52,13 @@ describe('with async sign up', function() {
     signUpEvent("http://10.0.2.210:3000");
     $('.signup-form').trigger('submit');
 
-    setTimeout(function() { 
+    setTimeout(function() {
       done() ;
     }, 1000)
   })
 
   it('should be able to submit a sign up form', function() {
-    expect($('.signout-link')[0]).toBeInDOM(); 
+    expect($('.signout-link')[0]).toBeInDOM();
   });
 });
 ```
