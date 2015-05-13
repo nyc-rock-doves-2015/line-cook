@@ -14,31 +14,7 @@ function BigOvenGetRecipeJson(recipeId) {
     cache: false,
     url: url
   }).then(function(data) {
-    currentRecipe = new Recipe(data);
-    for(i = 0; i < data.Ingredients.length; i ++){
-      currentRecipe.ingredients.push(new Ingredient(data.Ingredients[i]));
-    };
-
-    var instructions = data.Instructions.split(/\s{2,}/).filter(Boolean);
-    for(i = 0; i < instructions.length; i ++){
-      currentRecipe.instructions.push(new Instruction(instructions[i]));
-    };
-
-    var userId = window.localStorage.getItem("sessionId")
-    if (userId) {
-      currentRecipe.userId = userId;
-    }
-
-    renderPage('#recipe-show', '.content-container', currentRecipe)
-    $('span.stars').stars();
-
-    renderAppend('#ingredients-template', '.recipe', {ingredients: currentRecipe.ingredients})
-    renderAppend('#instructions-template', '.recipe', {instructions: currentRecipe.instructions})
-
-    window.scrollTo(0, 0);
-    window.sessionStorage.setItem("recipeResult", $('.content-container').html());
-
-    return instructions;
+    return renderSingleRecipe(data);
   }).then(function(data) {
 
     $('.content-container').on('click', '#cook-button', function(event) {
@@ -125,8 +101,6 @@ function BigOvenGetRecipeJson(recipeId) {
 // BigOven recipe search
 function BigOvenRecipeSearchJson(query) {
   $(document).off("receivedHypothesis")
-  var allRecipes = [];
-  var noImageLink = "http://redirect.bigoven.com/pics/recipe-no-image.jpg"
   var apiKey = "dvx7zJ0x53M8X5U4nOh6CMGpB3d0PEhH";
   var titleKeyword = query;
   var url = "https://api.bigoven.com/recipes?pg=1&rpp=25&title_kw="
@@ -137,20 +111,12 @@ function BigOvenRecipeSearchJson(query) {
     dataType: 'json',
     cache: false,
     url: url
-  }).then(function (data) {
-    var recipes = data.Results.filter(function(result) {
-      return !(result.IsBookmark || result.ImageURL == noImageLink)
-    });
-    return recipes;
-  }).then(function(data){
-    for(i = 0; i < data.length; i ++) {
-      allRecipes.push(new RecipePreview(data[i]));
-    };
-    return allRecipes
-  }).then(function(recipes){
-    renderPage('#search-results', '.content-container', {recipes: recipes});
-    window.sessionStorage.setItem("searchResults", $('.content-container').html())
-    $('span.stars').stars();
+  }).then(function(data) {
+    return filterRecipes(data);
+  }).then(function(data) {
+    return groupRecipes(data);
+  }).then(function(data) {
+    renderRecipes(data);
   })
 }
 
