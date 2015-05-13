@@ -3,7 +3,8 @@ module.exports = {
   entry: {
     spec: [
       './spec/AuthSpec.js',
-      './spec/DashboardSpec.js'
+      './spec/DashboardSpec.js',
+      './spec/SearchForRecipeSpec.js'
     ]
   },
 

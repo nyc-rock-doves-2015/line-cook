@@ -34,9 +34,9 @@ describe("Splash page", function() {
       $('#search').val('lasagna')
       $('#search-form').trigger('submit');
 
-      setTimeout(function() { 
+      setTimeout(function() {
         done();
-      }, 400);
+      }, 4000);
     });
 
     it('should land on recipe results page', function() {
@@ -81,13 +81,13 @@ describe("Auth", function() {
         signUpEvent("http://10.0.2.210:3000");
         $('.signup-form').trigger('submit');
 
-        setTimeout(function() { 
+        setTimeout(function() {
           done();
-        }, 400);
+        }, 4000);
       })
 
       it('should be able to submit a sign up form', function() {
-        expect($('.signout-link')[0]).toBeInDOM(); 
+        expect($('.signout-link')[0]).toBeInDOM();
       });
 
       it('should add user id to localStorage', function() {
