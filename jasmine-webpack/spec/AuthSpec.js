@@ -15,22 +15,24 @@ describe("Splash page", function() {
 
 })
 
-// describe("Auth", function() {
+describe("Auth", function() {
 
-//   beforeEach(function() {
-//     jasmine.getFixtures().fixturesPath = './';
-//     jasmine.getFixtures().load('index-fake.html');
-//     window.sessionStorage.setItem("sessionId", null)
-//     renderSplash('#home-page-logged-in', '#home-page-logged-out', '.container')
-//   });
+  beforeEach(function() {
+    jasmine.getFixtures().fixturesPath = './';
+    jasmine.getFixtures().load('index-fake.html');
+    window.sessionStorage.setItem("sessionId", null)
+    renderSplash('#home-page-logged-in', '#home-page-logged-out', '.container')
+  });
 
-//   describe('from any page where not logged in', function() {
-//     it('should be able to add sign up form', function() {
-//       getSignUpFormEvent();
-//       $('.signup-link').trigger('click')
+  describe('from any page where not logged in', function() {
+    it('should be able to add sign up form', function() {
+      getSignUpFormEvent();
+      $('.signup-link').trigger('click')
 
-//       expect($('#signup-container')[0]).toBeInDOM();
-//     });
+      expect($('#signup-container')[0]).toBeInDOM();
+    });
+  });
+});
 
 //     describe('with async sign up', function() {
 
