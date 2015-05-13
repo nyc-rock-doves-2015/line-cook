@@ -20,7 +20,7 @@ describe("Return the recipe search results", function() {
       $('#search-form').trigger('submit');
       setTimeout(function() {
         done();
-      }, 1000)
+      }, 4000)
     });
 
     it('attaches divs with the recipe-container class', function() {

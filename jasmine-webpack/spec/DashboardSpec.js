@@ -14,9 +14,9 @@ describe("User dashboard", function() {
       $('.signin-form').find('input[name="user[password]"]').val("123");
       $('.signin-form').trigger('submit');
 
-      setTimeout(function() { 
+      setTimeout(function() {
         done();
-      }, 400);
+      }, 4000);
     });
 
     it("should have a user profile button", function() {
@@ -29,7 +29,7 @@ describe("User dashboard", function() {
         getUserProfileEvent("http://10.0.2.210:3000");
         $('#user-icon').trigger('click');
 
-        setTimeout(function() { 
+        setTimeout(function() {
           done();
         }, 400);
       })
