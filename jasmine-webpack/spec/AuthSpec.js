@@ -1,7 +1,7 @@
 describe("Splash page", function() {
 
   beforeEach(function() {
-    window.localStorage.setItem("sessionId", null)
+    window.localStorage.removeItem("sessionId")
     jasmine.getFixtures().fixturesPath = './';
     jasmine.getFixtures().load('index-fake.html');
   });
@@ -11,16 +11,23 @@ describe("Splash page", function() {
     renderSplash('#home-page-logged-in', '#home-page-logged-out', '.container')
 
     expect(document.getElementsByClassName('signin-form')[0]).toBeInDOM();
-  })
+  });
+
+  it('should have a sign out link when logged in', function() {
+    window.localStorage.setItem("sessionId", 1)
+    renderSplash('#home-page-logged-in', '#home-page-logged-out', '.container')
+
+    expect(document.getElementsByClassName('signout-link')[0]).toBeInDOM();
+  });
 
 })
 
 describe("Auth", function() {
 
   beforeEach(function() {
+    window.localStorage.removeItem("sessionId")
     jasmine.getFixtures().fixturesPath = './';
     jasmine.getFixtures().load('index-fake.html');
-    window.sessionStorage.setItem("sessionId", null)
     renderSplash('#home-page-logged-in', '#home-page-logged-out', '.container')
   });
 
