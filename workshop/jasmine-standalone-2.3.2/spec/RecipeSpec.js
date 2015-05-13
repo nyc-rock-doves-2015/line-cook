@@ -34,10 +34,31 @@ describe ('recipe show', function() {
     });
   });
 
+  describe ("recipe show template", function() {
+    it("should be in the DOM", function() {
+      expect($('#recipe-show')).toBeInDOM();
+    });
+  });
 
+  describe ("favorite icon", function() {
 
+    it("should be in the DOM", function() {
+      expect($('#favorite-icon')).toBeInDOM();
+    });
 
+    it("should trigger an event when clicked", function() {
+      var spyEvent = spyOnEvent('#favorite-icon', 'click');
+      $('#favorite-icon').click();
+      expect('click').toHaveBeenTriggeredOn('#favorite-icon');
+      expect(spyEvent).toHaveBeenTriggered();
+    });
 
+    it("should return a confirmation alert when a user is logged in", function() {
+        var serverUrl = "http://10.0.2.210:3000"
+        window.localStorage.removeItem("sessionId");
+        expect(addFavorite(serverUrl)).toBe("Sorry, please sign in to create favorites!")
+    });
 
+  });
 
 });
