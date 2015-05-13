@@ -2,7 +2,6 @@ module.exports = {
   context: __dirname,
   entry: {
     spec: [
-      './spec/PlayerSpec.js',
       './spec/AuthSpec.js'
     ]
   },
