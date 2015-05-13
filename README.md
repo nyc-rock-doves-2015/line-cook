@@ -4,9 +4,15 @@ Line-cook is a cooking-helper app for iOS that utilizes iPhone's speech-synthesi
 ## Core Functionalities
 1. Search for recipes via the [BigOven](http://api.bigoven.com/documentation "BigOven Documentation") API
 2. Choose a recipe from search results
-3. View recipe ingredients and steps and issue voice commands
-4. Use buttons to over-ride voice commands
-5. Create an account to save favorite recipes
+3. View recipe ingredients and steps and issue [voice commands](https://github.com/nyc-rock-doves-2015/line-cook/tree/readme_final)
+4. Create an account to save favorite recipes
+
+## Voice Commands
+ Command        | Result
+| ------------- |:-------------:|
+| Start         |               |
+| Next          |               |
+| Repeat        |               |
 
 Starting a python server
 
