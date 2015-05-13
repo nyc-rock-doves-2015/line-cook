@@ -43,17 +43,9 @@ function BigOvenGetRecipeJson(recipeId) {
 
     $('.content-container').on('click', '#cook-button', function(event) {
 
-      var template = $('#recipe-back-template').html();
-      var output = Mustache.render(template);
-      $('.content-container').html(output);
-
-      var template = $('#instructions-template').html();
-      var output = Mustache.render(template, {instructions: currentRecipe.instructions});
-      $('.content-container').append(output);
-
-      var template = $('#backup-buttons-template').html();
-      var output = Mustache.render(template);
-      $('.content-container').append(output);
+      renderPage('#recipe-back-template', '.content-container')
+      renderAppend('#instructions-template', '.content-container', {instructions: currentRecipe.instructions})
+      renderAppend('#backup-buttons-template', '.content-container')
 
       window.scrollTo(0, 0);
 
@@ -146,7 +138,6 @@ function BigOvenRecipeSearchJson(query) {
     cache: false,
     url: url
   }).then(function (data) {
-    $('.content-container').html('')
     var recipes = data.Results.filter(function(result) {
       return !(result.IsBookmark || result.ImageURL == noImageLink)
     });
@@ -157,10 +148,11 @@ function BigOvenRecipeSearchJson(query) {
     };
     return allRecipes
   }).then(function(recipes){
+    //NEED TO COME BACK TO THIS
     var template = $('#search-results').html();
     var output = Mustache.render(template, {recipes: recipes});
+    $('.content-container').html(output);
     window.sessionStorage.setItem("searchResults", output)
-    $('.content-container').append(output);
     $('span.stars').stars();
   })
 }
