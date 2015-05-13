@@ -1,13 +1,13 @@
 describe("Splash page", function() {
 
   beforeEach(function() {
-    window.sessionStorage.setItem("sessionId", null)
+    window.localStorage.setItem("sessionId", null)
     jasmine.getFixtures().fixturesPath = './';
     jasmine.getFixtures().load('index-fake.html');
   });
 
   it('should have a sign in form', function() {
-    window.sessionStorage.removeItem("sessionId")
+    window.localStorage.removeItem("sessionId")
     renderSplash('#home-page-logged-in', '#home-page-logged-out', '.container')
 
     expect(document.getElementsByClassName('signin-form')[0]).toBeInDOM();
@@ -31,22 +31,24 @@ describe("Auth", function() {
 
       expect($('#signup-container')[0]).toBeInDOM();
     });
+
+    describe('with async sign up', function() {
+
+      beforeEach(function(done) {
+        getSignUpFormEvent();
+        $('.signup-link').trigger('click')
+
+        signUpEvent("http://10.0.2.210:3000");
+        $('.signup-form').trigger('submit');
+
+        setTimeout(function() { 
+          done() ;
+        }, 1000)
+      })
+
+      it('should be able to submit a sign up form', function() {
+        expect($('.signout-link')[0]).toBeInDOM(); 
+      });
+    });
   });
 });
-
-//     describe('with async sign up', function() {
-
-//       beforeEach(function(done) {
-//         getSignUpFormEvent();
-//         $('.signup-link').trigger('click')
-
-//         signUpEvent("http://10.0.2.210:3000");
-//         $('.signup-form').trigger('submit');
-//       })
-
-//       it('should be able to submit a sign up form', function() {
-//         expect($('.signout-link')[0]).toBeInDOM(); 
-//       });
-//     });
-//   });
-// });

@@ -19,6 +19,7 @@ var signUpEvent = function(serverUrl) {
       type: "POST",
       data: $target.serialize()
     }).then(function(response) {
+      console.log("sign up event then call")
       window.localStorage.setItem("sessionId", response.id);
       var indexTemplate = Mustache.render($('#logged-in').html());
       $('.container').html(indexTemplate);
