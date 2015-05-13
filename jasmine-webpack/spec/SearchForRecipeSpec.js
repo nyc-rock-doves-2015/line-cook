@@ -1,7 +1,6 @@
 describe("Return the recipe search results", function() {
-  var value = 'lasagna'
   beforeEach(function() {
-    jasmine.getFixtures().fixturesPath = '../';
+    jasmine.getFixtures().fixturesPath = './';
     jasmine.getFixtures().load('index-fake.html');
     var indexTemplate = Mustache.render($('#home-page-logged-out').html());
     $('.container').html(indexTemplate);
