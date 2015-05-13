@@ -1,13 +1,15 @@
 describe("Return the recipe search results", function() {
-  // var value = 'lasagna'
-  // beforeEach(function() {
-  //   jasmine.getFixtures().fixturesPath = 'my/new/path';
-  //   setFixtures($('#search_form').val(value));
-  // });
+  var value = 'lasagna'
+  beforeEach(function() {
+    jasmine.getFixtures().fixturesPath = '../';
+    jasmine.getFixtures().load('index-fake.html');
+    var indexTemplate = Mustache.render($('#home-page-logged-out').html());
+    $('.container').html(indexTemplate);
+  });
 
   describe ('recipe search event', function(){
-    it('should fire when touched/clicked', function() {
-      expect(1).toEqual(1);
+    it('should contain an empty search field', function() {
+      expect($('#search-form')).toBeInDOM();
     });
   });
 });
