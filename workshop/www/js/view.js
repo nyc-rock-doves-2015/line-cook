@@ -6,3 +6,9 @@ var renderSplash = function(selectorOne, selectorTwo, destination){
   }
   $(destination).html(indexTemplate);
 };
+
+var renderPage = function(templateSelector, destinationSelector, jsonObject) {
+  var template = $(templateSelector).html();
+  var output = Mustache.render(template, jsonObject);
+  $(destinationSelector).html(output);
+};
