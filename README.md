@@ -9,10 +9,10 @@ Line-cook is a cooking-helper app for iOS that utilizes iPhone's speech-synthesi
 
 ## Voice Commands
  Command        | Result
-| ------------- |:-------------:|
-| Start         |               |
-| Next          |               |
-| Repeat        |               |
+| ------------- |:-----------------------------:|
+| Start         | Begins recipe recitation      |
+| Next          | Reads off next step in recipe |
+| Repeat        | Repeats current step in recipe|
 
 Starting a python server
 
