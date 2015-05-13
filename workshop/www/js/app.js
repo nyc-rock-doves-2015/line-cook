@@ -148,11 +148,8 @@ function BigOvenRecipeSearchJson(query) {
     };
     return allRecipes
   }).then(function(recipes){
-    //NEED TO COME BACK TO THIS
-    var template = $('#search-results').html();
-    var output = Mustache.render(template, {recipes: recipes});
-    $('.content-container').html(output);
-    window.sessionStorage.setItem("searchResults", output)
+    renderPage('#search-results', '.content-container', {recipes: recipes});
+    window.sessionStorage.setItem("searchResults", $('.content-container').html())
     $('span.stars').stars();
   })
 }
