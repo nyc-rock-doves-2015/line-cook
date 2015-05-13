@@ -20,6 +20,35 @@ describe("Splash page", function() {
     expect(document.getElementsByClassName('signout-link')[0]).toBeInDOM();
   });
 
+  it('should have the search form always', function() {
+    expect($('#search-form')[0]).toBeInDOM();
+    window.localStorage.setItem("sessionId", 1)
+    renderSplash('#home-page-logged-in', '#home-page-logged-out', '.container')
+    expect($('#search-form')[0]).toBeInDOM();
+  })
+
+  describe('users ajax call to search', function() {
+
+    beforeEach(function(done) {
+      recipeSearchEvent(BigOvenRecipeSearchJson)
+      $('#search').val('lasagna')
+      $('#search-form').trigger('submit');
+
+      setTimeout(function() { 
+        done();
+      }, 700);
+    });
+
+    it('should land on recipe results page', function() {
+      expect($('.recipe-container')[0]).toBeInDOM();
+    });
+
+    it('clears search bar after search comes back', function() {
+      expect($('#search').val()).toEqual('');
+    })
+
+  });
+
 })
 
 describe("Auth", function() {
@@ -49,13 +78,30 @@ describe("Auth", function() {
         $('.signup-form').trigger('submit');
 
         setTimeout(function() { 
-          done() ;
-        }, 1000)
+          done();
+        }, 700);
       })
 
       it('should be able to submit a sign up form', function() {
         expect($('.signout-link')[0]).toBeInDOM(); 
       });
+
+      it('should land on the main page with user icon', function() {
+        expect($('.glyphicon-user')[0]).toBeInDOM();
+      });
+
+      it('should be able to sign out after signing in', function() {
+        signOutEvent();
+        $('.signout-link').trigger('click');
+        expect($('.signin-form')[0]).toBeInDOM();
+      });
+
+      it('should remove user from localStorage when signed out', function() {
+        signOutEvent();
+        $('.signout-link').trigger('click');
+        expect(window.localStorage.getItem("sessionId")).toEqual(null);
+      });
+
     });
   });
 });
