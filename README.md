@@ -16,7 +16,10 @@ Line-cook is a cooking-helper app for iOS that utilizes iPhone's speech-synthesi
 | Quit          | Disables listener             |
 
 ## Apis
-
+### Apache Cordova
+Line-Cook is a native JavaScript app built on the Apache Cordova mobile platform
+### OpenEars
+Line-Cook utilizes OpenEars to enable speech recognition and speech synthesis on iOS
 
 Starting a python server
 
