@@ -116,3 +116,14 @@ span.glyphicon-heart {
   margin-right: 0;
 }
 
+#serving, #prep-time {
+  padding-top: 5%;
+}
+
+#serving {
+  border-right: solid 1px #d3d3d3;
+}
+
+#prep-time {
+  border-left: solid 1px #d3d3d3;
+}
