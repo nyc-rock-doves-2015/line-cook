@@ -1,4 +1,4 @@
-var serverUrl = "http://10.0.2.210:3000"
+var serverUrl = "http://192.168.1.3:3000"
 
 function BigOvenGetRecipeJson(recipeId) {
   clearBinds();

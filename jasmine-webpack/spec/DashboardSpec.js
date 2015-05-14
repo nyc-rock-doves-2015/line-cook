@@ -16,7 +16,7 @@ describe("User dashboard", function() {
 
       setTimeout(function() {
         done();
-      }, 4000);
+      }, 3000);
     });
 
     it("should have a user profile button", function() {
@@ -31,7 +31,7 @@ describe("User dashboard", function() {
 
         setTimeout(function() {
           done();
-        }, 400);
+        }, 3000);
       })
 
       it("should see user favorites", function() {
