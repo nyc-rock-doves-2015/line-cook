@@ -29,17 +29,19 @@ function BigOvenRecipeSearchJson(query) {
   var url = "https://api.bigoven.com/recipes?pg=1&rpp=25&title_kw="
             + titleKeyword
             + "&api_key="+apiKey;
+
+  var recipeList = new RecipeList();
+
   $.ajax({
     type: "GET",
     dataType: 'json',
     cache: false,
     url: url
   }).then(function(data) {
-    return filterRecipes(data);
-  }).then(function(data) {
-    return groupRecipes(data);
-  }).then(function(data) {
-    renderRecipes(data);
+    for (var i = 0; i < data.Results.length; i++) {
+      recipeList.addRecipePreview(new RecipePreview(data.Results[i]));
+    }
+    recipeList.renderView();
   })
 }
 
@@ -60,9 +62,9 @@ $.fn.stars = function() {
 
 $(document).ready(function() {
   renderSplash('#home-page-logged-in', '#home-page-logged-out', '.container')
-  $(document).on("deviceready", function() {
-    Ears = cordova.plugins.OpenEars;
-    Ears.startAudioSession();
+  // $(document).on("deviceready", function() {
+  //   Ears = cordova.plugins.OpenEars;
+  //   Ears.startAudioSession();
 
     recipeSearchEvent(BigOvenRecipeSearchJson);
     getRecipeEvent(BigOvenGetRecipeJson);
@@ -80,5 +82,5 @@ $(document).ready(function() {
 
     addFavorite(serverUrl);
 
-  });
+  // });
 });
