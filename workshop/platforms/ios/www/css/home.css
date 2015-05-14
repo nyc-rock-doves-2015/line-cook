@@ -1,0 +1,66 @@
+#login-container {
+  margin: 0 auto;
+  width: 40%;
+}
+
+.content-container {
+  margin-bottom: 10%;
+}
+
+.signin-container {
+  padding-top: 20px;
+}
+
+.signup-link {
+  margin-top: 8px;
+}
+
+.auth-form {
+  padding: 10px;
+  background: #ccc;
+  border-radius: 2%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.right-inner-addon {
+    position: relative;
+}
+.right-inner-addon input {
+    padding-right: 30px;
+}
+.right-inner-addon i {
+    position: absolute;
+    right: 0px;
+    padding: 10px 12px;
+    pointer-events: none;
+}
+
+.search-container {
+  margin: 0 auto;
+  width: 60%;
+}
+
+.container-fluid {
+  margin-top: 10%;
+}
+
+.nav>li>a {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.nav-pills>li {
+  height: 1px;
+}
+
+.nav-icons {
+  margin-top: 9px;
+  padding-bottom: 0px;
+  margin-bottom: 0px;
+}
+
+.navbar-form {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}

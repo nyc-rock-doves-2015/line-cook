@@ -1,0 +1,62 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {
+            "config.xml": {
+                "parents": {
+                    "/*": [
+                        {
+                            "xml": "<feature name=\"Device\"><param name=\"ios-package\" value=\"CDVDevice\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Console\"><param name=\"ios-package\" value=\"CDVLogger\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"OpenEars\"><param name=\"ios-package\" value=\"CDVOpenEars\" /></feature>",
+                            "count": 1
+                        }
+                    ]
+                }
+            },
+            "framework": {
+                "parents": {
+                    "AudioToolbox.framework": [
+                        {
+                            "xml": false,
+                            "count": 1
+                        }
+                    ],
+                    "SystemConfiguration.framework": [],
+                    "Security.framework": [],
+                    "CFNetwork.framework": [],
+                    "AVFoundation.framework": [
+                        {
+                            "xml": false,
+                            "count": 1
+                        }
+                    ]
+                }
+            }
+        }
+    },
+    "installed_plugins": {
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "com.bkmorimoto.workshop"
+        },
+        "org.apache.cordova.device": {
+            "PACKAGE_NAME": "com.bkmorimoto.workshop"
+        },
+        "org.apache.cordova.console": {
+            "PACKAGE_NAME": "com.bkmorimoto.workshop"
+        },
+        "com.skytek.cordova.openears": {
+            "PACKAGE_NAME": "com.bkmorimoto.workshop"
+        }
+    },
+    "dependent_plugins": {}
+}
