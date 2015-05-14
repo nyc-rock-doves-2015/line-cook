@@ -62,9 +62,9 @@ $.fn.stars = function() {
 
 $(document).ready(function() {
   renderSplash('#home-page-logged-in', '#home-page-logged-out', '.container')
-  // $(document).on("deviceready", function() {
-  //   Ears = cordova.plugins.OpenEars;
-  //   Ears.startAudioSession();
+  $(document).on("deviceready", function() {
+    Ears = cordova.plugins.OpenEars;
+    Ears.startAudioSession();
 
     recipeSearchEvent(BigOvenRecipeSearchJson);
     getRecipeEvent(BigOvenGetRecipeJson);
@@ -82,5 +82,5 @@ $(document).ready(function() {
 
     addFavorite(serverUrl);
 
-  // });
+  });
 });
