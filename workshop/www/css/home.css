@@ -116,3 +116,26 @@ span.glyphicon-heart {
   margin-right: 0;
 }
 
+#serving, #prep-time {
+  padding-top: 5%;
+}
+
+#serving {
+  border-right: solid 1px #d3d3d3;
+}
+
+#prep-time {
+  border-left: solid 1px #d3d3d3;
+}
+
+h3 {
+  color: #425961;
+}
+
+#recipe-pic, .recipe-container {
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-weight: bold;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: white;
+}
