@@ -18,3 +18,19 @@ Recipe.prototype.playStart = function() {
   Ears.say(this.instructions[this.instructionsIndex].content);
   this.instructionsIndex += 1;
 }
+
+Recipe.prototype.playNext = function() {
+  Ears.say(this.instructions[this.instructionsIndex].content);
+  this.instructionsIndex += 1;
+};
+
+Recipe.prototype.playRepeat = function() {
+  this.instructionsIndex -= 1;
+  Ears.say(this.instructions[this.instructionsIndex].content);
+  this.instructionsIndex += 1;
+};
+
+Recipe.prototype.playQuit = function() {
+  Ears.say("Why don't you love me?");
+  Ears.stopListening();
+};
