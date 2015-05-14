@@ -132,10 +132,20 @@ h3 {
   color: #425961;
 }
 
-#recipe-pic, .recipe-container {
+.recipe-image {
   background-repeat: no-repeat;
   background-size: cover;
   font-weight: bold;
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: white;
+}
+
+#user-name {
+  color: #425961;
+  text-align: center;
+}
+
+#dash-fav-icon {
+  float: right;
+  font-size: 1em;
 }
