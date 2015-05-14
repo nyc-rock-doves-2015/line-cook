@@ -288,9 +288,9 @@
     <!-- User Dashboard Template -->
     <script id="user-dashboard-template" type="x-tmpl-mustache">
       <div id="dashboard-container" class="list-group">
-        <h2 class="list-group-heading">{{ name }}&#39s favorites</h2>
+        <h3 id="user-name" class="list-group-heading">{{ name }}&#39s Favorites</h3>
         {{ #favorites }}
-          <li class="list-group-item recipe-container" data-recipeId="{{bigOvenId}}">{{ title }}
+          <li class="list-group-item recipe-container" data-recipeId="{{bigOvenId}}">{{ title }}<span id="dash-fav-icon"class="glyphicon glyphicon-heart"></span>
           </li>
         {{ /favorites }}
       </div>
