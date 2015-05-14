@@ -41,6 +41,9 @@ var signInEvent = function(serverUrl) {
       var indexTemplate = Mustache.render($('#logged-in').html());
       $('.container').html(indexTemplate);
       $('body').css("background-color", "#FFF");
+    }).fail(function(response) {
+      $target.find('input[name="user[password]"]').val('');
+      alert("Wrong username or password");
     });
   });
 };
