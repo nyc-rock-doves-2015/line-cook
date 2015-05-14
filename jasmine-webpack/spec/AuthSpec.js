@@ -74,7 +74,7 @@ describe("Auth", function() {
         getSignUpFormEvent();
         $('.signup-link').trigger('click')
 
-        $('.signup-form').find('input[name="user[name]"]').val("testben" + Math.floor((Math.random() * 1000) + 1))
+        $('.signup-form').find('input[name="user[name]"]').val("testben" + Math.floor((Math.random() * 100000) + 1))
         $('.signup-form').find('input[name="user[password]"]').val("123")
         $('.signup-form').find('input[name="user[password_confirmation]"]').val("123")
 
