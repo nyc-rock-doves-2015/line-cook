@@ -4,11 +4,12 @@ var getUserProfileEvent = function(serverUrl) {
     $.ajax({
       type: "GET",
       url: serverUrl + "/dashboard",
-      data: { userId: userId }
+      data: { userId: userId },
+      dataType: "json"
     }).then(function(response){
       var template = $('#user-dashboard-template').html();
       var output = Mustache.render(template, { favorites: response.dashboardInfo, name: response.userName });
-    $('.content-container').html(output);
+      $('.content-container').html(output);
     });
   });
 };

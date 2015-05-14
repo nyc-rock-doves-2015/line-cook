@@ -1,7 +1,5 @@
  var getRecipeEvent = function(apiRequest){
   $('.container').on('click', '.recipe-container', function(event) {
-    // $(this).css("background-color":"#A2DAE2", "color": "white");
-    // setTimeout(function() { return }, 3000);
     var $target = $(event.target);
     var recipeId = $target.closest('.recipe-container')[0].dataset.recipeid;
     apiRequest(recipeId);
