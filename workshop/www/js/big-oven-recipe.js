@@ -37,36 +37,8 @@ var openEarsSetup = function(currentRecipe) {
 
     window.scrollTo(0, 0);
 
-    // var instructions = currentRecipe.instructions;
-    // var instructionsIndex = 0;
-
     Ears.stopListening();
     Ears.resumeListening();
-
-    $('.content-container').on('click', '.backup-start', function(event) {
-      currentRecipe.playStart();
-      // Ears.stopListening();
-      // Ears.resumeListening();
-      // instructionsIndex = 0;
-      // Ears.say(instructions[instructionsIndex]);
-      // instructionsIndex += 1;
-    })
-
-    $('.content-container').on('click', '.backup-next', function(event) {
-      Ears.say(instructions[instructionsIndex]);
-      instructionsIndex += 1;
-    })
-
-    $('.content-container').on('click', '.backup-repeat', function(event) {
-      instructionsIndex -= 1;
-      Ears.say(instructions[instructionsIndex]);
-      instructionsIndex += 1;
-    })
-
-    $('.content-container').on('click', '.backup-off', function(event) {
-      Ears.say("Why don't you love me?")
-      Ears.stopListening();
-    })
 
     var languages = {};
     languages["commands"] = {};
@@ -78,23 +50,31 @@ var openEarsSetup = function(currentRecipe) {
       languages["commands"].paths = evt.originalEvent.detail;
     });
 
+    $('.content-container').on('click', '.backup-start', function(event) {
+      currentRecipe.playStart();
+    })
+
+    $('.content-container').on('click', '.backup-next', function(event) {
+      currentRecipe.playNext();
+    })
+
+    $('.content-container').on('click', '.backup-repeat', function(event) {
+      currentRecipe.playRepeat();
+    })
+
+    $('.content-container').on('click', '.backup-off', function(event) {
+      currentRecipe.playQuit();
+    })
+
     var processHeard = function(detail) {
-      if (detail.hypothesis == "NEXT") {
-        Ears.say(instructions[instructionsIndex]);
-        instructionsIndex += 1;
-      } else if (detail.hypothesis == "START") {
-        Ears.stopListening();
-        Ears.resumeListening();
-        instructionsIndex = 0;
-        Ears.say(instructions[instructionsIndex]);
-        instructionsIndex += 1;
+      if (detail.hypothesis == "START") {
+        currentRecipe.playStart();
+      } else if (detail.hypothesis == "NEXT") {
+        currentRecipe.playNext();
       } else if (detail.hypothesis == "REPEAT") {
-        instructionsIndex -= 1;
-        Ears.say(instructions[instructionsIndex]);
-        instructionsIndex += 1;
+        currentRecipe.playRepeat();
       } else if (detail.hypothesis == "QUIT") {
-        Ears.say("Why don't you love me?")
-        Ears.stopListening();
+        currentRecipe.playQuit();
       }
     };
 
