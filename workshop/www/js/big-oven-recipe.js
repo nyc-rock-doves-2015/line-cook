@@ -1,11 +1,12 @@
 var renderSingleRecipe = function(data) {
   currentRecipe = new Recipe(data);
-  for(i = 0; i < data.Ingredients.length; i ++){
+
+  for(var i = 0; i < data.Ingredients.length; i++) {
     currentRecipe.ingredients.push(new Ingredient(data.Ingredients[i]));
   };
-  
+
   var instructions = data.Instructions.split(/\s{2,}/).filter(Boolean);
-  for(i = 0; i < instructions.length; i ++){
+  for(var i = 0; i < instructions.length; i++) {
     currentRecipe.instructions.push(new Instruction(instructions[i]));
   };
   
@@ -23,10 +24,10 @@ var renderSingleRecipe = function(data) {
   window.scrollTo(0, 0);
   window.sessionStorage.setItem("recipeResult", $('.content-container').html());
   
-  return instructions;
+  return currentRecipe;
 }
 
-var openEarsSetup = function(data) {
+var openEarsSetup = function(currentRecipe) {
 
   $('.content-container').on('click', '#cook-button', function(event) {
 
@@ -36,18 +37,19 @@ var openEarsSetup = function(data) {
 
     window.scrollTo(0, 0);
 
-    var instructions = data;
-    var instructionsIndex = 0;
+    // var instructions = currentRecipe.instructions;
+    // var instructionsIndex = 0;
 
     Ears.stopListening();
     Ears.resumeListening();
 
     $('.content-container').on('click', '.backup-start', function(event) {
-      Ears.stopListening();
-      Ears.resumeListening();
-      instructionsIndex = 0;
-      Ears.say(instructions[instructionsIndex]);
-      instructionsIndex += 1;
+      currentRecipe.playStart();
+      // Ears.stopListening();
+      // Ears.resumeListening();
+      // instructionsIndex = 0;
+      // Ears.say(instructions[instructionsIndex]);
+      // instructionsIndex += 1;
     })
 
     $('.content-container').on('click', '.backup-next', function(event) {
