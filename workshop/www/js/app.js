@@ -15,9 +15,9 @@ function BigOvenGetRecipeJson(recipeId) {
     cache: false,
     url: url
   }).then(function(data) {
-    return renderSingleRecipe(data);
-  }).then(function(data) {
-    openEarsSetup(data);
+    var currentRecipe = new Recipe(data);
+    currentRecipe.renderView(data);
+    currentRecipe.openEarsSetup();
   })
 }
 
@@ -38,26 +38,8 @@ function BigOvenRecipeSearchJson(query) {
     cache: false,
     url: url
   }).then(function(data) {
-    for (var i = 0; i < data.Results.length; i++) {
-      recipeList.addRecipePreview(new RecipePreview(data.Results[i]));
-    }
-    recipeList.renderView();
+    recipeList.renderView(data);
   })
-}
-
-var clearBinds = function() {
-  $(document).off("receivedHypothesis");
-  $(document).off("finishedSpeaking");
-  $('.content-container').off('click', '.backup-start');
-  $('.content-container').off('click', '.backup-next');
-  $('.content-container').off('click', '.backup-repeat');
-  $('.content-container').off('click', '.backup-off');
-};
-
-$.fn.stars = function() {
-  return $(this).each(function() {
-    $(this).html($('<span />').width(Math.max(0, (Math.min(5, parseFloat($(this).html())))) * 16));
-  });
 }
 
 $(document).ready(function() {
