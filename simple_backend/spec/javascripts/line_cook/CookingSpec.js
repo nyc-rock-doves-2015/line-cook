@@ -40,6 +40,33 @@ describe("Start Cooking page", function() {
     expect(currentRecipe.playStart).toHaveBeenCalled();
   });
 
+  it('should click the next button', function() {
+    var spyEvent = spyOnEvent('.backup-next', 'click');
+    spyOn(currentRecipe, "playNext")
+    $('.backup-next').trigger('click');
+    expect('click').toHaveBeenTriggeredOn('.backup-next');
+    expect(spyEvent).toHaveBeenTriggered();
+    expect(currentRecipe.playNext).toHaveBeenCalled();
+  });
+
+  it('should click the repeat button', function() {
+    var spyEvent = spyOnEvent('.backup-repeat', 'click');
+    spyOn(currentRecipe, "playRepeat")
+    $('.backup-repeat').trigger('click');
+    expect('click').toHaveBeenTriggeredOn('.backup-repeat');
+    expect(spyEvent).toHaveBeenTriggered();
+    expect(currentRecipe.playRepeat).toHaveBeenCalled();
+  });
+
+  it('should click the off button', function() {
+    var spyEvent = spyOnEvent('.backup-off', 'click');
+    spyOn(currentRecipe, "playQuit")
+    $('.backup-off').trigger('click');
+    expect('click').toHaveBeenTriggeredOn('.backup-off');
+    expect(spyEvent).toHaveBeenTriggered();
+    expect(currentRecipe.playQuit).toHaveBeenCalled();
+  });  
+
 });
 
 
