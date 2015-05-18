@@ -55,14 +55,31 @@ describe("Start Cooking page", function() {
     
   });
 
-  it('should click the next button', function() {
-    var spyEvent = spyOnEvent('.backup-next', 'click');
-    spyOn(currentRecipe, "playNext")
-    $('.backup-next').trigger('click');
-    expect('click').toHaveBeenTriggeredOn('.backup-next');
-    expect(spyEvent).toHaveBeenTriggered();
-    expect(currentRecipe.playNext).toHaveBeenCalled();
-  });
+  describe('when clicking the next button', function() {
+
+    it('should recognize the click activity', function() {
+      var spyEvent = spyOnEvent('.backup-next', 'click');
+      $('.backup-next').trigger('click');
+      expect('click').toHaveBeenTriggeredOn('.backup-next');
+      expect(spyEvent).toHaveBeenTriggered();
+    });
+
+    it('should trigger OpenEars to play the next instructions', function() {
+      spyOn(currentRecipe, "playNext");
+      $('.backup-next').trigger('click');
+      expect(currentRecipe.playNext).toHaveBeenCalled();
+    })
+
+    it('should trigger the say function of openEars', function() {
+      spyOn(Ears, 'say');
+      $('.backup-next').trigger('click');
+      expect(Ears.say).toHaveBeenCalled();
+      $('.backup-next').trigger('click');
+      $('.backup-next').trigger('click');
+      expect(currentRecipe.instructionsIndex).toEqual(3);
+    })
+
+  })
 
   it('should click the repeat button', function() {
     var spyEvent = spyOnEvent('.backup-repeat', 'click');
