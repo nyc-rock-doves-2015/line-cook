@@ -21,7 +21,7 @@ describe("User dashboard", function() {
 
     it("should have a user profile button", function() {
       expect($('.glyphicon-user')[0]).toBeInDOM();
-    })
+    });
 
     describe("setup async for user dashboard", function() {
 
@@ -32,7 +32,7 @@ describe("User dashboard", function() {
         setTimeout(function() {
           done();
         }, ajaxTimeout);
-      })
+      });
 
       it("should see user favorites", function() {
         expect($('#dashboard-container')).toBeInDOM();
@@ -40,7 +40,7 @@ describe("User dashboard", function() {
 
       it("should be able to click on a recipe to jump to recipe show page", function() {
         pending
-      })
+      });
     });
 
   });
