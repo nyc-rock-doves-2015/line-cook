@@ -78,7 +78,7 @@ describe("Auth", function() {
         $('.signup-form').find('input[name="user[password]"]').val("123")
         $('.signup-form').find('input[name="user[password_confirmation]"]').val("123")
 
-        signUpEvent(serverIp);
+        signUpEvent(serverUrl);
         $('.signup-form').trigger('submit');
 
         setTimeout(function() {

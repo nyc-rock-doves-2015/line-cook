@@ -8,7 +8,7 @@ describe("User dashboard", function() {
       jasmine.getFixtures().load('index-fake.html');
       renderSplash('#home-page-logged-in', '#home-page-logged-out', '.container')
 
-      signInEvent(serverIp);
+      signInEvent(serverUrl);
 
       $('.signin-form').find('input[name="user[name]"]').val("testben");
       $('.signin-form').find('input[name="user[password]"]').val("123");
@@ -26,7 +26,7 @@ describe("User dashboard", function() {
     describe("setup async for user dashboard", function() {
 
       beforeEach(function(done) {
-        getUserProfileEvent(serverIp);
+        getUserProfileEvent(serverUrl);
         $('#user-icon').trigger('click');
 
         setTimeout(function() {

@@ -1,8 +1,8 @@
 describe ('recipe show', function() {
 
   beforeEach(function(){
-    jasmine.getFixtures().fixturesPath = '../www/';
-    jasmine.getFixtures().load('index.html');
+    jasmine.getFixtures().fixturesPath = 'spec/';
+    jasmine.getFixtures().load('index-fake.html');
     var currentRecipe = {
       title: "S'mores Cookies",
       ingredients: [{name: "unsalted butter", quantity: 11, unit: "tablespoons"}, {name: "baking soda", quantity: 1, unit: "teaspoon"}],
@@ -53,11 +53,24 @@ describe ('recipe show', function() {
       expect(spyEvent).toHaveBeenTriggered();
     });
 
-    it("should return a confirmation alert when a user is logged in", function() {
-        var serverUrl = "http://10.0.2.210:3000"
+    describe ("with an ajax call", function() {
+
+      beforeEach(function(done) {
+        spyOn(window, 'alert');
         window.localStorage.removeItem("sessionId");
-        expect(addFavorite(serverUrl)).toBe("Sorry, please sign in to create favorites!")
-    });
+
+        addFavorite(serverUrl);
+        $('#favorite-icon').trigger('click');
+
+        setTimeout(function() {
+          done();
+        }, ajaxTimeout);
+      })
+
+      it("should return a confirmation alert when a user is logged in", function() {
+        expect(window.alert).toHaveBeenCalledWith('Sorry, please sign in to create favorites!');
+      });
+    })
 
   });
 
