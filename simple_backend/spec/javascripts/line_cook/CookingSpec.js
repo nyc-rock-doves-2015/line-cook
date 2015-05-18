@@ -31,13 +31,28 @@ describe("Start Cooking page", function() {
     $('#cook-button').trigger('click');
   });
 
-  it('should click the start button', function() {
-    var spyEvent = spyOnEvent('.backup-start', 'click');
-    spyOn(currentRecipe, "playStart")
-    $('.backup-start').trigger('click');
-    expect('click').toHaveBeenTriggeredOn('.backup-start');
-    expect(spyEvent).toHaveBeenTriggered();
-    expect(currentRecipe.playStart).toHaveBeenCalled();
+  describe('when clicking the start button', function() {
+
+    it('should recognize the click activity', function() {
+      var spyEvent = spyOnEvent('.backup-start', 'click');
+      $('.backup-start').trigger('click');
+      expect('click').toHaveBeenTriggeredOn('.backup-start');
+      expect(spyEvent).toHaveBeenTriggered();
+    })
+
+    it('should trigger OpenEars to start playing', function() {
+      spyOn(currentRecipe, "playStart");
+      $('.backup-start').trigger('click');
+      expect(currentRecipe.playStart).toHaveBeenCalled();
+    })
+
+    it('should trigger the say function of openEars', function() {
+      spyOn(Ears, 'say');
+      $('.backup-start').trigger('click');
+      expect(Ears.say).toHaveBeenCalled();
+      expect(currentRecipe.instructionsIndex).toEqual(1);
+    })
+    
   });
 
   it('should click the next button', function() {
