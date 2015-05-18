@@ -31,41 +31,103 @@ describe("Start Cooking page", function() {
     $('#cook-button').trigger('click');
   });
 
-  it('should click the start button', function() {
-    var spyEvent = spyOnEvent('.backup-start', 'click');
-    spyOn(currentRecipe, "playStart")
-    $('.backup-start').trigger('click');
-    expect('click').toHaveBeenTriggeredOn('.backup-start');
-    expect(spyEvent).toHaveBeenTriggered();
-    expect(currentRecipe.playStart).toHaveBeenCalled();
+  describe('when clicking the start button', function() {
+
+    it('should recognize the click activity', function() {
+      var spyEvent = spyOnEvent('.backup-start', 'click');
+      $('.backup-start').trigger('click');
+      expect('click').toHaveBeenTriggeredOn('.backup-start');
+      expect(spyEvent).toHaveBeenTriggered();
+    });
+
+    it('should trigger OpenEars to start playing', function() {
+      spyOn(currentRecipe, "playStart");
+      $('.backup-start').trigger('click');
+      expect(currentRecipe.playStart).toHaveBeenCalled();
+    });
+
+    it('should trigger the say function of OpenEars', function() {
+      spyOn(Ears, 'say');
+      $('.backup-start').trigger('click');
+      expect(Ears.say).toHaveBeenCalled();
+      expect(currentRecipe.instructionsIndex).toEqual(1);
+    });
   });
 
-  it('should click the next button', function() {
-    var spyEvent = spyOnEvent('.backup-next', 'click');
-    spyOn(currentRecipe, "playNext")
-    $('.backup-next').trigger('click');
-    expect('click').toHaveBeenTriggeredOn('.backup-next');
-    expect(spyEvent).toHaveBeenTriggered();
-    expect(currentRecipe.playNext).toHaveBeenCalled();
+  describe('when clicking the next button', function() {
+
+    it('should recognize the click activity', function() {
+      var spyEvent = spyOnEvent('.backup-next', 'click');
+      $('.backup-next').trigger('click');
+      expect('click').toHaveBeenTriggeredOn('.backup-next');
+      expect(spyEvent).toHaveBeenTriggered();
+    });
+
+    it('should trigger OpenEars to play the next instructions', function() {
+      spyOn(currentRecipe, "playNext");
+      $('.backup-next').trigger('click');
+      expect(currentRecipe.playNext).toHaveBeenCalled();
+    });
+
+    it('should trigger the say function of OpenEars', function() {
+      spyOn(Ears, 'say');
+      $('.backup-next').trigger('click');
+      expect(Ears.say).toHaveBeenCalled();
+      $('.backup-next').trigger('click');
+      $('.backup-next').trigger('click');
+      expect(currentRecipe.instructionsIndex).toEqual(3);
+    });
   });
 
-  it('should click the repeat button', function() {
-    var spyEvent = spyOnEvent('.backup-repeat', 'click');
-    spyOn(currentRecipe, "playRepeat")
-    $('.backup-repeat').trigger('click');
-    expect('click').toHaveBeenTriggeredOn('.backup-repeat');
-    expect(spyEvent).toHaveBeenTriggered();
-    expect(currentRecipe.playRepeat).toHaveBeenCalled();
+  describe('when clicking the repeat button', function() {
+
+    beforeEach(function() {
+      currentRecipe.instructionsIndex = 2;
+    });
+
+    it('should recognize the click activity', function() {
+      var spyEvent = spyOnEvent('.backup-repeat', 'click');
+      $('.backup-repeat').trigger('click');
+      expect('click').toHaveBeenTriggeredOn('.backup-repeat');
+      expect(spyEvent).toHaveBeenTriggered();
+    })
+
+    it('should trigger OpenEars to repeat the current instructions', function() {
+      spyOn(currentRecipe, "playRepeat")
+      $('.backup-repeat').trigger('click');
+      expect(currentRecipe.playRepeat).toHaveBeenCalled();
+    });
+
+    it('should trigger the say function of OpenEars', function() {
+      spyOn(Ears, 'say');
+      $('.backup-repeat').trigger('click');
+      expect(Ears.say).toHaveBeenCalled();
+      $('.backup-repeat').trigger('click');
+      expect(currentRecipe.instructionsIndex).toEqual(2);
+    });
   });
 
-  it('should click the off button', function() {
-    var spyEvent = spyOnEvent('.backup-off', 'click');
-    spyOn(currentRecipe, "playQuit")
-    $('.backup-off').trigger('click');
-    expect('click').toHaveBeenTriggeredOn('.backup-off');
-    expect(spyEvent).toHaveBeenTriggered();
-    expect(currentRecipe.playQuit).toHaveBeenCalled();
-  });  
+  describe('when clicking the off button', function() {
+
+    it('should recognize the click activity', function() {
+      var spyEvent = spyOnEvent('.backup-off', 'click');
+      $('.backup-off').trigger('click');
+      expect('click').toHaveBeenTriggeredOn('.backup-off');
+      expect(spyEvent).toHaveBeenTriggered();
+    });
+
+    it('should trigger OpenEars to issue the playQuit function', function() {
+      spyOn(currentRecipe, "playQuit")
+      $('.backup-off').trigger('click');
+      expect(currentRecipe.playQuit).toHaveBeenCalled();
+    }); 
+
+    it('should trigger the stopListening function of OpenEars', function() {
+      spyOn(Ears, 'stopListening');
+      $('.backup-off').trigger('click');
+      expect(Ears.stopListening).toHaveBeenCalled();
+    });
+  }) ;
 
 });
 
