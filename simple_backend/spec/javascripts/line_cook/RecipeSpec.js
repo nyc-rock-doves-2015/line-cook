@@ -14,18 +14,11 @@ describe ('recipe show', function() {
       imageUrl: "http://redirect.bigoven.com/pics/rs/640/smores-cookies.jpg",
       id: 208491
     };
-    var template = $('#recipe-show').html();
-    var output = Mustache.render(template, currentRecipe);
-    $('.container').html(output);
+    renderPage('#recipe-show', '.container', currentRecipe);
     $('span.stars').stars();
 
-    var template = $('#ingredients-template').html();
-    var output = Mustache.render(template, {ingredients: currentRecipe.ingredients});
-    $('.recipe').append(output);
-
-    var template = $('#instructions-template').html();
-    var output = Mustache.render(template, {instructions: currentRecipe.instructions});
-    $('.recipe').append(output);
+    renderAppend('#incredients-template', '.recipe', currentRecipe);
+    renderAppend('#instructions-template', '.recipe', currentRecipe)
   });
 
   describe ("true", function() {
