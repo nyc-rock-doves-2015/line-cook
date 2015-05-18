@@ -1,6 +1,6 @@
 describe("Return the recipe search results", function() {
   beforeEach(function() {
-    jasmine.getFixtures().fixturesPath = './';
+    jasmine.getFixtures().fixturesPath = 'spec/';
     jasmine.getFixtures().load('index-fake.html');
     var indexTemplate = Mustache.render($('#home-page-logged-out').html());
     $('.container').html(indexTemplate);

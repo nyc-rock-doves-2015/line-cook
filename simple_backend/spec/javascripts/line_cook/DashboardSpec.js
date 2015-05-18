@@ -4,7 +4,7 @@ describe("User dashboard", function() {
 
     beforeEach(function(done) {
       window.localStorage.removeItem("sessionId")
-      jasmine.getFixtures().fixturesPath = './';
+      jasmine.getFixtures().fixturesPath = 'spec/';
       jasmine.getFixtures().load('index-fake.html');
       renderSplash('#home-page-logged-in', '#home-page-logged-out', '.container')
 
