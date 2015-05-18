@@ -46,7 +46,7 @@ describe("Start Cooking page", function() {
       expect(currentRecipe.playStart).toHaveBeenCalled();
     })
 
-    it('should trigger the say function of openEars', function() {
+    it('should trigger the say function of OpenEars', function() {
       spyOn(Ears, 'say');
       $('.backup-start').trigger('click');
       expect(Ears.say).toHaveBeenCalled();
@@ -70,7 +70,7 @@ describe("Start Cooking page", function() {
       expect(currentRecipe.playNext).toHaveBeenCalled();
     })
 
-    it('should trigger the say function of openEars', function() {
+    it('should trigger the say function of OpenEars', function() {
       spyOn(Ears, 'say');
       $('.backup-next').trigger('click');
       expect(Ears.say).toHaveBeenCalled();
@@ -81,14 +81,33 @@ describe("Start Cooking page", function() {
 
   })
 
-  it('should click the repeat button', function() {
-    var spyEvent = spyOnEvent('.backup-repeat', 'click');
-    spyOn(currentRecipe, "playRepeat")
-    $('.backup-repeat').trigger('click');
-    expect('click').toHaveBeenTriggeredOn('.backup-repeat');
-    expect(spyEvent).toHaveBeenTriggered();
-    expect(currentRecipe.playRepeat).toHaveBeenCalled();
-  });
+  describe('when clicking the repeat button', function() {
+
+    beforeEach(function() {
+      currentRecipe.instructionsIndex = 2;
+    });
+
+    it('should recognize the click activity', function() {
+      var spyEvent = spyOnEvent('.backup-repeat', 'click');
+      $('.backup-repeat').trigger('click');
+      expect('click').toHaveBeenTriggeredOn('.backup-repeat');
+      expect(spyEvent).toHaveBeenTriggered();
+    })
+
+    it('should trigger OpenEars to repeat the current instructions', function() {
+      spyOn(currentRecipe, "playRepeat")
+      $('.backup-repeat').trigger('click');
+      expect(currentRecipe.playRepeat).toHaveBeenCalled();
+    });
+
+    it('should trigger the say function of OpenEars', function() {
+      spyOn(Ears, 'say');
+      $('.backup-repeat').trigger('click');
+      expect(Ears.say).toHaveBeenCalled();
+      $('.backup-repeat').trigger('click');
+      expect(currentRecipe.instructionsIndex).toEqual(2);
+    })
+  })
 
   it('should click the off button', function() {
     var spyEvent = spyOnEvent('.backup-off', 'click');
