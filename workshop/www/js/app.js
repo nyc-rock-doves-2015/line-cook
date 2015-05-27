@@ -24,11 +24,7 @@ function BigOvenGetRecipeJson(recipeId) {
 // BigOven recipe search
 function BigOvenRecipeSearchJson(query) {
   $(document).off("receivedHypothesis")
-  var apiKey = "dvx7zJ0x53M8X5U4nOh6CMGpB3d0PEhH";
   var titleKeyword = query;
-  var url = "https://api.bigoven.com/recipes?pg=1&rpp=25&title_kw="
-            + titleKeyword
-            + "&api_key="+apiKey;
 
   var recipeList = new RecipeList();
 
@@ -36,7 +32,8 @@ function BigOvenRecipeSearchJson(query) {
     type: "GET",
     dataType: 'json',
     cache: false,
-    url: url
+    url: serverUrl + "/search_recipes",
+    data: {title_keyword: titleKeyword}
   }).then(function(data) {
     recipeList.renderView(data);
   })
