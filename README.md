@@ -21,32 +21,17 @@ Line-Cook is a native JavaScript app built on the Apache Cordova mobile platform
 ### OpenEars
 Line-Cook utilizes OpenEars to enable speech recognition and speech synthesis on iOS
 
-Starting a python server
-
-python -m SimpleHTTPServer
-
-starts a server on port 8000
-
-#Launch Chrome from command line
-/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --allow-file-access-from-files
-
-#Setup Jasmine Webpack
+#Testing Set-Up
 
 ##Download CORS extension so that you can issue ajax calls through the jasmine server
 [https://chrome.google.com/webstore/detail/allow-control-allow-origi/nlfbmbojpeacfghkpbjhddihlkkiljbi?hl=en](https://chrome.google.com/webstore/detail/allow-control-allow-origi/nlfbmbojpeacfghkpbjhddihlkkiljbi?hl=en)
 
 ##Launch Jasmine server
-(from line-cook directory)
-cd jasmine-webpack
-
-npm start
-
-This should launch the jasmine server for testing. You can access it at [http://localhost:8080/SpecRunner.html](http://localhost:8080/SpecRunner.html)
-
-##Adding spec files
-You can add new spec files in webpack.config.js (there is an array of spec files that get loaded). You will need to restart the server when you add spec files.
-
-Other additions can go into the SpecRunner.html
+(from line-cook/simple_backend)
+```
+rake jasmine 
+```
+This should launch the jasmine server for testing. You can access it at [http://localhost:8888](http://localhost:8888)
 
 ##Issuing AJAX calls
 
