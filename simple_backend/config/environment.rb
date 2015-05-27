@@ -21,7 +21,6 @@ require "sinatra/reloader" if development?
 
 require 'erb'
 require 'rest-client'
-require 'json'
 require 'dotenv'
 Dotenv.load
 
