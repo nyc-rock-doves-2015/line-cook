@@ -5,15 +5,12 @@ function BigOvenGetRecipeJson(recipeId) {
   clearBinds();
   $('.content-container').off('click', '#cook-button');
 
-  var currentRecipe;
-  var apiKey = "dvx7zJ0x53M8X5U4nOh6CMGpB3d0PEhH";
-  var url = "https://api.bigoven.com/recipe/" + recipeId + "?api_key="+apiKey;
-
   $.ajax({
     type: "GET",
     dataType: 'json',
     cache: false,
-    url: url
+    url: serverUrl + "/get_recipe",
+    data: {recipe_id: recipeId}
   }).then(function(data) {
     var currentRecipe = new Recipe(data);
     currentRecipe.renderView(data);
