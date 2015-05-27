@@ -18,8 +18,6 @@ gem 'thin'
 
 gem 'dotenv'
 gem 'rest-client'
-gem 'addressable'
-gem 'json'
 
 group :test do
   gem 'shoulda-matchers'
