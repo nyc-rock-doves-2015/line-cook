@@ -659,3 +659,32 @@ To disable web storage backup to iCloud, set the BackupWebStorage preference to 
 
 2015-05-11 14:42:08.226 Workshop[1818:74363] Resetting plugins due to page load.
 2015-05-11 14:42:08.676 Workshop[1818:74363] Finished load of: file:///Users/groot/Library/Developer/CoreSimulator/Devices/7AE774DE-3636-4F52-AA23-1DDAC55E94FA/data/Containers/Bundle/Application/E6561885-6810-4019-861F-D91AF592514D/Workshop.app/www/index.html
+2015-05-28 08:52:27.414 LineCook[5957:43411] DiskCookieStorage changing policy from 2 to 0, cookie file: file:///Users/bkmorimoto/Library/Developer/CoreSimulator/Devices/067076A3-92FE-472D-89B3-3E714A2EB2AE/data/Containers/Data/Application/939A4B47-5665-4EBF-A395-B15EC54C26DB/Library/Cookies/Cookies.binarycookies
+2015-05-28 08:52:27.753 LineCook[5957:43411] Apache Cordova native platform version 3.8.0 is starting.
+2015-05-28 08:52:27.754 LineCook[5957:43411] Multi-tasking -> Device: YES, App: YES
+2015-05-28 08:52:27.768 LineCook[5957:43411] Unlimited access to network resources
+2015-05-28 08:52:27.777 LineCook[5957:43411] 
+
+Started backup to iCloud! Please be careful.
+Your application might be rejected by Apple if you store too much data.
+For more information please read "iOS Data Storage Guidelines" at:
+https://developer.apple.com/icloud/documentation/data-storage/
+To disable web storage backup to iCloud, set the BackupWebStorage preference to "local" in the Cordova config.xml file
+
+2015-05-28 08:52:28.406 LineCook[5957:43411] Resetting plugins due to page load.
+2015-05-28 08:52:28.892 LineCook[5957:43411] Finished load of: file:///Users/bkmorimoto/Library/Developer/CoreSimulator/Devices/067076A3-92FE-472D-89B3-3E714A2EB2AE/data/Containers/Bundle/Application/DD5AF635-ECF7-4F5C-8E51-2363A656DD74/LineCook.app/www/index.html
+2015-05-28 08:53:22.101 LineCook[5957:44233] Terminating since there is no system app.
+2015-05-28 08:53:39.717 LineCook[6183:45070] DiskCookieStorage changing policy from 2 to 0, cookie file: file:///Users/bkmorimoto/Library/Developer/CoreSimulator/Devices/067076A3-92FE-472D-89B3-3E714A2EB2AE/data/Containers/Data/Application/B20025CC-2EFD-4077-91B5-F2A9AE69E66A/Library/Cookies/Cookies.binarycookies
+2015-05-28 08:53:39.834 LineCook[6183:45070] Apache Cordova native platform version 3.8.0 is starting.
+2015-05-28 08:53:39.835 LineCook[6183:45070] Multi-tasking -> Device: YES, App: YES
+2015-05-28 08:53:39.837 LineCook[6183:45070] Unlimited access to network resources
+2015-05-28 08:53:39.840 LineCook[6183:45070] 
+
+Started backup to iCloud! Please be careful.
+Your application might be rejected by Apple if you store too much data.
+For more information please read "iOS Data Storage Guidelines" at:
+https://developer.apple.com/icloud/documentation/data-storage/
+To disable web storage backup to iCloud, set the BackupWebStorage preference to "local" in the Cordova config.xml file
+
+2015-05-28 08:53:39.998 LineCook[6183:45070] Resetting plugins due to page load.
+2015-05-28 08:53:40.151 LineCook[6183:45070] Finished load of: file:///Users/bkmorimoto/Library/Developer/CoreSimulator/Devices/067076A3-92FE-472D-89B3-3E714A2EB2AE/data/Containers/Bundle/Application/C8C80FDE-23F2-49E8-8DE0-65F2A0711315/LineCook.app/www/index.html

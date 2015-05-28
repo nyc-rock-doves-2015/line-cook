@@ -1,3 +1,7 @@
+body {
+  background-color: #A2DAE2;
+}
+
 #login-container {
   margin: 0 auto;
   width: 40%;
@@ -7,20 +11,8 @@
   margin-bottom: 10%;
 }
 
-.signin-container {
-  padding-top: 20px;
-}
-
 .signup-link {
   margin-top: 8px;
-}
-
-.auth-form {
-  padding: 10px;
-  background: #ccc;
-  border-radius: 2%;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .right-inner-addon {
@@ -41,7 +33,7 @@
   width: 60%;
 }
 
-.container-fluid {
+.container {
   margin-top: 10%;
 }
 
@@ -63,4 +55,97 @@
 .navbar-form {
   margin-top: 0px;
   margin-bottom: 0px;
+}
+
+span.stars, span.stars span {
+  display: block;
+  background: url(http://www.ulmanen.fi/stuff/stars.png) 0 -16px repeat-x;
+  width: 80px;
+  height: 16px;
+}
+
+span.stars span {
+  background-position: 0 0;
+}
+
+.back-button {
+  margin-bottom: 10px;
+}
+
+#favorite-icon {
+  display: block;
+  text-align: center;
+  list-style-type: none;
+  vertical-align: middle;
+}
+
+span.glyphicon-heart {
+  font-size: 3.2em;
+}
+
+.splash-navbar {
+  border: none;
+  background-image: none;
+  box-shadow: none;
+  background: none;
+}
+
+.splash-title {
+  font-size: 24pt;
+  color: #425961;
+  vertical-align: bottom;
+}
+
+#chefs-hat {
+  height: 42px;
+  width: 42px;
+  vertical-align: bottom;
+  margin-bottom: 5px;
+}
+
+.abril-font {
+  font-family: 'Abril Fatface', cursive;
+}
+
+.bottom-aligned-text {
+  vertical-align: text-bottom;
+}
+
+.splash-login {
+  margin-top: 0;
+  margin-right: 0;
+}
+
+#serving, #prep-time {
+  padding-top: 5%;
+}
+
+#serving {
+  border-right: solid 1px #d3d3d3;
+}
+
+#prep-time {
+  border-left: solid 1px #d3d3d3;
+}
+
+h3 {
+  color: #425961;
+}
+
+.recipe-image {
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-weight: bold;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: white;
+}
+
+#user-name {
+  color: #425961;
+  text-align: center;
+}
+
+#dash-fav-icon {
+  float: right;
+  font-size: 1em;
 }

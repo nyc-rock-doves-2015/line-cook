@@ -1,12 +1,15 @@
-$(document).ready(function(){
-  $('#favorites-form').on('submit', function(event) {
-    event.preventDefault();
-    $.ajax({
-      type: "POST",
-      url: "http://10.0.2.89:3000/favorites",
-      data: { bigOvenId: 126, userName: "dan" }
-    }).then(function(response){
-      $('body').append(response.status);
-    });
+var addFavorite = function(serverUrl) {
+  $('.container').on('click', '#favorite-icon', function(event) {
+    var sessionInfo = window.localStorage.getItem("sessionId");
+    if (sessionInfo){
+      var $favorite = $(event.target)
+      $.ajax({
+        type: "POST",
+        url: serverUrl + "/favorites",
+        data: $favorite.data()
+      }).then(function(response){
+        alert(response.status);
+      });
+    } else { alert("Sorry, please sign in to create favorites!") }
   });
-});
+};
