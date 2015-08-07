@@ -24,8 +24,9 @@ Line-Cook utilizes OpenEars to enable speech recognition and speech synthesis on
 #### Requirements
 * OS X Mavericks or higher (though it may work on earlier versions) 
 * Xcode
-* Node and Node Package Manager (npm) 
-#### Instructions (Command Line and Xcode)
+* Node and Node Package Manager (npm)  
+#### Set-Up (Command Line and Xcode)
+
 1. From the command line, using npm, download Apache Cordova. 
 ``sudo npm install -g cordova`` This will require root access.  
 2. Clone the line-cook repository
@@ -35,10 +36,39 @@ Line-Cook utilizes OpenEars to enable speech recognition and speech synthesis on
 5. You will also need this command: 
 ``npm install -g ios-sim`` 
 6. See that the platform was added successfully by typing this command: 
-``cordova platform ls``
-You should see ``Installed platforms: ios 3.8.0``
-**NOTE:** The following steps are due to a bug in the OpenEars speech processing library, and require some modifications to Xcode. A more permanent fix will be available shortly.  
+``cordova platform ls`` You should see ``Installed platforms: ios 3.8.0``.
+
+   **NOTE:** The following steps are due to a bug in the OpenEars speech processing library, and require some   modifications to Xcode. A more permanent fix will be available shortly. 
 7. Open Xcode, and navigate to "Open Another Project"
 8. Go to ``line-cook/workshop/platforms/ios`` and open ``Workshop.xcodeproj`` 
 9. Once the project navigator is open, click on **Workshop** (the first on the list)
-10. 
+10. This will open a ``Workshop.xcodeproj`` window with different settings.
+  * in the "General" setting, scroll down to "Linked Frameworks and Libraries"
+  * hit the **+** at the bottom, to add another library
+  * In the next window that opens, click **Add Other...**
+  * navigate to ``line-cook/OpenEars/src/ios/Framework`` 
+  * Choose ``Kal16.framework``
+  * Click **Open**
+  * **Save** the project
+
+###Instructions (JavaScript) 
+* Navigate to ``line-cook/workshop/www/js``
+* Open ``app.js``
+* Line 1 reads:  
+
+```javascript
+var serverUrl = "http://10.0.2.210:3000"
+```
+
+* change this value to your own computer's IP address, to serve port 3000 
+* save the file 
+
+###Instructions (Ruby) 
+* In a new shell, navigate to ``line-cook/simple_backend``
+* ``bundle install`` for required gems
+* launch the thin server with:
+```
+bundle exec thin start
+```
+
+
