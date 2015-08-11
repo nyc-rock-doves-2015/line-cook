@@ -1,5 +1,5 @@
 # Line-Cook
-Line-cook is a cooking-helper app for iOS that utilizes iPhone's speech-synthesis/speech-recognition to allow users to cook while their device reads recipe steps aloud to them.
+Line-cook is a cooking-helper app for iOS that utilizes iPhone's speech-synthesis/speech-recognition to allow users to cook while their device reads recipe steps aloud to them. You can get the best sense for how it works by watching this [video demo](https://www.youtube.com/watch?v=FQRDpgN5HK8&feature=youtu.be). 
 
 ## Core Functionalities
 1. Search for recipes via the [BigOven](http://api.bigoven.com/documentation "BigOven Documentation") API
