@@ -1,4 +1,4 @@
-var serverUrl = "http://10.0.2.210:3000"
+var serverUrl = "https://line-cook.herokuapp.com/"
 
 // BigOver single recipe call
 function BigOvenGetRecipeJson(recipeId) {
