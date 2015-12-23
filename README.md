@@ -1,5 +1,5 @@
 # Line-Cook
-Line-cook is a cooking-helper app for iOS that utilizes iPhone's speech-synthesis/speech-recognition to allow users to cook while their device reads recipe steps aloud to them.
+Line-cook is a cooking-helper app for iOS that utilizes iPhone's speech-synthesis/speech-recognition to allow users to cook while their device reads recipe steps aloud to them. You can get the best sense for how it works by watching this [video demo](https://www.youtube.com/watch?v=FQRDpgN5HK8&feature=youtu.be). 
 
 ## Core Functionalities
 1. Search for recipes via the [BigOven](http://api.bigoven.com/documentation "BigOven Documentation") API
@@ -20,46 +20,55 @@ Line-cook is a cooking-helper app for iOS that utilizes iPhone's speech-synthesi
 Line-Cook is a native JavaScript app built on the Apache Cordova mobile platform
 ### OpenEars
 Line-Cook utilizes OpenEars to enable speech recognition and speech synthesis on iOS
+### Run This Project From Mac OS X: 
+#### Requirements
+* OS X Mavericks or higher (though it may work on earlier versions) 
+* Xcode
+* Node and Node Package Manager (npm)  
+#### Set-Up (Command Line and Xcode)
 
-#Testing Set-Up
+1. From the command line, using npm, download Apache Cordova. 
+``sudo npm install -g cordova`` This will require root access.  
+2. Clone the line-cook repository
+3. From the command line, navigate to ``line-cook/workshop`` 
+4. From this directory , add the iOS mobile platform. From the command line, type: 
+``cordova platform add ios``
+5. You will also need this command: 
+``npm install -g ios-sim`` 
+6. See that the platform was added successfully by typing this command: 
+``cordova platform ls`` You should see ``Installed platforms: ios 3.8.0``.
 
-##Download CORS extension so that you can issue ajax calls through the jasmine server
-[https://chrome.google.com/webstore/detail/allow-control-allow-origi/nlfbmbojpeacfghkpbjhddihlkkiljbi?hl=en](https://chrome.google.com/webstore/detail/allow-control-allow-origi/nlfbmbojpeacfghkpbjhddihlkkiljbi?hl=en)
+   **NOTE:** The following steps are due to a bug in the OpenEars speech processing library, and require some   modifications to Xcode. A more permanent fix will be available shortly. 
+7. Open Xcode, and navigate to "Open Another Project"
+8. Go to ``line-cook/workshop/platforms/ios`` and open ``Workshop.xcodeproj`` 
+9. Once the project navigator is open, click on **Workshop** (the first on the list)
+10. This will open a ``Workshop.xcodeproj`` window with different settings.
+  * in the "General" setting, scroll down to "Linked Frameworks and Libraries"
+  * hit the **+** at the bottom, to add another library
+  * In the next window that opens, click **Add Other...**
+  * navigate to ``line-cook/OpenEars/src/ios/Framework`` 
+  * Choose ``Kal16.framework``
+  * Click **Open**
+  * **Save** the project
 
-##Launch Jasmine server
-(from line-cook/simple_backend)
+###Instructions (JavaScript) 
+* Navigate to ``line-cook/workshop/www/js``
+* Open ``app.js``
+* Line 1 reads:  
+
+```javascript
+var serverUrl = "http://10.0.2.210:3000"
 ```
-rake jasmine 
+
+* change this value to your own computer's IP address, to serve port 3000 
+* save the file 
+
+###Instructions (Ruby) 
+* In a new shell, navigate to ``line-cook/simple_backend``
+* ``bundle install`` for required gems
+* launch the thin server with:
 ```
-This should launch the jasmine server for testing. You can access it at [http://localhost:8888](http://localhost:8888)
-
-##Issuing AJAX calls
-
-You need to setup a beforeEach with a callback function parameter of 'done' to issue the ajax call.
-Then setup a setTimeout to execute the done() function after a certain amount of time.
-
-The 'it' block after will only be run AFTER the done() function is excuted. By this time, you should have your response back from the ajax call.
-
-```
-describe('with async sign up', function() {
-
-  beforeEach(function(done) {
-    getSignUpFormEvent();
-    $('.signup-link').trigger('click')
-
-    signUpEvent("http://10.0.2.210:3000");
-    $('.signup-form').trigger('submit');
-
-    setTimeout(function() {
-      done() ;
-    }, 1000)
-  })
-
-  it('should be able to submit a sign up form', function() {
-    expect($('.signout-link')[0]).toBeInDOM();
-  });
-});
+bundle exec thin start
 ```
 
-##Misc
-Some of your tests might depend on the sinatra server responses, so make sure that is running.
+
